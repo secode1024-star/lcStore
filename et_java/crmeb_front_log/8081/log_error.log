@@ -1,0 +1,63 @@
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-09-20 11:19:14.977",
+                    "level": "ERROR",
+                    "thread": "main",
+                    "class": "o.s.b.d.LoggingFailureAnalysisReporter",
+                    "message": "
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8081 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
+" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-09-20 17:40:44.788",
+                    "level": "ERROR",
+                    "thread": "main",
+                    "class": "o.s.b.d.LoggingFailureAnalysisReporter",
+                    "message": "
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8081 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
+" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-09-20 17:42:26.841",
+                    "level": "ERROR",
+                    "thread": "main",
+                    "class": "o.s.b.d.LoggingFailureAnalysisReporter",
+                    "message": "
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8081 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
+" }
+                    

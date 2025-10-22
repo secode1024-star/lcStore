@@ -1,0 +1,44 @@
+package com.zbkj.front.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
+
+/** 跨域配置
+ *  +----------------------------------------------------------------------
+ *  | CRMEB [ CRMEB赋能开发者，助力企业发展 ]
+ *  +----------------------------------------------------------------------
+ *  | Copyright (c) 2016~2025 https://www.crmeb.com All rights reserved.
+ *  +----------------------------------------------------------------------
+ *  | Licensed CRMEB并不是自由软件，未经许可不能去掉CRMEB相关版权
+ *  +----------------------------------------------------------------------
+ *  | Author: CRMEB Team <admin@crmeb.com>
+ *  +----------------------------------------------------------------------
+ */
+@Configuration
+public class CorsConfig{
+    private CorsConfiguration buildConfig() {
+        CorsConfiguration corsConfiguration = new CorsConfiguration();
+        // 配置具体的域名以支持credentials
+        corsConfiguration.addAllowedOrigin("https://pla.hqlccn.com");
+        corsConfiguration.addAllowedOrigin("https://mer.hqlccn.com");
+        corsConfiguration.addAllowedOrigin("https://hqlccn.com");
+        corsConfiguration.addAllowedOrigin("http://hqlccn.com");
+        corsConfiguration.addAllowedOrigin("http://localhost:8000");
+        corsConfiguration.addAllowedOrigin("http://localhost:3000");
+        corsConfiguration.addAllowedHeader("*"); //允许任何头
+        corsConfiguration.addAllowedMethod("*"); //允许任何方法
+        corsConfiguration.setAllowCredentials(true); // 允许携带认证信息
+        corsConfiguration.setMaxAge(3600L); //预检请求缓存时间
+        return corsConfiguration;
+    }
+
+    @Bean
+    public CorsFilter corsFilter() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", buildConfig()); //注册
+        return new CorsFilter(source);
+    }
+}

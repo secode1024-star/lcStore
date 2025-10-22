@@ -1,0 +1,186 @@
+{
+  "data": {
+    "list": [
+      {
+        "id": 1,
+        "cate_id": 5,
+        "type": 1,
+        "name": "商城首页",
+        "url": "/pages/index/index",
+        "param": " ",
+        "example": "/pages/index/index",
+        "status": 1,
+        "sort": 999,
+        "add_time": 1626837579
+      },
+      {
+        "id": 2,
+        "cate_id": 5,
+        "type": 1,
+        "name": "商城分类",
+        "url": "/pages/goods_cate/index",
+        "param": " ",
+        "example": "/pages/goods_cate/index",
+        "status": 1,
+        "sort": 998,
+        "add_time": 1626837579
+      },
+      {
+        "id": 3,
+        "cate_id": 5,
+        "type": 1,
+        "name": "购物车",
+        "url": "/pages/order_addcart/order_addcart",
+        "param": " ",
+        "example": "/pages/order_addcart/order_addcart",
+        "status": 1,
+        "sort": 997,
+        "add_time": 1626837579
+      },
+      {
+        "id": 4,
+        "cate_id": 5,
+        "type": 1,
+        "name": "分类商品列表",
+        "url": "/pages/goods_list/index",
+        "param": "sid=1&title=测试分类名称",
+        "example": "/pages/goods_list/index?sid=1&title=测试分类名称",
+        "status": 1,
+        "sort": 996,
+        "add_time": 1626837579
+      },
+      {
+        "id": 5,
+        "cate_id": 5,
+        "type": 1,
+        "name": "我的订单",
+        "url": "/pages/users/order_list/index",
+        "param": " ",
+        "example": "/pages/users/order_list/index",
+        "status": 1,
+        "sort": 0,
+        "add_time": 1626837579
+      },
+      {
+        "id": 6,
+        "cate_id": 5,
+        "type": 3,
+        "name": "个人资料",
+        "url": "/pages/users/user_info/index",
+        "param": " ",
+        "example": "/pages/users/user_info/index",
+        "status": 1,
+        "sort": 0,
+        "add_time": 1626837579
+      },
+      {
+        "id": 7,
+        "cate_id": 5,
+        "type": 3,
+        "name": "地址列表",
+        "url": "/pages/users/user_address_list/index",
+        "param": " ",
+        "example": "/pages/users/user_address_list/index",
+        "status": 1,
+        "sort": 0,
+        "add_time": 1626837579
+      },
+      {
+        "id": 8,
+        "cate_id": 5,
+        "type": 3,
+        "name": "收藏页面",
+        "url": "/pages/users/user_goods_collection/index",
+        "param": " ",
+        "example": "/pages/users/user_goods_collection/index",
+        "status": 1,
+        "sort": 0,
+        "add_time": 1626837579
+      },
+      {
+        "id": 9,
+        "cate_id": 5,
+        "type": 3,
+        "name": "个人中心",
+        "url": "/pages/user/index",
+        "param": " ",
+        "example": "/pages/user/index",
+        "status": 1,
+        "sort": 0,
+        "add_time": 1626837579
+      },
+      {
+        "id": 10,
+        "cate_id": 5,
+        "type": 1,
+        "name": "店铺街",
+        "url": "/pages/merchant/street/index",
+        "param": " ",
+        "example": "/pages/merchant/street/index",
+        "status": 1,
+        "sort": 998,
+        "add_time": 1626837579
+      },
+      {
+        "id": 11,
+        "cate_id": 5,
+        "type": 1,
+        "name": "退款列表",
+        "url": "/pages/users/user_return_list/index",
+        "param": " ",
+        "example": "/pages/users/user_return_list/index",
+        "status": 1,
+        "sort": 0,
+        "add_time": 1626837579
+      },
+      {
+        "id": 12,
+        "cate_id": 5,
+        "type": 1,
+        "name": "商户入驻",
+        "url": "/pages/merchant/settled/index",
+        "param": " ",
+        "example": "/pages/merchant/settled/index",
+        "status": 1,
+        "sort": 998,
+        "add_time": 1626837579
+      },
+      {
+        "id": 13,
+        "cate_id": 5,
+        "type": 1,
+        "name": "申请记录",
+        "url": "/pages/merchant/application_record/index",
+        "param": " ",
+        "example": "/pages/merchant/application_record/index",
+        "status": 1,
+        "sort": 998,
+        "add_time": 1626837579
+      },
+      {
+        "id": 14,
+        "cate_id": 5,
+        "type": 1,
+        "name": "我的关注",
+        "url": "/pages/users/user_merchant_collection/index",
+        "param": " ",
+        "example": "/pages/users/user_merchant_collection/index",
+        "status": 1,
+        "sort": 998,
+        "add_time": 1626837579
+      },
+      {
+        "id": 15,
+        "cate_id": 5,
+        "type": 1,
+        "name": "逛逛",
+        "url": "/pages/discover_index/index",
+        "param": " ",
+        "example": "/pages/discover_index/index",
+        "status": 1,
+        "sort": 998,
+        "add_time": 1626837579
+      }
+    ]
+  }
+}

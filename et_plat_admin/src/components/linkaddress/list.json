@@ -1,0 +1,63 @@
+{
+  "status": 200,
+  "msg": "ok",
+  "data": [
+    {
+      "id": 1,
+      "pid": 0,
+      "type": "link",
+      "name": "商城页面",
+      "title": "商城页面",
+      "expand": true,
+      "children": [
+        {
+          "id": 5,
+          "pid": 1,
+          "type": "link",
+          "name": "商城链接",
+          "title": "商城链接",
+          "expand": true,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "pid": 0,
+      "type": "product",
+      "name": "商品页面",
+      "title": "商品页面",
+      "expand": true,
+      "children": [
+        {
+          "id": 9,
+          "pid": 2,
+          "type": "product",
+          "name": "商品",
+          "title": "商品",
+          "expand": true,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "pid": 0,
+      "type": "custom",
+      "name": "自定义",
+      "title": "自定义",
+      "expand": true,
+      "children": [
+        {
+          "id": 15,
+          "pid": 4,
+          "type": "custom",
+          "name": "自定义链接",
+          "title": "自定义链接",
+          "expand": true,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

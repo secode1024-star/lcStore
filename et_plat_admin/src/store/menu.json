@@ -1,0 +1,610 @@
+[
+  {
+    "id": 1,
+    "pid": 0,
+    "name": "运营",
+    "url": "/dashboard",
+    "path": "/0/",
+    "perms": null,
+    "child": [
+      {
+        "id": 226,
+        "pid": 1,
+        "name": "控制台",
+        "url": "/dashboard",
+        "path": "/0/1/",
+        "perms": "",
+        "extra": "",
+        "child": []
+      }
+    ],
+    "extra": "menu"
+  },
+  {
+    "id": 407,
+    "pid": 0,
+    "name": "商户",
+    "url": "",
+    "path": "/0/",
+    "perms": "",
+    "child": [
+      {
+        "id": 408,
+        "pid": 407,
+        "name": "商户分类",
+        "url": "/merchant/classify",
+        "path": "/0/407/",
+        "perms": "admin:merchant:classify",
+        "extra": "",
+        "child": []
+      },
+      {
+        "id": 409,
+        "pid": 407,
+        "name": "商户列表",
+        "url": "/merchant/list",
+        "path": "/0/407/",
+        "perms": "admin:merchant:list",
+        "extra": "",
+        "child": []
+      },
+      {
+        "id": 410,
+        "pid": 407,
+        "name": "商户菜单管理",
+        "url": "/merchant/system",
+        "path": "/0/407/",
+        "perms": "admin:merchant:system",
+        "extra": "",
+        "child": []
+      },
+      {
+        "id": 411,
+        "pid": 407,
+        "name": "商户入驻申请",
+        "url": "/merchant/application",
+        "path": "/0/407/",
+        "perms": "admin:merchant:application",
+        "extra": "",
+        "child": []
+      },
+      {
+        "id": 412,
+        "pid": 407,
+        "name": "店铺类型",
+        "url": "/merchant/type",
+        "path": "/0/407/",
+        "perms": "",
+        "extra": "",
+        "child": [
+          {
+            "id": 413,
+            "pid": 412,
+            "name": "店铺类型",
+            "url": "/merchant/type/list",
+            "path": "/0/407/412/",
+            "perms": "admin:merchant:type",
+            "extra": "",
+            "child": []
+          },
+          {
+            "id": 414,
+            "pid": 412,
+            "name": "店铺类型说明",
+            "url": "/merchant/type/desc",
+            "path": "/0/407/412/",
+            "perms": "admin:merchanttype:description",
+            "extra": "",
+            "child": []
+          }
+        ]
+      }
+    ],
+    "extra": "s-home"
+  },
+  {
+    "id": 2,
+    "pid": 0,
+    "name": "商品",
+    "url": "/store",
+    "path": "/0/",
+    "perms": null,
+    "child": [
+      {
+        "id": 14,
+        "pid": 2,
+        "name": "商品列表",
+        "url": "/store/list",
+        "path": "/0/2/",
+        "perms": "admin:product:list",
+        "extra": null,
+        "child": []
+      },
+      {
+        "id": 15,
+        "pid": 2,
+        "name": "商品分类",
+        "url": "/store/sort",
+        "path": "/0/2/",
+        "perms": "",
+        "extra": null,
+        "child": []
+      },
+      {
+        "id": 17,
+        "pid": 2,
+        "name": "商品评论",
+        "url": "/store/comment",
+        "path": "/0/2/",
+        "perms": "admin:product:reply:list",
+        "extra": null,
+        "child": []
+      },
+      {
+        "id": 405,
+        "pid": 2,
+        "name": "品牌管理",
+        "url": "/store/brand",
+        "path": "/0/2/",
+        "perms": "admin:store:brand",
+        "extra": "",
+        "child": []
+      }
+    ],
+    "extra": "s-goods"
+  },
+  {
+    "id": 3,
+    "pid": 0,
+    "name": "订单",
+    "url": "/order",
+    "path": "/0/",
+    "perms": null,
+    "child": [
+      {
+        "id": 32,
+        "pid": 3,
+        "name": "订单",
+        "url": "/order/index",
+        "path": "/0/3/",
+        "perms": "admin:order:list",
+        "extra": null,
+        "child": []
+      },
+      {
+        "id": 406,
+        "pid": 3,
+        "name": "退款订单",
+        "url": "/order/refund",
+        "path": "/0/3/",
+        "perms": "admin:order:refund",
+        "extra": "",
+        "child": []
+      }
+    ],
+    "extra": "s-order"
+  },
+  {
+    "id": 4,
+    "pid": 0,
+    "name": "用户",
+    "url": "/user",
+    "path": "/0/",
+    "perms": null,
+    "child": [
+      {
+        "id": 39,
+        "pid": 4,
+        "name": "用户管理 ",
+        "url": "/user/index",
+        "path": "/0/4/",
+        "perms": "admin:user:list",
+        "extra": null,
+        "child": []
+      },
+      {
+        "id": 40,
+        "pid": 4,
+        "name": "用户标签",
+        "url": "/user/label",
+        "path": "/0/4/",
+        "perms": "admin:user:tag:list",
+        "extra": null,
+        "child": []
+      }
+    ],
+    "extra": "user-solid"
+  },
+  {
+    "id": 7,
+    "pid": 0,
+    "name": "营销",
+    "url": "/marketing",
+    "path": "/0/",
+    "perms": null,
+    "child": [
+      {
+        "id": 32,
+        "pid": 3,
+        "name": "专题活动",
+        "url": "/marketing/index",
+        "path": "/0/7/",
+        "perms": "admin:marketing:list",
+        "extra": null,
+        "child": []
+      }
+    ],
+    "extra": "s-marketing"
+  },
+  {
+    "id": 8,
+    "pid": 0,
+    "name": "海报管理",
+    "url": "/poster",
+    "path": "/0/",
+    "perms": null,
+    "child": [
+      {
+        "id": 801,
+        "pid": 8,
+        "name": "海报列表",
+        "url": "/poster/index",
+        "path": "/0/8/",
+        "perms": "admin:poster:list",
+        "extra": null,
+        "child": []
+      },
+      {
+        "id": 802,
+        "pid": 8,
+        "name": "创建海报",
+        "url": "/poster/create",
+        "path": "/0/8/",
+        "perms": "admin:poster:create",
+        "extra": null,
+        "child": []
+      }
+    ],
+    "extra": "picture-outline"
+  },
+  {
+    "id": 10,
+    "pid": 0,
+    "name": "活动",
+    "url": "/activity",
+    "path": "/0/",
+    "perms": null,
+    "child": [
+      {
+        "id": 1001,
+        "pid": 10,
+        "name": "活动列表",
+        "url": "/activity/list",
+        "path": "/0/10/",
+        "perms": "admin:activity:list",
+        "extra": null,
+        "child": []
+      }
+    ],
+    "extra": "s-cooperation"
+  },
+  {
+    "id": 9,
+    "pid": 0,
+    "name": "财务",
+    "url": "/financial",
+    "path": "/0/",
+    "perms": null,
+    "child": [
+      {
+        "id": 107,
+        "pid": 9,
+        "name": "财务记录",
+        "url": "/financial/record",
+        "path": "/0/9/",
+        "perms": "",
+        "extra": null,
+        "child": [
+          {
+            "id": 111,
+            "pid": 107,
+            "name": "资金监控",
+            "url": "/financial/record/monitor",
+            "path": "/0/9/107/",
+            "perms": "admin:finance:monitor:list",
+            "extra": null,
+            "child": []
+          }
+        ]
+      },
+      {
+        "id": 416,
+        "pid": 9,
+        "name": "提现管理",
+        "url": "/financial/extract",
+        "path": "/0/9/",
+        "perms": "admin:financial:extract",
+        "extra": "",
+        "child": []
+      },
+      {
+        "id": 417,
+        "pid": 9,
+        "name": "资金流水",
+        "url": "/financial/capitalFlow",
+        "path": "/0/9/",
+        "perms": "admin:financial:capitalFlow",
+        "extra": "",
+        "child": []
+      },
+      {
+        "id": 418,
+        "pid": 9,
+        "name": "转账记录",
+        "url": "/financial/transferRecord",
+        "path": "/0/9/",
+        "perms": "admin:financial:transferRecord",
+        "extra": "",
+        "child": []
+      },
+      {
+        "id": 419,
+        "pid": 9,
+        "name": "账单管理",
+        "url": "/financial/statement",
+        "path": "/0/9/",
+        "perms": "admin:financial:statement",
+        "extra": "",
+        "child": []
+      },
+      {
+        "id": 420,
+        "pid": 9,
+        "name": "转账设置",
+        "url": "/financial/setting",
+        "path": "/0/9/",
+        "perms": "admin:financial:setting",
+        "extra": "",
+        "child": []
+      }
+    ],
+    "extra": "s-finance"
+  },
+  {
+    "id": 12,
+    "pid": 0,
+    "name": "设置",
+    "url": "/operation",
+    "path": "/0/",
+    "perms": null,
+    "child": [
+      {
+        "id": 121,
+        "pid": 12,
+        "name": "系统设置",
+        "url": "/operation/setting",
+        "path": "/0/12/",
+        "perms": "admin:system:config:info",
+        "extra": null,
+        "child": []
+      },
+      {
+        "id": 123,
+        "pid": 12,
+        "name": "管理权限",
+        "url": "/operation/roleManager",
+        "path": "/0/12/",
+        "perms": "",
+        "extra": null,
+        "child": [
+          {
+            "id": 136,
+            "pid": 123,
+            "name": "角色管理",
+            "url": "/operation//roleManager/identityManager",
+            "path": "/0/12/123/",
+            "perms": "admin:system:role:list",
+            "extra": null,
+            "child": []
+          },
+          {
+            "id": 137,
+            "pid": 123,
+            "name": "管理员列表",
+            "url": "/operation//roleManager/adminList",
+            "path": "/0/12/123/",
+            "perms": "admin:system:admin:list",
+            "extra": null,
+            "child": []
+          },
+          {
+            "id": 138,
+            "pid": 123,
+            "name": "权限规则",
+            "url": "/operation//roleManager/promiseRules",
+            "path": "/0/12/123/",
+            "perms": "admin:system:menu:list",
+            "extra": null,
+            "child": []
+          }
+        ]
+      },
+      {
+        "id": 125,
+        "pid": 12,
+        "name": "页面管理",
+        "url": "/operation/design",
+        "path": "/0/12/",
+        "perms": "",
+        "extra": null,
+        "child": [
+          {
+            "id": 141,
+            "pid": 125,
+            "name": "一键换色",
+            "url": "/operation/design/theme",
+            "path": "/0/12/125/",
+            "perms": "",
+            "extra": null,
+            "child": []
+          },
+          {
+            "id": 142,
+            "pid": 125,
+            "name": "页面设计",
+            "url": "/operation/design/viewDesign",
+            "path": "/0/12/125/",
+            "perms": "admin:page:layout:index",
+            "extra": null,
+            "child": []
+          }
+        ]
+      },
+      {
+        "id": 269,
+        "pid": 12,
+        "name": "消息通知",
+        "url": "/operation/notification",
+        "path": "/0/12/",
+        "perms": "admin:system:notification:list",
+        "extra": "",
+        "child": []
+      }
+    ],
+    "extra": "s-tools"
+  },
+  {
+    "id": 13,
+    "pid": 0,
+    "name": "维护",
+    "url": "/maintain",
+    "path": "/0/",
+    "perms": null,
+    "child": [
+      {
+        "id": 159,
+        "pid": 13,
+        "name": "开发配置",
+        "url": "/maintain//devconfiguration",
+        "path": "/0/13/",
+        "perms": "",
+        "extra": null,
+        "child": [
+          {
+            "id": 163,
+            "pid": 159,
+            "name": "配置分类",
+            "url": "/maintain/devconfiguration/configCategory",
+            "path": "/0/13/159/",
+            "perms": "",
+            "extra": null,
+            "child": []
+          },
+          {
+            "id": 164,
+            "pid": 159,
+            "name": "组合数据",
+            "url": "/maintain/devconfiguration/combineddata",
+            "path": "/0/13/159/",
+            "perms": "admin:system:group:list",
+            "extra": null,
+            "child": []
+          },
+          {
+            "id": 165,
+            "pid": 159,
+            "name": "表单配置",
+            "url": "/maintain/devconfiguration/formConfig",
+            "path": "/0/13/159/",
+            "perms": "admin:system:form:list",
+            "extra": null,
+            "child": []
+          }
+        ]
+      },
+      {
+        "id": 160,
+        "pid": 13,
+        "name": "申请授权",
+        "url": "/maintain/authCRMEB",
+        "path": "/0/13/",
+        "perms": "",
+        "extra": null,
+        "child": []
+      },
+      {
+        "id": 161,
+        "pid": 13,
+        "name": "物流设置",
+        "url": "/maintain/logistics",
+        "path": "/0/13/",
+        "perms": "",
+        "extra": null,
+        "child": [
+          {
+            "id": 167,
+            "pid": 161,
+            "name": "物流公司",
+            "url": "/maintain/logistics/companyList",
+            "path": "/0/13/161/",
+            "perms": "admin:express:list",
+            "extra": null,
+            "child": []
+          }
+        ]
+      },
+      {
+        "id": 158,
+        "pid": 13,
+        "name": "素材管理",
+        "url": "/maintain/picture",
+        "path": "/0/13/",
+        "perms": "admin:system:attachment:list",
+        "extra": null,
+        "child": []
+      },
+      {
+        "id": 404,
+        "pid": 13,
+        "name": "敏感操作日志",
+        "url": "/maintain/sensitiveLog",
+        "path": "/0/13/",
+        "perms": "admin:log:sensitive:list",
+        "extra": "",
+        "child": []
+      }
+    ],
+    "extra": "s-open"
+  },
+  {
+    "id": 500,
+    "pid": 0,
+    "name": "客服管理",
+    "url": "/customer-service",
+    "path": "/0/",
+    "perms": null,
+    "child": [
+      {
+        "id": 501,
+        "pid": 500,
+        "name": "客服工作台",
+        "url": "/customer-service/index",
+        "path": "/0/500/",
+        "perms": "platform:customer-service:session:list",
+        "extra": null,
+        "child": []
+      },
+      {
+        "id": 502,
+        "pid": 500,
+        "name": "客服配置",
+        "url": "/customer-service/config",
+        "path": "/0/500/",
+        "perms": "platform:customer-service:config:list",
+        "extra": null,
+        "child": []
+      }
+    ],
+    "extra": "chat-dot-round"
+  }
+]

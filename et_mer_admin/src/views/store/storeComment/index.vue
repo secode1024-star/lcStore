@@ -1,0 +1,344 @@
+<template>
+  <div class="divBox">
+    <el-card class="box-card">
+      <div slot="header" class="clearfix">
+        <div class="container">
+          <el-form :inline="true">
+            <el-form-item label="时间选择：" class="width100">
+              <el-radio-group
+                v-model="tableFrom.dateLimit"
+                type="button"
+                @change="selectChange(tableFrom.dateLimit)"
+                class="mr20"
+                size="small"
+              >
+                <el-radio-button :label="item.val" v-for="(item, i) in fromList.fromTxt" :key="i">{{
+                  item.text
+                }}</el-radio-button>
+              </el-radio-group>
+              <el-date-picker
+                @change="onchangeTime"
+                v-model="timeVal"
+                value-format="yyyy-MM-dd"
+                format="yyyy-MM-dd"
+                size="small"
+                type="daterange"
+                placement="bottom-end"
+                placeholder="自定义时间"
+                style="width: 220px"
+              ></el-date-picker>
+            </el-form-item>
+            <div>
+              <el-form-item label="回复状态：" class="mr20">
+                <el-select
+                  v-model="tableFrom.isReply"
+                  placeholder="请选择回复状态"
+                  @change="seachList"
+                  size="small"
+                  class="selWidth"
+                  clearable
+                >
+                  <el-option label="已回复" :value="1"></el-option>
+                  <el-option label="未回复" :value="0"></el-option>
+                </el-select>
+              </el-form-item>
+              <el-form-item label="评价星级：" class="star">
+                <div class="acea-row">
+                  <el-rate v-model="tableFrom.star" @change="seachList"></el-rate>
+                  <el-button size="mini" type="primary" @click="handleClear" style="margin-top: 3px"
+                    >清空星级</el-button
+                  >
+                </div>
+              </el-form-item>
+            </div>
+
+            <el-form-item label="商品搜索：" class="mr20">
+              <el-input
+                v-model="tableFrom.productSearch"
+                placeholder="请输入商品名称"
+                class="selWidth"
+                size="small"
+                clearable
+              >
+                <el-button slot="append" icon="el-icon-search" @click="seachList" size="small" />
+              </el-input>
+            </el-form-item>
+            <el-form-item label="用户名称：">
+              <el-input
+                v-model="tableFrom.nickname"
+                placeholder="请输入用户名称"
+                class="selWidth"
+                size="small"
+                clearable
+              >
+                <el-button slot="append" icon="el-icon-search" @click="seachList" size="small" />
+              </el-input>
+            </el-form-item>
+          </el-form>
+        </div>
+        <el-button size="small" type="primary" @click="add" v-hasPermi="['merchant:product:reply:virtual']"
+          >添加虚拟评论</el-button
+        >
+      </div>
+      <el-table v-loading="listLoading" :data="tableData.data" style="width: 100%" size="mini" class="table">
+        <el-table-column prop="id" label="ID" width="50" />
+        <el-table-column label="商品信息" min-width="200" :show-overflow-tooltip="true">
+          <template slot-scope="scope">
+            <div class="demo-image__preview acea-row row-middle" v-if="scope.row.productName">
+              <el-image
+                style="width: 30px; height: 30px"
+                :src="scope.row.productImage"
+                :preview-src-list="[scope.row.productImage]"
+                class="mr10"
+              />
+              <div class="info">{{ scope.row.productName }}</div>
+            </div>
+          </template>
+        </el-table-column>
+        <el-table-column prop="nickname" label="用户名称" min-width="100" />
+        <el-table-column prop="star" label="评价星级" min-width="90" />
+        <el-table-column label="评价内容" min-width="250" :show-overflow-tooltip="true">
+          <template slot-scope="scope">
+            <div class="mb5 content_font">{{ scope.row.comment }}</div>
+            <template v-if="scope.row.pics.length && scope.row.pics[0]">
+              <div class="demo-image__preview">
+                <el-image
+                  :src="item"
+                  class="mr5"
+                  :preview-src-list="[item]"
+                  v-for="(item, index) in scope.row.pics"
+                  :key="index"
+                />
+              </div>
+            </template>
+          </template>
+        </el-table-column>
+        <el-table-column prop="merchantReplyContent" label="回复内容" min-width="200" :show-overflow-tooltip="true" />
+        <el-table-column label="评价时间" min-width="150">
+          <template slot-scope="scope">
+            <span> {{ scope.row.createTime }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column label="操作" min-width="120" fixed="right" align="center">
+          <template slot-scope="scope">
+            <el-button
+              type="text"
+              size="small"
+              @click="reply(scope.row.id)"
+              class="mr10"
+              v-hasPermi="['merchant:product:reply:comment']"
+              >回复</el-button
+            >
+            <el-button
+              type="text"
+              size="small"
+              @click="handleDelete(scope.row.id, scope.$index)"
+              v-hasPermi="['merchant:product:reply:delete']"
+              >删除</el-button
+            >
+          </template>
+        </el-table-column>
+      </el-table>
+      <div class="block">
+        <el-pagination
+          :page-sizes="[20, 40, 60, 80]"
+          :page-size="tableFrom.limit"
+          :current-page="tableFrom.page"
+          layout="total, sizes, prev, pager, next, jumper"
+          :total="tableData.total"
+          @size-change="handleSizeChange"
+          @current-change="pageChange"
+        />
+      </div>
+      <el-dialog title="提示" :visible.sync="dialogVisible" width="700px" z-index="4" :before-close="handleClose">
+        <creat-comment :key="timer" @getList="seachList"></creat-comment>
+      </el-dialog>
+    </el-card>
+  </div>
+</template>
+
+<script>
+import creatComment from './creatComment.vue';
+import { replyListApi, replyDeleteApi, replyCommentApi } from '@/api/store';
+import { formatDates } from '@/utils/index';
+export default {
+  name: 'StoreComment',
+  filters: {
+    formatDate(time) {
+      if (time !== 0) {
+        const date = new Date(time * 1000);
+        return formatDates(date, 'yyyy-MM-dd hh:mm');
+      }
+    },
+  },
+  directives: {
+    // 计算是否滚动到最下面
+    selectLoadMore: {
+      bind(el, binding) {
+        // 获取element-ui定义好的scroll盒子
+        const SELECTWRAP_DOM = el.querySelector('.el-select-dropdown .el-select-dropdown__wrap');
+        SELECTWRAP_DOM.addEventListener('scroll', function () {
+          if (this.scrollHeight - this.scrollTop < this.clientHeight + 1) {
+            binding.value();
+          }
+        });
+      },
+    },
+  },
+  components: { creatComment },
+  data() {
+    return {
+      fromList: this.$constants.fromList,
+      tableData: {
+        data: [],
+        total: 0,
+      },
+      listLoading: true,
+      tableFrom: {
+        page: 1,
+        limit: 20,
+        isReply: '',
+        dateLimit: '',
+        star: null,
+        nickname: '',
+        productSearch: '',
+      },
+      timeVal: [],
+      loading: false,
+      dialogVisible: false,
+      timer: '',
+    };
+  },
+  watch: {
+    $route(to, from) {
+      this.getList();
+    },
+  },
+  mounted() {
+    this.getList();
+  },
+  methods: {
+    //清空星级
+    handleClear() {
+      this.tableFrom.star = null;
+      this.getList();
+    },
+    seachList() {
+      this.dialogVisible = false;
+      this.tableFrom.page = 1;
+      this.getList();
+    },
+    // 回复
+    reply(id) {
+      this.$prompt('回复内容', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        inputErrorMessage: '请输入回复内容',
+        inputType: 'textarea',
+        inputPlaceholder: '请输入回复内容',
+        inputValidator: (value) => {
+          if (!value) {
+            return '输入不能为空';
+          }
+        },
+      })
+        .then(({ value }) => {
+          replyCommentApi({
+            id: id,
+            merchantReplyContent: value,
+          }).then((res) => {
+            this.$message({
+              type: 'success',
+              message: '回复成功',
+            });
+            this.getList();
+          });
+        })
+        .catch(() => {
+          this.$message({
+            type: 'info',
+            message: '取消输入',
+          });
+        });
+    },
+    // 选择时间
+    selectChange(tab) {
+      this.timeVal = [];
+      this.tableFrom.page = 1;
+      this.getList();
+    },
+    add() {
+      this.dialogVisible = true;
+      this.timer = new Date().getTime();
+    },
+    handleClose() {
+      this.dialogVisible = false;
+    },
+    // 具体日期
+    onchangeTime(e) {
+      this.timeVal = e;
+      this.tableFrom.dateLimit = e ? this.timeVal.join(',') : '';
+      this.tableFrom.page = 1;
+      this.getList();
+    },
+    // 删除
+    handleDelete(id, idx) {
+      this.$modalSure().then(() => {
+        replyDeleteApi(id).then(() => {
+          this.$message.success('删除成功');
+          this.tableData.data.splice(idx, 1);
+        });
+      });
+    },
+    // 列表
+    getList() {
+      this.listLoading = true;
+      if (this.tableFrom.star === 0) this.tableFrom.star = null;
+      replyListApi(this.tableFrom)
+        .then((res) => {
+          this.tableData.data = res.list;
+          this.tableData.total = res.total;
+          this.listLoading = false;
+        })
+        .catch(() => {
+          this.listLoading = false;
+        });
+    },
+    pageChange(page) {
+      this.tableFrom.page = page;
+      this.getList();
+    },
+    handleSizeChange(val) {
+      this.tableFrom.limit = val;
+      this.getList();
+    },
+  },
+};
+</script>
+
+<style scoped lang="scss">
+.table {
+  ::v-deep .el-tooltip {
+    white-space: inherit !important;
+  }
+}
+
+.selWidth {
+  width: 350px !important;
+}
+.star {
+  ::v-deep.el-rate {
+    line-height: 2.5 !important;
+  }
+}
+.table {
+  ::v-deep el-image__inner,
+  .el-image__placeholder,
+  .el-image__error {
+    width: auto !important;
+  }
+}
+.info {
+  width: 63%;
+}
+</style>
