@@ -335,20 +335,20 @@
 	}
 	
 	 .radio{
-		 /deep/.wx-radio-input.wx-radio-input-checked {
+		 ::v-deep.wx-radio-input.wx-radio-input-checked {
 		 	@include main_bg_color(theme);
 		 	@include coupons_border_color(theme);
 		 }
-		 /deep/.uni-radio-input.uni-radio-input-checked {
+		 ::v-deep.uni-radio-input.uni-radio-input-checked {
 		 	@include main_bg_color(theme);
 		 	border: none !important;
 		 }
 	 }
 	
-	/deep/.tui-red{
+	::v-deep.tui-red{
 		@include main_bg_color(theme);
 	}
-	/deep/.tui-red-outline{
+	::v-deep.tui-red-outline{
 		@include main_color(theme);
 		@include coupons_border_color(theme);
 	}

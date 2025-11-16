@@ -8,7 +8,7 @@
 // | Author: CRMEB Team <admin@crmeb.com>
 // +----------------------------------------------------------------------
 //移动端商城API,请求域名 格式： https://您的域名
-let domain = 'https://xxx'
+let domain = 'https://api.hqlccn.com'
 
 
 module.exports = {

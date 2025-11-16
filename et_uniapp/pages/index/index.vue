@@ -363,7 +363,7 @@
 			swiper,.swiper-item{
 				height: 750rpx;
 			}
-			.slide-image,/deep/.easy-loadimage > uni-image>div, uni-image>img ,/deep/.easy-loadimage > uni-image
+			.slide-image,::v-deep.easy-loadimage > uni-image>div, uni-image>img ,::v-deep.easy-loadimage > uni-image
 			 {
 				width: 100%;
 				height: 750rpx;

@@ -541,7 +541,7 @@
 	}
 
 	.release_bar_detail {
-		height: calc(90rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+		height: calc(90rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 		height: calc(90rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 		padding-bottom: constant(safe-area-inset-bottom); ///兼容 IOS<11.2/
 		padding-bottom: env(safe-area-inset-bottom); ///兼容 IOS>11.2/

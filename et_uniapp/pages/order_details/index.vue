@@ -1007,10 +1007,10 @@
 			padding: 30rpx 24rpx;
 		}
 	}
-	/deep/.tui-red{
+	::v-deep.tui-red{
 		@include main_bg_color(theme);
 	}
-	/deep/.tui-red-outline{
+	::v-deep.tui-red-outline{
 		@include main_color(theme);
 		@include coupons_border_color(theme);
 	}

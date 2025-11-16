@@ -373,7 +373,7 @@
 
 <style scoped lang="scss">
 	.merBox{
-		/deep/.tui-drawer-container{
+		::v-deep.tui-drawer-container{
 			width: 635rpx;
 		}
 	}

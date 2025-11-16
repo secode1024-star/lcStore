@@ -85,8 +85,8 @@
 		border-radius: 16rpx 16rpx 0 0;
 		overflow: hidden;
 
-		/deep/image,
-		/deep/.easy-loadimage,
+		::v-deepimage,
+		::v-deep.easy-loadimage,
 		uni-image {
 			height: 330rpx;
 			border-radius: 16rpx 16rpx 0 0;

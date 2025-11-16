@@ -317,7 +317,7 @@
 	 	line-height: 50rpx;
 		.active{
 			@include main_color(theme);
-			position: relative
+			position: relative;
 			::after{
 				content: '';
 				position: absolute;

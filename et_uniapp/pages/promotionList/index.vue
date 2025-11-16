@@ -146,7 +146,7 @@
 	.proImg{
 		width: 100%;
 		height: 914rpx;
-		image,/deep/.easy-loadimage > uni-image>div, uni-image>img ,/deep/.easy-loadimage > uni-image{
+		image,::v-deep.easy-loadimage > uni-image>div, uni-image>img ,::v-deep.easy-loadimage > uni-image{
 			width: 100%;
 			height: 914rpx;
 			overflow: initial !important;

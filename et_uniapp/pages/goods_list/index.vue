@@ -373,7 +373,7 @@
 		    z-index: 66;
 	}
 	.merBox{
-		/deep/.tui-drawer-container{
+		::v-deep.tui-drawer-container{
 			width: 635rpx;
 		}
 	}

@@ -193,7 +193,7 @@
 		padding-bottom: 30rpx;
 		.list{
 			width: 210rpx;
-			.picture,/deep/image,/deep/.easy-loadimage,uni-image{
+			.picture,::v-deepimage,::v-deep.easy-loadimage,uni-image{
 				width: 210rpx;
 				height: 210rpx;
 				border-radius: 10rpx;

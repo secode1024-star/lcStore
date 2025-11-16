@@ -766,7 +766,7 @@
 </script>
 
 <style lang="scss" scoped>
-	/deep/.wf-page{
+	::v-deep.wf-page{
 		background-color: #fff !important;
 	}
 	.discover_video_icon {
@@ -785,7 +785,7 @@
 
 	.padbottom {
 		/* #ifndef H5 */
-		padding-bottom: calc(100rpx+ constant(safe-area-inset-bottom)) !important; ///兼容 IOS<11.2/
+		padding-bottom: calc(100rpx + constant(safe-area-inset-bottom)) !important; ///兼容 IOS<11.2/
 		padding-bottom: calc(100rpx + env(safe-area-inset-bottom)) !important;
 		/* #endif */
 	}
@@ -797,21 +797,21 @@
 	.footerBottoms {
 		width: 100%;
 		/* #ifndef H5 */
-		height: calc(200rpx+ constant(safe-area-inset-bottom)) !important; ///兼容 IOS<11.2/
+		height: calc(200rpx + constant(safe-area-inset-bottom)) !important; ///兼容 IOS<11.2/
 		height: calc(200rpx + env(safe-area-inset-bottom)) !important;
 		/* #endif */
 		/* #ifdef H5 */
-		height: calc(100rpx+ constant(safe-area-inset-bottom)) !important; ///兼容 IOS<11.2/
+		height: calc(100rpx + constant(safe-area-inset-bottom)) !important; ///兼容 IOS<11.2/
 		height: calc(100rpx + env(safe-area-inset-bottom)) !important;
 		/* #endif */
 	}
 
 	.discover_index {
-		/deep/.no-border {
+		::v-deep.no-border {
 			bottom: 40rpx;
 		}
 
-		/deep/.author-list {
+		::v-deep.author-list {
 			padding-left: 24rpx;
 			padding-right: 24rpx;
 		}
@@ -935,8 +935,8 @@
 			margin-right: 18rpx;
 
 
-			/deep/image,
-			/deep/.easy-loadimage,
+			::v-deepimage,
+			::v-deep.easy-loadimage,
 			uni-image {
 				width: 100%;
 				height: 100%;
@@ -952,7 +952,7 @@
 	}
 
 	.noContent {
-		/deep/.empty-box {
+		::v-deep.empty-box {
 			padding-top: 80rpx !important;
 
 		}
@@ -976,7 +976,7 @@
 	}
 
 	.cart_nav {
-		/deep/.nav_title {
+		::v-deep.nav_title {
 			font-size: 36rpx;
 			color: #333333;
 		}

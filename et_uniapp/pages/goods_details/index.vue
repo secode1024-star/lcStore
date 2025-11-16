@@ -978,10 +978,10 @@
 
 <style scoped lang="scss">
 	.superior{
-		/deep/.name, /deep/.icon-gengduo{
+		::v-deep.name, ::v-deep.icon-gengduo{
 			color: #333 !important;
 		}
-		/deep/.store{
+		::v-deep.store{
 			padding: 0 !important;
 		}
 	}
@@ -1362,7 +1362,7 @@
 		z-index: 277;
 		border-top: 1rpx solid #f0f0f0;
 		height: 100rpx;
-		height: calc(100rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+		height: calc(100rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 		height: calc(100rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 	}
 
@@ -1824,7 +1824,7 @@
 		width: 100%;
 		background-color: #fff;
 		padding-bottom: 22rpx;
-		padding-bottom: calc(22rpx+ constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
+		padding-bottom: calc(22rpx + constant(safe-area-inset-bottom)); ///兼容 IOS<11.2/
 		padding-bottom: calc(22rpx + env(safe-area-inset-bottom)); ///兼容 IOS>11.2/
 		.title{
 			font-size: 32rpx;
@@ -1884,7 +1884,7 @@
 	.ensure.on{
 		transform: translate3d(0, 0, 0);
 	}
-	/deep/ .tui-drawer-container_bottom{
+	::v-deep .tui-drawer-container_bottom{
 		border-radius: 16rpx 16rpx 0 0;
 	}
 	.icon-ic_love_2 {
