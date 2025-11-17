@@ -8,7 +8,8 @@
 // | Author: CRMEB Team <admin@crmeb.com>
 // +----------------------------------------------------------------------
 //移动端商城API,请求域名 格式： https://您的域名
-let domain = 'https://api.hqlccn.com'
+// 开发环境使用代理路径，生产环境使用实际域名
+let domain = process.env.NODE_ENV === 'development' ? '' : 'https://api.hqlccn.com'
 
 
 module.exports = {

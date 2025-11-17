@@ -6,13 +6,19 @@
 				<view class="foot-item" v-for="(item,index) in bottomNavigationList" :key="index"
 					@click="goRouter(item)">
 					<block v-if="item.link.split('?')[0] == activeRouter">
-						<image :src="item.checked"></image>
-						<view class="txt">{{item.name}}</view>
-					</block>
-					<block v-else>
-						<image :src="item.unchecked"></image>
-						<view class="unchecked">{{item.name}}</view>
-					</block>
+					<!-- 购物车使用 iconfont -->
+					<text v-if="isCartPage(item)" class="iconfont icon-gouwuche1" :style="{color: activeColor, fontSize: iconSize + 'px'}"></text>
+					<!-- 其他使用 uni-icons -->
+					<uni-icons v-else :type="getIconType(item, true)" :color="activeColor" :size="iconSize"></uni-icons>
+					<view class="txt">{{item.name}}</view>
+				</block>
+				<block v-else>
+					<!-- 购物车使用 iconfont -->
+					<text v-if="isCartPage(item)" class="iconfont icon-gouwuche" :style="{color: inactiveColor, fontSize: iconSize + 'px'}"></text>
+					<!-- 其他使用 uni-icons -->
+					<uni-icons v-else :type="getIconType(item, false)" :color="inactiveColor" :size="iconSize"></uni-icons>
+					<view class="unchecked">{{item.name}}</view>
+				</block>
 				</view>
 			</view>
 		</view>
@@ -37,7 +43,7 @@
 		},
 		mounted() {
 			uni.hideTabBar();
-			this.$store.commit('BottomNavigationIsCustom',  true);
+			this.$store.commit('BottomNavigationIsCustom', true);
 			this.navigationInfo();
 		},
 		data() {
@@ -45,7 +51,18 @@
 				theme: app.globalData.theme,
 				isCustom: '',
 				bottomNavigationList: [],//底部导航数据
-				activeRouter: ''
+				activeRouter: '',
+				iconSize: 24,
+				activeColor: '#fc4141',
+				inactiveColor: '#333333',
+				// 图标映射表
+				iconMap: {
+					'/pages/index/index': { active: 'home-filled', inactive: 'home' },
+					'/pages/goods_cate/index': { active: 'bars', inactive: 'list' },
+					'/pages/discover_index/index': { active: 'navigate', inactive: 'navigate' },
+					'/pages/merchant/street/index': { active: 'home-filled', inactive: 'home' },
+					'/pages/user/index': { active: 'person-filled', inactive: 'person' }
+				}
 			}
 		},
 		methods: {
@@ -83,12 +100,29 @@
 						url: item.link
 					})
 				}
+			},
+			// 根据路由获取对应的图标类型
+			getIconType(item, isActive) {
+				const link = item.link.split('?')[0];
+				const iconConfig = this.iconMap[link];
+				if (iconConfig) {
+					return isActive ? iconConfig.active : iconConfig.inactive;
+				}
+				// 默认图标
+				return isActive ? 'circle-filled' : 'circle';
+			},
+			// 判断是否为购物车页面
+			isCartPage(item) {
+				const link = item.link.split('?')[0];
+				return link === '/pages/order_addcart/order_addcart';
 			}
 		}
 	}
 </script>
 
 <style scoped lang="scss">
+	@import "@/static/iconfont/iconfont.css";
+	
 	.unchecked {
 		color: #333;
 		font-size: 24rpx;

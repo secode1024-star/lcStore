@@ -193,7 +193,17 @@
     },
     "h5" : {
         "devServer" : {
-            "https" : false
+            "https" : false,
+            "proxy" : {
+                "/api" : {
+                    "target" : "https://api.hqlccn.com",
+                    "changeOrigin" : true,
+                    "secure" : false,
+                    "pathRewrite" : {
+                        "^/api" : "/api"
+                    }
+                }
+            }
         },
         "router" : {
             "mode" : "history",
