@@ -4,7 +4,7 @@ import zh from './common/zh.js'
 import en from './common/en.js'
 import fr from './common/fr.js'
 import th from './common/th.js'
-import lao from './common/lao.js'
+import ru from './common/ru.js'
 
 Vue.use(VueI18n)
 export default new VueI18n({
@@ -14,6 +14,6 @@ export default new VueI18n({
 		'zh': zh,
 		'fr': fr,
 		'th': th,
-		'lao': lao
+		'ru': ru
 	}
 })

@@ -171,7 +171,13 @@ export default {
         storeApi
           .productCategoryAddApi(this.editPram)
           .then((data) => {
-            this.$emit('hideEditDialog');
+            this.$emit('hideEditDialog', {
+              action: 'create',
+              category: {
+                id: data.id || this.editPram.id,
+                name: this.editPram.name
+              }
+            });
             this.$message.success('创建目录成功');
             this.$store.commit('product/SET_AdminProductClassify', []);
             this.loadingBtn = false;
@@ -185,7 +191,13 @@ export default {
         storeApi
           .productCategoryUpdateApi(this.editPram)
           .then((data) => {
-            this.$emit('hideEditDialog');
+            this.$emit('hideEditDialog', {
+              action: 'update',
+              category: {
+                id: this.editPram.id,
+                name: this.editPram.name
+              }
+            });
             this.$message.success('更新目录成功');
             this.$store.commit('product/SET_AdminProductClassify', []);
             this.loadingBtn = false;

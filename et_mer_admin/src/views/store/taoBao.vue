@@ -82,13 +82,15 @@
                 class="selWidth"
                 clearable
                 filterable
+                allow-create
+                default-first-option
                 v-model="formValidate.brandId"
                 v-selectLoadMore="selectLoadMore"
                 :loading="loading"
                 remote
                 :disabled="isDisabled"
                 :remote-method="remoteMethod"
-                placeholder="请选择品牌"
+                placeholder="请选择品牌或输入自定义品牌名称"
               >
                 <el-option v-for="user in brandList" :key="user.id" :label="user.name" :value="user.id"> </el-option>
               </el-select>
@@ -167,7 +169,8 @@
               </div>
             </el-form-item>
           </el-col>
-          <el-col :xs="18" :sm="18" :md="18" :lg="12" :xl="12">
+          <!-- 运费字段隐藏，但保留默认值1 -->
+          <el-col :xs="18" :sm="18" :md="18" :lg="12" :xl="12" style="display: none;">
             <el-form-item label="运费" prop="postage">
               <el-input-number
                 v-model="formValidate.postage"
@@ -449,7 +452,8 @@ export default {
         keyword: [{ required: true, message: '请输入商品关键字', trigger: 'blur' }],
         attrValue: [{ required: true, message: '请上传商品轮播图', type: 'array', trigger: 'change' }],
         specType: [{ required: true, message: '请选择商品规格', trigger: 'change' }],
-        brandId: [{ required: true, message: '请选择商品品牌', trigger: 'change' }],
+        // 品牌改为非必填项
+        // brandId: [{ required: true, message: '请选择商品品牌', trigger: 'change' }],
       },
       grid: {
         xl: 12,
@@ -508,7 +512,7 @@ export default {
     this.productClassify = this.addDisabled(this.adminProductClassify);
   },
   methods: {
-    //限制平台商品分类只能选择第三级
+    //允许选择一级、二级或三级商品分类
     addDisabled(dropdownList) {
       const list = [];
       try {
@@ -520,9 +524,10 @@ export default {
             pid: e.pid,
             isShow: e.isShow,
           };
-          if (!e.childList && (e.level === 1 || e.level === 2)) {
-            e_new = { ...e_new, disabled: true };
-          }
+          // 允许选择一级、二级和三级分类，不再限制必须是三级
+          // if (!e.childList && (e.level === 1 || e.level === 2)) {
+          //   e_new = { ...e_new, disabled: true };
+          // }
           if (e.childList) {
             const childList = this.addDisabled(e.childList);
             e_new = { ...e_new, childList: childList };

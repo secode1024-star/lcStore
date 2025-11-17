@@ -44,16 +44,16 @@ public class MerchantConfigInfoVo implements Serializable {
     @NotEmpty(message = "商户地址不能为空")
     private String address;
 
-    @ApiModelProperty(value = "商户背景图", required = true)
-    @NotEmpty(message = "商户背景图不能为空")
+    @ApiModelProperty(value = "商户背景图", required = false)
+    // @NotEmpty(message = "商户背景图不能为空")  // 已注释：移动端商户背景图改为非必选项
     private String backImage;
 
     @ApiModelProperty(value = "商户头像", required = true)
     @NotEmpty(message = "商户头像不能为空")
     private String avatar;
 
-    @ApiModelProperty(value = "商户街背景图", required = true)
-    @NotEmpty(message = "商户街背景图不能为空")
+    @ApiModelProperty(value = "商户街背景图", required = false)
+    // @NotEmpty(message = "商户街背景图不能为空")  // 已注释：移动端商户街背景图改为非必选项
     private String streetBackImage;
 
     @ApiModelProperty(value = "商户简介")

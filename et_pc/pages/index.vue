@@ -218,6 +218,16 @@ export default {
   },
   async asyncData({ app, error, store }) {
     typeof localstorage !== 'undefined' && window.localStorage.clear();
+    
+    // 获取当前语言，如果用户切换了语言，传递语言参数
+    const currentLanguage = app.$cookies.get('locale') || (app.i18n && app.i18n.locale) || 'zh-CN';
+    const productParams = { page: 1, limit: 13 };
+    const pcIndexParams = {};
+    if (currentLanguage && currentLanguage !== 'zh-CN') {
+      productParams.language = currentLanguage;
+      pcIndexParams.language = currentLanguage;
+    }
+    
     let [
       list,
       storeList,
@@ -225,15 +235,14 @@ export default {
       toponeList,
       proList
     ] = await Promise.all([
-      app.$axios.get("/api/pc/home/index"),
+      app.$axios.get("/api/pc/home/index", {
+        params: pcIndexParams
+      }),
       app.$axios.get("/api/front/merchant/street"),
       app.$axios.get("/api/front/activity/index/list"),
       app.$axios.get("/api/front/product/leaderboard"),
       app.$axios.get("/api/front/index/product", {
-        params: {
-          page: 1,
-          limit: 13
-        }
+        params: productParams
       }),
       app.$axios.get("/api/front/activity/index/list")
     ]);
@@ -333,6 +342,11 @@ export default {
     },
     getList() {
       let currentPage = { page: this.page, limit: this.limits };
+      // 获取当前语言，如果用户切换了语言，传递语言参数
+      const currentLanguage = this.$cookies.get('locale') || this.$i18n.locale || 'zh-CN';
+      if (currentLanguage && currentLanguage !== 'zh-CN') {
+        currentPage.language = currentLanguage;
+      }
       this.$axios
         .get(`/api/front/index/product`, {
           params: currentPage
@@ -436,11 +450,14 @@ export default {
 .container {
   width: 100%;
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   .banner {
     width: 1200px;
     height: 480px;
-    margin: 0;
+    margin: 0 auto;
     position: relative;
 
     .slider-banner {
@@ -472,7 +489,7 @@ export default {
   .brandstore {
     width: 1200px;
     height: 413px;
-    margin: 40px 0 0 0;
+    margin: 40px auto 0 auto;
     display: flex;
 
     .left {
@@ -681,7 +698,7 @@ export default {
 
   .product {
     width: 1200px;
-    margin: 0;
+    margin: 0 auto;
 
     .product-top {
       width: 100%;
@@ -785,7 +802,7 @@ export default {
   .ad {
     width: 1200px;
     height: 120px;
-    margin: 40px 0 0 0;
+    margin: 40px auto 0 auto;
 
     .img {
       width: 100%;
@@ -929,4 +946,6 @@ export default {
   background-image: url("../assets/images/03.png");
 }
 </style>
+
+
 

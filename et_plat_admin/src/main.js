@@ -23,11 +23,15 @@ import VueLazyload from 'vue-lazyload';
 import Debounce from './libs/debounce.js'; //防抖自定义指令
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 import Cookies from 'js-cookie';
+import request from '@/utils/request';
 
 Vue.config.devtools = true;
 import App from './App';
 import store from './store';
 import router from './router';
+
+// 添加 HTTP 服务到 Vue 原型
+Vue.prototype.$http = request;
 import base from '@/components/base/index'; // 公共组件
 import uploadPicture from './components/uploadFrom';
 import goodListFrom from './components/goodList/goodListFrom';
@@ -212,64 +216,31 @@ Vue.directive('debounceClick', {
   },
 });
 
-new Vue({
-  el: '#app',
-  router,
-  store,
-  render: (h) => h(App),
-});
+console.log('🚀 开始创建Vue应用...');
+console.log('Vue:', Vue);
+console.log('App:', App);
+console.log('router:', router);
+console.log('store:', store);
 
-var _hmt = _hmt || [];
-(function () {
-  var hm = document.createElement('script');
-  hm.src = 'https://cdn.oss.9gt.net/js/es.js?version=JAVA-ET-v1.2';
-  var s = document.getElementsByTagName('script')[0];
-  s.parentNode.insertBefore(hm, s);
-})();
+try {
+  const app = new Vue({
+    el: '#app',
+    router,
+    store,
+    render: (h) => h(App),
+    created() {
+      console.log('✅ Vue应用已创建');
+    },
+    mounted() {
+      console.log('✅ Vue应用已挂载');
+    },
+    errorCaptured(err, vm, info) {
+      console.error('❌ Vue应用捕获错误:', err, info);
+      return false;
+    }
+  });
+  console.log('✅ Vue应用实例创建成功:', app);
+} catch (error) {
+  console.error('❌ Vue应用创建失败:', error);
+}
 
-/**
- * 防抖 防止重复点击
- * 传参：v-debounceClick="() =>{handleFun(arg)}"
- * 不传参:v-debounceClick="handleFun"
- * delayTime:延迟的时间,只执行最后一次
- */
-Vue.directive('debounceClick', {
-  bind(el, binding, vnode, oldvnode) {},
-  inserted: function (el, binding) {
-    let delayTime = el.getAttribute('delay-time') || 500;
-    el.onclick = Debounce(function () {
-      binding.value();
-    }, delayTime);
-  },
-});
-
-var _hmt = _hmt || [];
-(function () {
-  var hm = document.createElement('script');
-  hm.src = 'https://cdn.oss.9gt.net/js/es.js?version=JAVA-ET-v1.2';
-  var s = document.getElementsByTagName('script')[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-
-/**
- * 防抖 防止重复点击
- * 传参：v-debounceClick="() =>{handleFun(arg)}"
- * 不传参:v-debounceClick="handleFun"
- * delayTime:延迟的时间,只执行最后一次
- */
-Vue.directive('debounceClick', {
-  bind(el, binding, vnode, oldvnode) {},
-  inserted: function (el, binding) {
-    let delayTime = el.getAttribute('delay-time') || 500;
-    el.onclick = Debounce(function () {
-      binding.value();
-    }, delayTime);
-  },
-});
-
-new Vue({
-  el: '#app',
-  router,
-  store,
-  render: (h) => h(App),
-});

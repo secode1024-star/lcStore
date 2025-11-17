@@ -57,7 +57,7 @@ service.interceptors.response.use(
       // to re-login
       Message.error('无效的会话，或者登录已过期，请重新登录。');
       window.localStorage.clear();
-      location.href = '/login';
+      window.location.href = '/login';
     } else if (res.code === 403) {
       Message.error('没有权限访问。');
     }

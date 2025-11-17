@@ -27,6 +27,8 @@ import com.zbkj.service.service.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -49,6 +51,8 @@ import java.util.stream.Stream;
 */
 @Service
 public class ProductServiceImpl implements ProductService {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProductServiceImpl.class);
 
     @Autowired
     private StoreProductService storeProductService;
@@ -78,6 +82,8 @@ public class ProductServiceImpl implements ProductService {
     private BrowseRecordService browseRecordService;
     @Autowired
     private OrderDetailService orderDetailService;
+    @Autowired(required = false)
+    private com.zbkj.service.service.TranslationService translationService;
 
     /**
      * 获取商品分类
@@ -93,26 +99,45 @@ public class ProductServiceImpl implements ProductService {
      * @return List<IndexProductResponse>
      */
     @Override
-    public PageInfo<IndexProductResponse> getList(ProductRequest request, PageParamRequest pageRequest) {
+    public PageInfo<IndexProductResponse> getList(ProductRequest request, PageParamRequest pageRequest, String language) {
         PageInfo<StoreProduct> pageInfo = storeProductService.findH5List(request, pageRequest);
         List<StoreProduct> storeProductList = pageInfo.getList();
         if (CollUtil.isEmpty(storeProductList)) {
             return CommonPage.copyPageInfo(pageInfo, CollUtil.newArrayList());
         }
-        return CommonPage.copyPageInfo(pageInfo, productToIndexProduct(storeProductList));
+        List<IndexProductResponse> productList = productToIndexProduct(storeProductList);
+        
+        // 如果提供了语言参数且不是中文，应用翻译
+        if (StrUtil.isNotBlank(language) && !"zh-CN".equals(language) && translationService != null) {
+            for (IndexProductResponse product : productList) {
+                translateProductInfo(product, language, product.getId());
+            }
+        }
+        
+        return CommonPage.copyPageInfo(pageInfo, productList);
     }
 
     /**
      * 获取商品详情
      * @param id 商品编号
+     * @param language 目标语言代码（可选，如：en, fr, th, lo, jp, kor, ara等），不传或zh-CN则返回中文原文
      * @return 商品详情信息
      */
     @Override
-    public ProductDetailResponse getDetail(Integer id) {
+    public ProductDetailResponse getDetail(Integer id, String language) {
         ProductDetailResponse productDetailResponse = new ProductDetailResponse();
         // 查询商品
         StoreProduct storeProduct = storeProductService.getH5Detail(id);
         productDetailResponse.setProductInfo(storeProduct);
+        
+        // 如果提供了语言参数且不是中文，应用翻译
+        if (StrUtil.isNotBlank(language) && !"zh-CN".equals(language) && translationService != null) {
+            LOGGER.info("开始翻译商品详情: productId={}, language={}, storeName={}", 
+                       storeProduct.getId(), language, storeProduct.getStoreName());
+            translateStoreProduct(storeProduct, language, storeProduct.getId(), storeProduct.getMerId());
+            LOGGER.info("翻译后商品名称: {}", storeProduct.getStoreName());
+        }
+        
         if (StrUtil.isNotBlank(storeProduct.getGuaranteeIds())) {
             productDetailResponse.setGuaranteeList(productGuaranteeService.findByIdList(CrmebUtil.stringToArray(storeProduct.getGuaranteeIds())));
         }
@@ -126,6 +151,12 @@ public class ProductServiceImpl implements ProductService {
         for (StoreProductAttrValue storeProductAttrValue : storeProductAttrValues) {
             StoreProductAttrValueResponse atr = new StoreProductAttrValueResponse();
             BeanUtils.copyProperties(storeProductAttrValue, atr);
+            
+            // 如果提供了语言参数且不是中文，翻译SKU属性
+            if (StrUtil.isNotBlank(language) && !"zh-CN".equals(language) && translationService != null) {
+                translateProductAttrValue(atr, language, storeProduct.getId(), storeProduct.getMerId());
+            }
+            
             skuMap.put(atr.getSku(), atr);
         }
         productDetailResponse.setProductValue(skuMap);
@@ -334,5 +365,205 @@ public class ProductServiceImpl implements ProductService {
         return CommonPage.copyPageInfo(pageInfo, responseList);
     }
 
-}
+    /**
+     * 翻译商品基本信息（商品名称、描述、关键字、单位等）
+     * @param storeProduct 商品对象
+     * @param targetLanguage 目标语言
+     * @param productId 商品ID
+     * @param merId 商户ID
+     */
+    private void translateStoreProduct(StoreProduct storeProduct, String targetLanguage, Integer productId, Integer merId) {
+        if (translationService == null || storeProduct == null) {
+            return;
+        }
+        
+        // 翻译商品名称（只从缓存和数据库读取，不调用API）
+        if (StrUtil.isNotBlank(storeProduct.getStoreName())) {
+            String originalName = storeProduct.getStoreName();
+            String translatedName = translationService.getCachedTranslation("product", productId, "storeName", 
+                    targetLanguage, originalName, merId);
+            LOGGER.info("商品名称翻译: 原文={}, 目标语言={}, 翻译结果={}", originalName, targetLanguage, translatedName);
+            
+            if (StrUtil.isNotBlank(translatedName) && !originalName.equals(translatedName)) {
+                storeProduct.setStoreName(translatedName);
+                LOGGER.info("商品名称已更新为翻译版本: {}", translatedName);
+            } else {
+                LOGGER.warn("未找到商品名称的翻译或翻译结果与原文相同: productId={}, language={}, originalName={}", 
+                           productId, targetLanguage, originalName);
+            }
+        }
+        
+        // 翻译商品描述（只从缓存和数据库读取，不调用API）
+        if (StrUtil.isNotBlank(storeProduct.getStoreInfo())) {
+            String translatedInfo = translationService.getCachedTranslation("product", productId, "storeInfo", 
+                    targetLanguage, storeProduct.getStoreInfo(), merId);
+            if (StrUtil.isNotBlank(translatedInfo) && !storeProduct.getStoreInfo().equals(translatedInfo)) {
+                storeProduct.setStoreInfo(translatedInfo);
+            }
+        }
+        
+        // 翻译关键字（只从缓存和数据库读取，不调用API）
+        if (StrUtil.isNotBlank(storeProduct.getKeyword())) {
+            String translatedKeyword = translationService.getCachedTranslation("product", productId, "keyword", 
+                    targetLanguage, storeProduct.getKeyword(), merId);
+            if (StrUtil.isNotBlank(translatedKeyword) && !storeProduct.getKeyword().equals(translatedKeyword)) {
+                storeProduct.setKeyword(translatedKeyword);
+            }
+        }
+        
+        // 翻译单位（只从缓存和数据库读取，不调用API）
+        if (StrUtil.isNotBlank(storeProduct.getUnitName())) {
+            String translatedUnit = translationService.getCachedTranslation("product", productId, "unitName", 
+                    targetLanguage, storeProduct.getUnitName(), merId);
+            if (StrUtil.isNotBlank(translatedUnit) && !storeProduct.getUnitName().equals(translatedUnit)) {
+                storeProduct.setUnitName(translatedUnit);
+            }
+        }
+        
+        // 翻译商品详情内容（只从缓存和数据库读取，不调用API）
+        if (StrUtil.isNotBlank(storeProduct.getContent())) {
+            String originalContent = storeProduct.getContent();
+            // 去除HTML标签，只查询纯文本的翻译
+            String plainText = originalContent.replaceAll("<[^>]+>", "").trim();
+            
+            if (StrUtil.isNotBlank(plainText)) {
+                String translatedPlainText = translationService.getCachedTranslation("product", productId, "content", 
+                        targetLanguage, plainText, merId);
+                
+                if (StrUtil.isNotBlank(translatedPlainText) && !plainText.equals(translatedPlainText)) {
+                    // 将翻译后的纯文本替换回HTML中
+                    String translatedContent = originalContent.replaceAll(">([^<]+)<", ">" + translatedPlainText + "<");
+                    storeProduct.setContent(translatedContent);
+                    LOGGER.info("商品详情内容已翻译: productId={}, language={}, plainText={}, translated={}", 
+                              productId, targetLanguage, plainText, translatedPlainText);
+                } else {
+                    LOGGER.warn("未找到商品详情内容的翻译: productId={}, language={}, plainText={}", 
+                              productId, targetLanguage, plainText);
+                }
+            }
+        }
+    }
 
+    /**
+     * 翻译商品SKU属性（品名、材质、容量、产地、尺寸等）
+     * @param attrValueResponse SKU属性响应对象
+     * @param targetLanguage 目标语言
+     * @param productId 商品ID
+     * @param merId 商户ID
+     */
+    private void translateProductAttrValue(StoreProductAttrValueResponse attrValueResponse, String targetLanguage, 
+                                         Integer productId, Integer merId) {
+        if (translationService == null || attrValueResponse == null) {
+            return;
+        }
+        
+        // 翻译品名（product_name）（只从缓存和数据库读取，不调用API）
+        // 兼容两种存储格式：1. product_attr_value + product_name（正确格式） 2. product + spec.productName（旧格式）
+        if (StrUtil.isNotBlank(attrValueResponse.getProductName())) {
+            String translated = translationService.getCachedTranslation("product_attr_value", productId, "product_name", 
+                    targetLanguage, attrValueResponse.getProductName(), merId);
+            // 如果新格式找不到，尝试旧格式（兼容性）
+            if (StrUtil.isBlank(translated) || attrValueResponse.getProductName().equals(translated)) {
+                translated = translationService.getCachedTranslation("product", productId, "spec.productName", 
+                        targetLanguage, attrValueResponse.getProductName(), merId);
+            }
+            if (StrUtil.isNotBlank(translated) && !attrValueResponse.getProductName().equals(translated)) {
+                attrValueResponse.setProductName(translated);
+            }
+        }
+        
+        // 翻译材质（material）（只从缓存和数据库读取，不调用API）
+        if (StrUtil.isNotBlank(attrValueResponse.getMaterial())) {
+            String translated = translationService.getCachedTranslation("product_attr_value", productId, "material", 
+                    targetLanguage, attrValueResponse.getMaterial(), merId);
+            // 兼容旧格式
+            if (StrUtil.isBlank(translated) || attrValueResponse.getMaterial().equals(translated)) {
+                translated = translationService.getCachedTranslation("product", productId, "spec.material", 
+                        targetLanguage, attrValueResponse.getMaterial(), merId);
+            }
+            if (StrUtil.isNotBlank(translated) && !attrValueResponse.getMaterial().equals(translated)) {
+                attrValueResponse.setMaterial(translated);
+            }
+        }
+        
+        // 翻译容量（capacity）（只从缓存和数据库读取，不调用API）
+        if (StrUtil.isNotBlank(attrValueResponse.getCapacity())) {
+            String translated = translationService.getCachedTranslation("product_attr_value", productId, "capacity", 
+                    targetLanguage, attrValueResponse.getCapacity(), merId);
+            // 兼容旧格式
+            if (StrUtil.isBlank(translated) || attrValueResponse.getCapacity().equals(translated)) {
+                translated = translationService.getCachedTranslation("product", productId, "spec.capacity", 
+                        targetLanguage, attrValueResponse.getCapacity(), merId);
+            }
+            if (StrUtil.isNotBlank(translated) && !attrValueResponse.getCapacity().equals(translated)) {
+                attrValueResponse.setCapacity(translated);
+            }
+        }
+        
+        // 翻译产地（origin）（只从缓存和数据库读取，不调用API）
+        if (StrUtil.isNotBlank(attrValueResponse.getOrigin())) {
+            String translated = translationService.getCachedTranslation("product_attr_value", productId, "origin", 
+                    targetLanguage, attrValueResponse.getOrigin(), merId);
+            // 兼容旧格式
+            if (StrUtil.isBlank(translated) || attrValueResponse.getOrigin().equals(translated)) {
+                translated = translationService.getCachedTranslation("product", productId, "spec.origin", 
+                        targetLanguage, attrValueResponse.getOrigin(), merId);
+            }
+            if (StrUtil.isNotBlank(translated) && !attrValueResponse.getOrigin().equals(translated)) {
+                attrValueResponse.setOrigin(translated);
+            }
+        }
+        
+        // 翻译尺寸（size）（只从缓存和数据库读取，不调用API）
+        if (StrUtil.isNotBlank(attrValueResponse.getSize())) {
+            String translated = translationService.getCachedTranslation("product_attr_value", productId, "size", 
+                    targetLanguage, attrValueResponse.getSize(), merId);
+            // 兼容旧格式
+            if (StrUtil.isBlank(translated) || attrValueResponse.getSize().equals(translated)) {
+                translated = translationService.getCachedTranslation("product", productId, "spec.size", 
+                        targetLanguage, attrValueResponse.getSize(), merId);
+            }
+            if (StrUtil.isNotBlank(translated) && !attrValueResponse.getSize().equals(translated)) {
+                attrValueResponse.setSize(translated);
+            }
+        }
+    }
+
+    /**
+     * 翻译商品列表项信息（用于商品列表）
+     * @param productResponse 商品响应对象
+     * @param targetLanguage 目标语言
+     * @param productId 商品ID
+     */
+    private void translateProductInfo(IndexProductResponse productResponse, String targetLanguage, Integer productId) {
+        if (translationService == null || productResponse == null) {
+            return;
+        }
+        
+        // 从商品ID获取商品信息以获取merId
+        StoreProduct storeProduct = storeProductService.getById(productId);
+        if (storeProduct == null) {
+            return;
+        }
+        Integer merId = storeProduct.getMerId();
+        
+        // 翻译商品名称（只从缓存和数据库读取，不调用API）
+        if (StrUtil.isNotBlank(productResponse.getStoreName())) {
+            String translatedName = translationService.getCachedTranslation("product", productId, "storeName", 
+                    targetLanguage, productResponse.getStoreName(), merId);
+            if (StrUtil.isNotBlank(translatedName) && !productResponse.getStoreName().equals(translatedName)) {
+                productResponse.setStoreName(translatedName);
+            }
+        }
+        
+        // 翻译单位（只从缓存和数据库读取，不调用API）
+        if (StrUtil.isNotBlank(productResponse.getUnitName())) {
+            String translatedUnit = translationService.getCachedTranslation("product", productId, "unitName", 
+                    targetLanguage, productResponse.getUnitName(), merId);
+            if (StrUtil.isNotBlank(translatedUnit) && !productResponse.getUnitName().equals(translatedUnit)) {
+                productResponse.setUnitName(translatedUnit);
+            }
+        }
+    }
+
+}

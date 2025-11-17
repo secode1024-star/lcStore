@@ -30,13 +30,23 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://1Panel-mysql-TvOp:3306/java_et?characterEncoding=utf-8&useSSL=false&serverTimeZone=GMT+8
-    username: java_et
-    password: 111111
+    # 本地开发环境配置（使用root用户）
+    url: jdbc:mysql://127.0.0.1:3306/java_et?characterEncoding=utf-8&useSSL=false&serverTimeZone=GMT+8&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+    # 如果需要使用java_et用户，需要先在MySQL中创建：
+    # CREATE USER 'java_et'@'localhost' IDENTIFIED BY 'root';
+    # GRANT ALL PRIVILEGES ON java_et.* TO 'java_et'@'localhost';
+    # FLUSH PRIVILEGES;
+    # 服务器环境配置（已注释，翻译API接入成功后可以改回来）
+    # url: jdbc:mysql://1Panel-mysql-TvOp:3306/java_et?characterEncoding=utf-8&useSSL=false&serverTimeZone=GMT+8
   redis:
-    host: 1Panel-redis-QjWO #地址
+    # 本地开发环境配置
+    host: 127.0.0.1 #地址
     port: 6379 #端口
-    password: 111111  # Redis密码
+    password:   # Redis密码
+    # 服务器环境配置（已注释，翻译API接入成功后可以改回来）
+    # host: 1Panel-redis-QjWO #地址
     timeout: 10000 # 连接超时时间（毫秒）
     database: 10 #默认数据库
     jedis:

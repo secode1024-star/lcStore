@@ -29,6 +29,7 @@ import merchant from './modules/merchant';
 import activity from './modules/activity';
 import posterRouter from './modules/poster';
 import customerServiceRouter from './modules/customerService';
+import translationRouter from './modules/translation';
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -79,6 +80,8 @@ export const constantRoutes = [
   posterRouter,
   //客服管理
   customerServiceRouter,
+  // 翻译管理
+  translationRouter,
   // 维护
   maintainRouter,
   {

@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -34,10 +35,12 @@ public class PcIndexController {
 
     /**
      * 首页数据
+     * @param language 目标语言代码（可选，如：en, fr, th, lo, jp, kor, ara等），不传或zh-CN则返回中文原文
      */
     @ApiOperation(value = "pc首页数据")
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public CommonResult<PcIndexInfoResponse> getIndexInfo() {
-        return CommonResult.success(indexService.getPcIndexInfo());
+    public CommonResult<PcIndexInfoResponse> getIndexInfo(
+            @RequestParam(value = "language", required = false) String language) {
+        return CommonResult.success(indexService.getPcIndexInfo(language));
     }
 }

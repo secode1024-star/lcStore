@@ -9,8 +9,10 @@
 // +----------------------------------------------------------------------
 
 // 请求接口地址 - 商户管理后台
-const VUE_APP_API_URL = "https://api1.hqlccn.com"; // 商户管理域名，通过Nginx反向代理到20008端口
-const VUE_APP_WS_URL = "wss://api1.hqlccn.com";
+// 生产环境：使用外部服务器
+const VUE_APP_API_URL = process.env.VUE_APP_BASE_API || "https://api1.hqlccn.com";
+const VUE_APP_WS_URL = process.env.VUE_APP_WS_URL || "wss://api1.hqlccn.com";
+
 const SettingMer = {
   // 服务器地址
   httpUrl: VUE_APP_API_URL,
@@ -21,3 +23,5 @@ const SettingMer = {
 };
 
 export default SettingMer;
+
+

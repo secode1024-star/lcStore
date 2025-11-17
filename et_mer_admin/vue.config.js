@@ -46,6 +46,14 @@ module.exports = {
         changeOrigin: true,
         secure: false,
         ws: true,
+        timeout: 60000,
+        proxyTimeout: 60000,
+        onProxyReq: (proxyReq, req, res) => {
+          console.log('[Proxy]', req.method, req.url, '->', API_TARGET + req.url);
+        },
+        onError: (err, req, res) => {
+          console.error('[Proxy Error]', err.message);
+        },
         pathRewrite: {
           '^/api': '/api'
         }

@@ -140,6 +140,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/druid/**").anonymous()
             .antMatchers("/api/admin/payment/callback/**").anonymous()
             .antMatchers("/api/public/**").anonymous()
+            // 翻译测试接口（测试用，无需认证）
+            .antMatchers("/api/admin/test/translation/**").permitAll()
             // 除上面外的所有请求全部需要鉴权认证
             .anyRequest().authenticated()
             .and()

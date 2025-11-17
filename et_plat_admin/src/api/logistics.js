@@ -27,3 +27,11 @@ export function expressUpdateShow(data) {
     data,
   });
 }
+
+// 删除物流公司
+export function expressDelete(id) {
+  return request({
+    url: `/admin/platform/express/delete/${id}`,
+    method: 'post',
+  });
+}

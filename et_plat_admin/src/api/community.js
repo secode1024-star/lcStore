@@ -299,3 +299,14 @@ export function communitycCategoryBatchApi(data) {
     data,
   });
 }
+
+/**
+ * 社区内容审核API
+ */
+export function communityAuditApi(data) {
+  return request({
+    url: `/admin/platform/community/note/audit`,
+    method: 'POST',
+    data,
+  });
+}

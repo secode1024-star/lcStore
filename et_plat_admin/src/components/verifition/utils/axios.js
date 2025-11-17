@@ -4,6 +4,7 @@ import SettingMer from '@/utils/settingMer';
 // axios.defaults.baseURL = SettingMer.httpUrl;
 
 const service = axios.create({
+  baseURL: SettingMer.apiBaseURL,
   timeout: 40000,
   headers: {
     'X-Requested-With': 'XMLHttpRequest',
@@ -28,3 +29,4 @@ service.interceptors.response.use(
   (error) => {},
 );
 export default service;
+

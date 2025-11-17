@@ -91,3 +91,15 @@ export function userChannelData() {
     method: 'GET',
   });
 }
+
+/**
+ * 用户概览数据
+ * @param params
+ */
+export function userOverviewData(params) {
+  return request({
+    url: `/admin/platform/statistics/user/overview`,
+    method: 'GET',
+    params,
+  });
+}

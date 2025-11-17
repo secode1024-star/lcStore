@@ -66,6 +66,9 @@ public class StoreProduct implements Serializable {
     @ApiModelProperty(value = "品牌id")
     private Integer brandId;
 
+    @ApiModelProperty(value = "品牌名称（自定义输入）")
+    private String brandName;
+
     @ApiModelProperty(value = "平台分类id")
     private Integer categoryId;
 

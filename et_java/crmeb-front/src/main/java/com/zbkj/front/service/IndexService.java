@@ -27,9 +27,10 @@ public interface IndexService{
 
     /**
      * 首页信息
+     * @param language 目标语言代码（可选，如：en, fr, th, lo, jp, kor, ara等），不传或zh-CN则返回中文原文
      * @return IndexInfoResponse
      */
-    IndexInfoResponse getIndexInfo();
+    IndexInfoResponse getIndexInfo(String language);
 
     /**
      * 热门搜索
@@ -40,9 +41,10 @@ public interface IndexService{
     /**
      * 获取首页商品列表
      * @param pageParamRequest 分页参数
+     * @param language 目标语言代码（可选，如：en, fr, th, lo, jp, kor, ara等），不传或zh-CN则返回中文原文
      * @return List
      */
-    PageInfo<IndexProductResponse> findIndexProductList(PageParamRequest pageParamRequest);
+    PageInfo<IndexProductResponse> findIndexProductList(PageParamRequest pageParamRequest, String language);
 
     /**
      * 获取颜色配置
@@ -58,8 +60,9 @@ public interface IndexService{
 
     /**
      * PC首页数据
+     * @param language 目标语言代码（可选，如：en, fr, th, lo, jp, kor, ara等），不传或zh-CN则返回中文原文
      */
-    PcIndexInfoResponse getPcIndexInfo();
+    PcIndexInfoResponse getPcIndexInfo(String language);
 
     /**
      * 获取底部导航信息

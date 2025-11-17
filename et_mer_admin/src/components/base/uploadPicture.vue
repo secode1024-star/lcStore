@@ -66,23 +66,38 @@
       <el-col v-bind="grid2" class="colLeft">
         <div class="conter mb15 relative">
           <div class="bnt">
-            <el-button v-if="!pictureType" size="small" type="primary" class="mr15 mb20" @click="checkPics"
-              >使用选中图片</el-button
-            >
-            <div class="mb20">
-              <el-tooltip class="item" effect="dark" content="上传图片" placement="top-start">
+            <!-- 主要操作按钮区域 -->
+            <div class="main-actions mb20">
+              <el-tooltip class="item" effect="dark" content="从本地选择图片直接上传" placement="top-start">
                 <el-upload
-                  class="upload-demo"
+                  class="upload-demo inline-upload"
                   action
                   :http-request="handleUploadForm"
                   :on-change="imgSaveToUrl"
                   :headers="myHeaders"
                   :show-file-list="false"
                   multiple
+                  accept="image/*"
                 >
-                  <el-button icon="el-icon-upload2" size="small" class="mr15" v-if="!pictureType"></el-button>
+                  <el-button icon="el-icon-upload2" size="medium" type="success" class="mr15">本地上传</el-button>
                 </el-upload>
               </el-tooltip>
+              <el-button v-if="!pictureType" size="medium" type="primary" class="mr15" @click="checkPics"
+                >使用选中图片</el-button
+              >
+              <el-tooltip class="item" effect="dark" content="删除选中的图片" placement="top-start">
+                <el-button
+                  icon="el-icon-delete"
+                  class="mr15"
+                  type="danger"
+                  size="medium"
+                  @click.stop="editPicList('图片')"
+                  v-hasPermi="['merchant:attachment:delete']"
+                  v-if="!pictureType"
+                >删除图片</el-button>
+              </el-tooltip>
+            </div>
+            <div class="mb20">
               <el-tooltip class="item" effect="dark" content="删除图片" placement="top-start">
                 <el-button
                   icon="el-icon-delete"
@@ -90,7 +105,7 @@
                   type="danger"
                   size="small"
                   @click.stop="editPicList('图片')"
-                  v-hasPermi="['merchant:attachment:delete']"
+                  v-hasPermi="['merchant:category:delete']"
                   v-if="!pictureType"
                 ></el-button>
               </el-tooltip>
@@ -103,8 +118,9 @@
               :headers="myHeaders"
               :show-file-list="false"
               multiple
+              accept="image/*"
             >
-              <el-button class="mr10" type="primary" v-if="pictureType">上传图片</el-button>
+              <el-button class="mr10" type="primary" v-if="pictureType" icon="el-icon-upload2">本地上传</el-button>
             </el-upload>
             <div>
               <el-button class="mr10" type="danger" @click.stop="editPicList('图片')" v-if="pictureType"
@@ -342,6 +358,7 @@ export default {
       videoStatus: false,
       typeDate: 'pic',
       cateDisabled: false,
+      newUploadedImage: null, // 新上传的图片信息
     };
   },
   watch: {
@@ -506,6 +523,8 @@ export default {
           loading.close();
           this.$message.success('上传成功');
           this.tableData.page = 1;
+          // 保存新上传的图片信息，用于自动选中
+          this.newUploadedImage = res;
           this.getFileList();
         })
         .catch((res) => {
@@ -521,13 +540,35 @@ export default {
           this.pictrueList.list = res.list;
           if (this.tableData.page === 1 && this.pictrueList.list.length > 0)
             this.pictrueList.list[0].localImg = this.localImg;
+          
+          // 如果有新上传的图片，自动选中它
+          if (this.newUploadedImage && this.pictrueList.list.length > 0) {
+            const newImage = this.pictrueList.list.find(item => 
+              item.attId === this.newUploadedImage.attId || 
+              item.sattDir === this.newUploadedImage.sattDir
+            );
+            if (newImage) {
+              this.$set(newImage, 'isSelect', true);
+              this.checkPicList = [newImage];
+              this.ids = [newImage.attId];
+              newImage.num = 1;
+              // 如果是单选模式，直接返回选中的图片
+              if (this.isMore === '1') {
+                this.$emit('getImage', [newImage]);
+              }
+            }
+            this.newUploadedImage = null; // 清除标记
+          }
+          
           if (this.pictrueList.list.length) {
             this.isShowPic = false;
           } else {
             this.isShowPic = true;
           }
           this.pictrueList.total = res.total;
-          this.checkPicList = [];
+          if (!this.newUploadedImage) {
+            this.checkPicList = [];
+          }
           this.loadingPic = false;
         })
         .catch(() => {
@@ -879,6 +920,33 @@ export default {
   position: absolute;
   right: 20px;
   top: 0;
+}
+
+/* 主要操作按钮区域样式 */
+.main-actions {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.main-actions .el-button {
+  font-weight: 500;
+}
+
+.main-actions .el-button--success {
+  background: linear-gradient(135deg, #67c23a 0%, #85ce61 100%);
+  border: none;
+  box-shadow: 0 2px 4px rgba(103, 194, 58, 0.3);
+}
+
+.main-actions .el-button--success:hover {
+  background: linear-gradient(135deg, #85ce61 0%, #67c23a 100%);
+  box-shadow: 0 4px 8px rgba(103, 194, 58, 0.4);
+}
+
+.inline-upload {
+  display: inline-block;
 }
 </style>
 

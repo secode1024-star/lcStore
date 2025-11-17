@@ -7,7 +7,7 @@
       type="primary"
       @click="modalPicTap('2')"
     >
-      upload</el-button
+      插入图片或视频</el-button
     >
   </div>
 </template>

@@ -96,10 +96,10 @@ export default {
           flag: '🇹🇭'
         },
         {
-          code: 'lao',
-          name: 'ລາວ',
-          nativeName: 'ພາສາລາວ',
-          flag: '🇱🇦'
+          code: 'ru',
+          name: 'Русский',
+          nativeName: 'Русский язык',
+          flag: '🇷🇺'
         },
         {
           code: 'ko',

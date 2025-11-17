@@ -49,20 +49,30 @@ public class ProductController {
 
     /**
      * 商品列表
+     * @param request 商品请求参数
+     * @param pageParamRequest 分页参数
+     * @param language 目标语言代码（可选，如：en, fr, th, lo, jp, kor, ara等），不传或zh-CN则返回中文原文
      */
     @ApiOperation(value = "商品列表")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public CommonResult<PageInfo<IndexProductResponse>> getList(@Validated ProductRequest request, @Validated PageParamRequest pageParamRequest) {
-        return CommonResult.success(productService.getList(request, pageParamRequest));
+    public CommonResult<PageInfo<IndexProductResponse>> getList(
+            @Validated ProductRequest request, 
+            @Validated PageParamRequest pageParamRequest,
+            @RequestParam(value = "language", required = false) String language) {
+        return CommonResult.success(productService.getList(request, pageParamRequest, language));
     }
 
     /**
      * 商品详情
+     * @param id 商品ID
+     * @param language 目标语言代码（可选，如：en, fr, th, lo, jp, kor, ara等），不传或zh-CN则返回中文原文
      */
     @ApiOperation(value = "商品详情")
     @RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
-    public CommonResult<ProductDetailResponse> getDetail(@PathVariable Integer id) {
-        return CommonResult.success(productService.getDetail(id));
+    public CommonResult<ProductDetailResponse> getDetail(
+            @PathVariable Integer id,
+            @RequestParam(value = "language", required = false) String language) {
+        return CommonResult.success(productService.getDetail(id, language));
     }
 
     /**

@@ -113,17 +113,8 @@ export default {
           return;
         }
 
-        // 方案2：调用翻译API
-        const apiTranslation = await this.getFromTranslationAPI(locale);
-        if (apiTranslation) {
-          this.translatedText = apiTranslation;
-          this.saveToLocalCache(apiTranslation);
-          // 可选：将翻译结果保存到数据库
-          this.saveToDatabase(locale, apiTranslation);
-        } else {
-          // 翻译失败，使用原文
-          this.translatedText = this.originalText;
-        }
+        // 如果数据库没有翻译，直接使用原文（不调用翻译API）
+        this.translatedText = this.originalText;
       } catch (error) {
         console.error('翻译失败:', error);
         this.translatedText = this.originalText;
@@ -237,3 +228,4 @@ export default {
   transition: opacity 0.3s ease;
 }
 </style>
+

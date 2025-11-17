@@ -53,6 +53,8 @@ public class ProductCategoryServiceImpl extends ServiceImpl<ProductCategoryDao, 
     private StoreProductService productService;
     @Autowired
     private ProductBrandCategoryService productBrandCategoryService;
+    @Autowired
+    private com.zbkj.service.service.TranslationService translationService;
 
     /**
      * 获取分类列表
@@ -213,6 +215,25 @@ public class ProductCategoryServiceImpl extends ServiceImpl<ProductCategoryDao, 
         List<ProCategoryCacheVo> voList = categoryList.stream().map(e -> {
             ProCategoryCacheVo cacheVo = new ProCategoryCacheVo();
             BeanUtils.copyProperties(e, cacheVo);
+            
+            // 添加翻译数据
+            try {
+                cacheVo.setNameEn(translationService.getCachedTranslation("category", e.getId(), "name", "en", e.getName(), null));
+                cacheVo.setNameFr(translationService.getCachedTranslation("category", e.getId(), "name", "fr", e.getName(), null));
+                cacheVo.setNameTh(translationService.getCachedTranslation("category", e.getId(), "name", "th", e.getName(), null));
+                cacheVo.setNameKo(translationService.getCachedTranslation("category", e.getId(), "name", "ko", e.getName(), null));
+                cacheVo.setNameJa(translationService.getCachedTranslation("category", e.getId(), "name", "ja", e.getName(), null));
+                cacheVo.setNameAr(translationService.getCachedTranslation("category", e.getId(), "name", "ar", e.getName(), null));
+            } catch (Exception ex) {
+                // 翻译失败时使用原名称
+                cacheVo.setNameEn(e.getName());
+                cacheVo.setNameFr(e.getName());
+                cacheVo.setNameTh(e.getName());
+                cacheVo.setNameKo(e.getName());
+                cacheVo.setNameJa(e.getName());
+                cacheVo.setNameAr(e.getName());
+            }
+            
             return cacheVo;
         }).collect(Collectors.toList());
         ProCategoryCacheTree categoryTree = new ProCategoryCacheTree(voList);
@@ -241,6 +262,29 @@ public class ProductCategoryServiceImpl extends ServiceImpl<ProductCategoryDao, 
         List<ProCategoryCacheVo> voList = categoryList.stream().map(e -> {
             ProCategoryCacheVo cacheVo = new ProCategoryCacheVo();
             BeanUtils.copyProperties(e, cacheVo);
+            
+            // 添加翻译数据（仅从数据库查询，不调用API）
+            if (translationService != null) {
+                try {
+                    String nameEn = translationService.getCachedTranslation("category", e.getId(), "name", "en", e.getName(), null);
+                    String nameFr = translationService.getCachedTranslation("category", e.getId(), "name", "fr", e.getName(), null);
+                    String nameTh = translationService.getCachedTranslation("category", e.getId(), "name", "th", e.getName(), null);
+                    String nameKo = translationService.getCachedTranslation("category", e.getId(), "name", "ko", e.getName(), null);
+                    String nameJa = translationService.getCachedTranslation("category", e.getId(), "name", "ja", e.getName(), null);
+                    String nameAr = translationService.getCachedTranslation("category", e.getId(), "name", "ar", e.getName(), null);
+                    
+                    // 如果查询到翻译且不是原文，则设置；否则设置为null（前端会显示原名称）
+                    cacheVo.setNameEn(nameEn != null && !nameEn.equals(e.getName()) ? nameEn : null);
+                    cacheVo.setNameFr(nameFr != null && !nameFr.equals(e.getName()) ? nameFr : null);
+                    cacheVo.setNameTh(nameTh != null && !nameTh.equals(e.getName()) ? nameTh : null);
+                    cacheVo.setNameKo(nameKo != null && !nameKo.equals(e.getName()) ? nameKo : null);
+                    cacheVo.setNameJa(nameJa != null && !nameJa.equals(e.getName()) ? nameJa : null);
+                    cacheVo.setNameAr(nameAr != null && !nameAr.equals(e.getName()) ? nameAr : null);
+                } catch (Exception ex) {
+                    // 翻译查询失败时，不设置翻译字段（保持为null）
+                }
+            }
+            
             return cacheVo;
         }).collect(Collectors.toList());
         ProCategoryCacheTree categoryTree = new ProCategoryCacheTree(voList);

@@ -26,6 +26,7 @@ import operationRouter from './modules/operation';
 import maintainRouter from './modules/maintain';
 import couponRouter from './modules/coupon';
 import applicationRouter from './modules/application';
+import translationRouter from './modules/translation';
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -72,6 +73,8 @@ export const constantRoutes = [
   couponRouter,
   // 应用功能
   applicationRouter,
+  // 翻译积分
+  translationRouter,
   {
     path: '/404',
     component: () => import('@/views/error-page/404'),

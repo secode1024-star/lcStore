@@ -14,10 +14,10 @@ import en from '@/locales/en.js'
 import zh from '@/locales/zh-CN.js'
 import fr from '@/locales/fr.js'
 import th from '@/locales/th.js'
-import lao from '@/locales/lao.js'
+import ru from '@/locales/ru.js'
 import ja from '@/locales/ja.js'
-// import ko from '@/locales/ko.js'
-// import ar from '@/locales/ar.js'
+import ko from '@/locales/ko.js'
+import ar from '@/locales/ar.js'
 Vue.use(VueI18n);
 export default ({ app, store }) => {
   // Set i18n instance on app
@@ -31,8 +31,10 @@ export default ({ app, store }) => {
       'zh-CN': zh,
       'fr': fr,
       'th': th,
-      'lao': lao,
-      'ja': ja
+      'ru': ru,
+      'ja': ja,
+      'ko': ko,
+      'ar': ar
     }
   });
   app.i18n.path = (link) => {

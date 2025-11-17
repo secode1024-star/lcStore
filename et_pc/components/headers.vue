@@ -149,13 +149,13 @@ export default {
   mixins: [],
   data() {
     return {
-      // logoUrl: '',
+      logoUrl: '',
       categoryCurrent: [],
       langList: [
         {
           name: '语言',
           current: 1,
-          intro: ['zh-CN', 'en', 'fr', 'th', 'lao', 'ko', 'ar', 'ja']
+          intro: ['zh-CN', 'en', 'fr', 'th', 'ru', 'ko', 'ar', 'ja']
         }
       ],
       menus: [],
@@ -233,7 +233,7 @@ export default {
     }
     this.getHotSearchList();
     this.$store.dispatch('getProductClassify')
-    // this.getLogoUrl()
+    this.getLogoUrl()
   },
   mounted() {
     window.addEventListener('keydown', this.keyDown);
@@ -262,20 +262,64 @@ export default {
       return menuName;
     },
     /**
-     * 根据当前语言获取分类名称
+     * 根据当前语言获取分类名称（从数据库读取）
      */
     getLocalizedName(category) {
-      const categoryKey = `category.${category.name}`;
+      if (!category || !category.name) {
+        return '';
+      }
+
+      // 如果是中文，直接返回原名称
+      if (this.$i18n.locale === 'zh-CN') {
+        return category.name;
+      }
+
+      // 根据语言返回对应的翻译字段
+      const langField = this.getLanguageField(this.$i18n.locale);
       
-      // 如果翻译不存在，返回原名称
+      if (category[langField] && category[langField].trim()) {
+        return category[langField];
+      }
+
+      // 如果没有翻译，返回原名称
       return category.name;
     },
+
+    /**
+     * 获取语言对应的字段名
+     */
+    getLanguageField(locale) {
+      const languageFields = {
+        'en': 'nameEn',
+        'fr': 'nameFr', 
+        'th': 'nameTh',
+        'ko': 'nameKo',
+        'ja': 'nameJa',
+        'ar': 'nameAr'
+      };
+      return languageFields[locale] || 'name';
+    },
+
     getLogoUrl() {
-      this.logoUrl = JSON.parse(localStorage.getItem("homeDataPc"))['logoUrl'];
+      try {
+        const homeData = localStorage.getItem("homeDataPc");
+        if (homeData) {
+          const data = JSON.parse(homeData);
+          if (data && data.logoUrl) {
+            this.logoUrl = data.logoUrl;
+          }
+        }
+      } catch (error) {
+        console.warn('获取logoUrl失败:', error);
+      }
     },
     getHomeIndex() {
       this.$axios.get("/api/pc/home/index").then(res => {
         localStorage.setItem("homeDataPc", JSON.stringify(res.data));
+        // 更新 logoUrl
+        if (res.data && res.data.logoUrl) {
+          this.logoUrl = res.data.logoUrl;
+        }
       })
     },
     carCount() {
@@ -284,14 +328,19 @@ export default {
       })
     },
     /**
-     *
      * 语言切换
      */
     languagelTab(n) {
+      console.log('切换语言:', n);
+      
       this.$i18n.locale = n;
-      this.$cookies.set('locale', n)
-      this.$store.commit('SET_LANG', n)
+      this.$cookies.set('locale', n);
+      this.$store.commit('SET_LANG', n);
+      
+      // 强制更新视图以显示新语言的内容
+      this.$forceUpdate();
     },
+
     /**
      * 获取当前语言名称
      */
@@ -301,7 +350,7 @@ export default {
         'en': 'English',
         'fr': 'Français',
         'th': 'ไทย',
-        'lao': 'ລາວ',
+        'ru': 'Русский',
         'ko': '한국어',
         'ar': 'العربية',
         'ja': '日本語'
@@ -317,7 +366,7 @@ export default {
         'en': '🇺🇸',
         'fr': '🇫🇷',
         'th': '🇹🇭',
-        'lao': '🇱🇦',
+        'ru': '🇷🇺',
         'ko': '🇰🇷',
         'ar': '🇸🇦',
         'ja': '🇯🇵'
@@ -528,7 +577,7 @@ export default {
       .nav_con {
         width: 1200px;
         height: 30px;
-        margin: 0;
+        margin: 0 auto;
         display: flex;
         justify-content: space-between;
         background: #F4F4F4;
@@ -592,7 +641,7 @@ export default {
       .header_con {
         width: 1200px;
         height: 90px;
-        margin: 0;
+        margin: 0 auto;
         display: flex;
         justify-content: flex-start;
         align-items: center;

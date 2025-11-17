@@ -19,16 +19,24 @@
             <el-button
               size="mini"
               type="primary"
-              :disabled="dataList.length > 10"
               v-if="checkPermi(['platform:product:category:add'])"
               @click="handleAddMenu({ id: 0, name: '顶层目录' })"
               >新增{{ biztype.name }}</el-button
             >
+            <el-button
+              size="mini"
+              type="success"
+              @click="handleBatchTranslate"
+              :loading="batchTranslating"
+              v-if="checkPermi(['platform:product:category:update'])"
+              style="margin-left: 10px;"
+              >{{ batchTranslating ? '翻译中...' : '批量翻译' }}</el-button
+            >
             <el-alert
               v-show="biztype.value === 1"
               class="alert_title"
-              title="平台分类必须要设置三级分类"
-              type="warning"
+              title="商户上传商品可选择一级、二级或三级分类"
+              type="info"
               effect="dark"
             >
             </el-alert>
@@ -172,6 +180,7 @@ export default {
       selectModelKeysNew: this.selectModelKeys,
       loading: false,
       constants: this.$constants,
+      batchTranslating: false, // 批量翻译状态
       treeProps: {
         label: 'name',
         children: 'child',
@@ -322,13 +331,90 @@ export default {
       const _result = selfUtil.addTreeListLabel(treeData);
       return _result;
     },
-    hideEditDialog() {
+    hideEditDialog(eventData) {
       setTimeout(() => {
         this.editDialogConfig.prent = {};
         this.editDialogConfig.type = 0;
         this.editDialogConfig.visible = false;
         this.handlerGetTreeList();
+        
+        // 如果是新增分类，自动触发翻译
+        if (eventData && eventData.action === 'create' && eventData.category) {
+          this.autoTranslateCategory(eventData.category);
+        }
       }, 200);
+    },
+    
+    // 批量翻译所有分类
+    async handleBatchTranslate() {
+      this.$modalSure('确定要翻译所有分类吗？这可能需要一些时间。').then(async () => {
+        this.batchTranslating = true;
+        try {
+          const allCategories = this.getAllCategories(this.dataList);
+          if (allCategories.length === 0) {
+            this.$message.warning('没有找到需要翻译的分类');
+            return;
+          }
+          
+          const response = await this.$http.post('/admin/translation/category/batch', {
+            categories: allCategories.map(cat => ({ id: cat.id, name: cat.name })),
+            sourceLang: 'zh-CN',
+            targetLangs: ['en', 'fr', 'th', 'ko', 'ja', 'ar'],
+            provider: 'baidu'
+          });
+          
+          // 检查响应数据结构
+          console.log('批量翻译响应:', response);
+          
+          if (response && (response.code === 200 || response.successCount !== undefined)) {
+            const successCount = response.successCount || (response.data && response.data.successCount) || allCategories.length;
+            this.$message.success(`批量翻译完成！共翻译 ${successCount} 个分类`);
+          } else {
+            this.$message.error('批量翻译失败: ' + (response.message || response.msg || '未知错误'));
+          }
+        } catch (error) {
+          console.error('批量翻译失败:', error);
+          this.$message.error('批量翻译失败: ' + (error.message || '网络错误'));
+        } finally {
+          this.batchTranslating = false;
+        }
+      }).catch(() => {});
+    },
+    
+    // 递归获取所有分类
+    getAllCategories(categories) {
+      let result = [];
+      categories.forEach(category => {
+        result.push(category);
+        if (category.children && category.children.length > 0) {
+          result = result.concat(this.getAllCategories(category.children));
+        }
+      });
+      return result;
+    },
+    
+    // 自动翻译新增的分类
+    async autoTranslateCategory(category) {
+      try {
+        console.log(`自动翻译新增分类: ${category.name} (ID: ${category.id})`);
+        const response = await this.$http.post('/admin/translation/category/single', {
+          categoryId: category.id,
+          categoryName: category.name,
+          sourceLang: 'zh-CN',
+          targetLangs: ['en', 'fr', 'th', 'ko', 'ja', 'ar'],
+          provider: 'baidu'
+        });
+        
+        console.log('单个分类翻译响应:', response);
+        
+        if (response && (response.code === 200 || response.categoryId !== undefined)) {
+          this.$message.success(`分类"${category.name}"翻译完成`);
+        } else {
+          console.warn(`分类"${category.name}"翻译失败:`, response.message || response.msg);
+        }
+      } catch (error) {
+        console.error('自动翻译失败:', error);
+      }
     },
     handleSelectionChange(d1, { checkedNodes, checkedKeys, halfCheckedNodes, halfCheckedKeys }) {
       this.multipleSelection = checkedKeys;

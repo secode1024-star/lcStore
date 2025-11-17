@@ -1,0 +1,1944 @@
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:08:19.746",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.c.l.ClasspathLoggingApplicationListener",
+                    "message": "Application started with classpath: [jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/classes!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/crmeb-service-0.0.1-SNAPSHOT.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/crmeb-common-0.0.1-SNAPSHOT.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/javax.servlet-api-4.0.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jstl-1.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/tomcat-embed-jasper-9.0.33.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/tomcat-embed-core-9.0.33.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/tomcat-annotations-api-9.0.33.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/tomcat-embed-el-9.0.33.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/ecj-3.18.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/tomcat-jsp-api-9.0.33.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/tomcat-el-api-9.0.33.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/tomcat-servlet-api-9.0.33.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/fastjson-2.0.38.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/fastjson2-extension-2.0.38.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/fastjson2-2.0.38.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/druid-1.1.20.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/mysql-connector-j-8.0.33.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/protobuf-java-3.21.9.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/lombok-1.18.12.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/mybatis-plus-boot-starter-3.3.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-starter-jdbc-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/HikariCP-3.4.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-jdbc-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-test-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-context-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-test-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-core-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-jcl-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/mybatis-plus-3.3.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/mybatis-plus-extension-3.3.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/mybatis-plus-core-3.3.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/mybatis-plus-annotation-3.3.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/mybatis-3.5.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/mybatis-spring-2.0.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/mybatis-plus-generator-3.3.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/swagger-annotations-1.5.21.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/springfox-swagger2-2.9.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/springfox-spi-2.9.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/springfox-core-2.9.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/byte-buddy-1.10.8.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/springfox-schema-2.9.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/springfox-swagger-common-2.9.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/springfox-spring-web-2.9.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/classmate-1.5.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/slf4j-api-1.7.30.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-plugin-core-1.2.0.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-plugin-metadata-1.2.0.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/mapstruct-1.2.0.Final.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/swagger-models-1.5.22.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jackson-annotations-2.10.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/swagger-bootstrap-ui-1.9.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-autoconfigure-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/logback-classic-1.2.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/logback-core-1.2.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/logstash-logback-encoder-5.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jackson-databind-2.10.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-starter-web-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-starter-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-starter-logging-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/log4j-to-slf4j-2.12.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/log4j-api-2.12.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jul-to-slf4j-1.7.30.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jakarta.annotation-api-1.3.5.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/snakeyaml-1.25.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-starter-json-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jackson-datatype-jdk8-2.10.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jackson-datatype-jsr310-2.10.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jackson-module-parameter-names-2.10.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-starter-tomcat-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/tomcat-embed-websocket-9.0.33.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-starter-validation-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jakarta.validation-api-2.0.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/hibernate-validator-6.0.18.Final.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jboss-logging-3.4.1.Final.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-web-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-webmvc-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-expression-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-starter-data-redis-2.2.0.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-data-redis-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-data-keyvalue-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-tx-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-oxm-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/lettuce-core-5.2.2.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/netty-common-4.1.48.Final.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/netty-handler-4.1.48.Final.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/netty-resolver-4.1.48.Final.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/netty-buffer-4.1.48.Final.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/netty-codec-4.1.48.Final.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/netty-transport-4.1.48.Final.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/reactor-core-3.3.4.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/reactive-streams-1.0.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jedis-3.1.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/commons-pool2-2.7.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/pagehelper-spring-boot-starter-1.2.5.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/mybatis-spring-boot-starter-1.3.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/mybatis-spring-boot-autoconfigure-1.3.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/pagehelper-spring-boot-autoconfigure-1.2.5.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/pagehelper-5.1.4.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jsqlparser-1.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/validation-api-1.1.0.Final.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-data-commons-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-beans-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/hutool-all-4.5.7.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-starter-actuator-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-actuator-autoconfigure-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-actuator-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/micrometer-core-1.3.6.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/HdrHistogram-2.1.11.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/LatencyUtils-2.0.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/httpclient-4.5.6.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/httpcore-4.4.13.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/commons-logging-1.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/commons-codec-1.13.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-starter-aop-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-aop-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/aspectjweaver-1.9.5.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/commons-lang3-3.10.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/poi-3.17.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/commons-collections4-4.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/poi-ooxml-3.17.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/poi-ooxml-schemas-3.17.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/xmlbeans-2.6.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/curvesapi-1.04.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/commons-fileupload-1.3.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/commons-io-2.4.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/aliyun-sdk-oss-3.5.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jdom-1.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jettison-1.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/stax-api-1.0.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/aliyun-java-sdk-core-3.4.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/aliyun-java-sdk-ram-3.0.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/aliyun-java-sdk-sts-3.0.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/aliyun-java-sdk-ecs-4.2.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/cos_api-5.6.22.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/joda-time-2.10.5.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/bcprov-jdk15on-1.64.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/qiniu-java-sdk-7.2.28.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/okhttp-3.14.7.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/okio-1.17.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/gson-2.8.6.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/dom4j-1.6.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/xml-apis-1.0.b2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/xstream-1.4.10.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/xmlpull-1.1.3.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/xpp3_min-1.1.4c.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/httpmime-4.5.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jjwt-0.9.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jwks-rsa-0.9.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-starter-security-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-security-config-5.2.2.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-security-core-5.2.2.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-security-web-5.2.2.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-starter-mail-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-context-support-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jakarta.mail-1.6.5.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jakarta.activation-1.2.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/checkout-sdk-1.0.4.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/paypalhttp-1.0.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/dysmsapi20170525-2.0.8.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/tea-util-0.2.13.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/endpoint-util-0.0.6.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/tea-1.1.14.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/org.jacoco.agent-0.8.4-runtime.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/tea-openapi-0.1.6.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/credentials-java-0.2.4.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/ini4j-0.5.4.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jaxb-api-2.3.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/javax.activation-api-1.2.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jaxb-core-2.3.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jaxb-impl-2.3.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/openapiutil-0.1.13.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/sdk-core-java-1.1.7.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/juniversalchardet-1.0.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/plexus-digest-1.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/plexus-container-default-1.0-alpha-8.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/plexus-utils-1.0.4.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/classworlds-1.1-alpha-2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/stripe-java-20.124.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/weixin-java-pay-4.5.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/weixin-java-common-4.5.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jcl-over-slf4j-1.7.30.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/dom4j-2.1.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/qrcode-utils-1.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/bcpkix-jdk15on-1.68.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jodd-http-6.2.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jodd-util-6.1.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/javase-3.3.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/core-3.3.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jcommander-1.72.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jai-imageio-core-1.4.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/google-api-client-1.30.10.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/google-oauth-client-1.31.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/google-http-client-1.35.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/opencensus-api-0.24.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/grpc-context-1.22.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/opencensus-contrib-http-util-0.24.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jsr305-3.0.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/google-http-client-jackson2-1.36.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jackson-core-2.10.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/guava-29.0-android.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/failureaccess-1.0.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/checker-compat-qual-2.5.5.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/error_prone_annotations-2.3.4.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/j2objc-annotations-1.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/twitter4j-core-4.0.7.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-jarmode-layertools-2.6.6.jar!/]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:08:19.846",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.springframework.boot.SpringApplication",
+                    "message": "Loading source class com.zbkj.front.CrmebFrontApplication" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:08:19.893",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.c.c.ConfigFileApplicationListener",
+                    "message": "Loaded config file 'jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/classes!/application.yml' (classpath:/application.yml)" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:08:19.893",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext",
+                    "message": "Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@457e2f02" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:08:21.995",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.w.e.t.TomcatServletWebServerFactory",
+                    "message": "Code archive: E:\2zynt\StoreProject2kai\CRMEB-JAVA-ET-V1.2(2025.4.25)\et_java\crmeb-front\target\Crmeb-front.jar" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:08:21.996",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.w.e.t.TomcatServletWebServerFactory",
+                    "message": "Code archive: E:\2zynt\StoreProject2kai\CRMEB-JAVA-ET-V1.2(2025.4.25)\et_java\crmeb-front\target\Crmeb-front.jar" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:08:21.997",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.w.e.t.TomcatServletWebServerFactory",
+                    "message": "None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored." }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:08:22.463",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.web.context.ContextLoader",
+                    "message": "Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:08:22.886",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.w.s.ServletContextInitializerBeans",
+                    "message": "Mapping filters: filterRegistrationBean urls=[/*] order=-2147483647, springSecurityFilterChain urls=[/*] order=-100, filterRegistrationBean urls=[/*] order=2147483647, filterRegistrationBean urls=[/*] order=2147483647, characterEncodingFilter urls=[/*] order=-2147483648, formContentFilter urls=[/*] order=-9900, requestContextFilter urls=[/*] order=-105, corsFilter urls=[/*] order=2147483647" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:08:22.887",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.w.s.ServletContextInitializerBeans",
+                    "message": "Mapping servlets: statViewServlet urls=[/druid/*], dispatcherServlet urls=[/]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:08:22.911",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.a.m.w.servlet.WebMvcMetricsFilter",
+                    "message": "Filter 'webMvcMetricsFilter' configured for use" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:08:22.912",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.w.s.f.OrderedRequestContextFilter",
+                    "message": "Filter 'requestContextFilter' configured for use" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:08:22.913",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.springframework.web.filter.CorsFilter",
+                    "message": "Filter 'corsFilter' configured for use" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:08:22.914",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.w.s.f.OrderedCharacterEncodingFilter",
+                    "message": "Filter 'characterEncodingFilter' configured for use" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:08:22.914",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.w.s.DelegatingFilterProxyRegistrationBean$1",
+                    "message": "Filter 'springSecurityFilterChain' configured for use" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:08:22.915",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.w.s.f.OrderedFormContentFilter",
+                    "message": "Filter 'formContentFilter' configured for use" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:08:28.471",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.w.s.m.m.a.RequestMappingHandlerMapping",
+                    "message": "159 mappings in 'requestMappingHandlerMapping'" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:08:28.837",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.w.s.m.m.a.RequestMappingHandlerAdapter",
+                    "message": "ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:08:28.915",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.w.s.handler.SimpleUrlHandlerMapping",
+                    "message": "Patterns [/webjars/**, /**, /doc.html, /crmebimage/**, /uploadf/**] in 'resourceHandlerMapping'" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:08:28.931",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver",
+                    "message": "ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:11:31.921",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-1",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Detected StandardServletMultipartResolver" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:11:31.921",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-1",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Detected I18nLocaleResolver" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:11:31.926",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-1",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:11:31.953",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-5",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:11:31.953",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-6",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:11:31.953",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-2",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:11:31.953",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-3",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:11:31.953",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-1",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:11:31.953",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-4",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:11:31.990",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-8",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:11:31.990",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-12",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:11:31.990",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-10",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:11:31.990",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-9",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:11:31.990",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-7",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:00.700",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-16",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:00.700",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-15",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:00.700",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-13",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:00.700",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-11",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:00.700",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-14",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:00.701",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-17",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:00.738",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-19",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:00.738",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-20",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:00.738",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-18",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:00.738",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-21",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:00.738",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-22",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:07.047",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-23",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:07.054",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-24",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:07.055",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-26",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:07.054",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-25",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:07.054",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-27",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:07.055",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-28",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:07.075",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-29",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:07.075",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-6",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:07.077",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-30",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:07.076",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-5",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:07.078",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-1",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:14.088",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-4",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:14.089",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-9",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:14.089",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-2",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:14.089",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-3",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:14.090",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-8",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:14.090",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-10",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:14.121",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-15",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:14.121",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-7",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:14.121",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-16",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:14.121",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-12",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:12:14.121",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-13",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:13:55.717",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-21",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:13:55.718",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-22",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:13:55.722",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-25",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:13:55.722",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-23",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:13:55.722",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-24",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:13:55.722",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-26",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:14:00.790",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-27",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "GET "/api/v1/static/upload/2025/10/30/enterprise_scene_2_20251030164326A573.jpg", parameters={}" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:14:00.790",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-28",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "GET "/api/v1/static/upload/2025/10/30/credit_archive_lunbo_0_20251030164319A275.jpg", parameters={}" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:14:00.790",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-29",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "GET "/api/v1/static/upload/2025/10/30/credit_archive_lunbo_1_20251030164310A265.jpg", parameters={}" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.179",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-28",
+                    "class": "o.s.w.s.handler.SimpleUrlHandlerMapping",
+                    "message": "Mapped to ResourceHttpRequestHandler ["classpath:/static/"]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.179",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-29",
+                    "class": "o.s.w.s.handler.SimpleUrlHandlerMapping",
+                    "message": "Mapped to ResourceHttpRequestHandler ["classpath:/static/"]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.179",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-27",
+                    "class": "o.s.w.s.handler.SimpleUrlHandlerMapping",
+                    "message": "Mapped to ResourceHttpRequestHandler ["classpath:/static/"]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.182",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-28",
+                    "class": "o.s.w.s.r.ResourceHttpRequestHandler",
+                    "message": "Resource not found" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.182",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-29",
+                    "class": "o.s.w.s.r.ResourceHttpRequestHandler",
+                    "message": "Resource not found" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.186",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-27",
+                    "class": "o.s.w.s.r.ResourceHttpRequestHandler",
+                    "message": "Resource not found" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.187",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-29",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Completed 404 NOT_FOUND" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.187",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-28",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Completed 404 NOT_FOUND" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.187",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-27",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Completed 404 NOT_FOUND" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.191",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-28",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": ""ERROR" dispatch for GET "/error", parameters={}" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.191",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-29",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": ""ERROR" dispatch for GET "/error", parameters={}" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.193",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-27",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": ""ERROR" dispatch for GET "/error", parameters={}" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.201",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-28",
+                    "class": "o.s.w.s.m.m.a.RequestMappingHandlerMapping",
+                    "message": "Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.201",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-29",
+                    "class": "o.s.w.s.m.m.a.RequestMappingHandlerMapping",
+                    "message": "Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.201",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-27",
+                    "class": "o.s.w.s.m.m.a.RequestMappingHandlerMapping",
+                    "message": "Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.219",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-27",
+                    "class": "o.s.w.s.m.m.a.HttpEntityMethodProcessor",
+                    "message": "Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json, application/json, application/*+json]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.219",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-29",
+                    "class": "o.s.w.s.m.m.a.HttpEntityMethodProcessor",
+                    "message": "Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json, application/json, application/*+json]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.219",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-28",
+                    "class": "o.s.w.s.m.m.a.HttpEntityMethodProcessor",
+                    "message": "Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json, application/json, application/*+json]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.220",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-27",
+                    "class": "o.s.w.s.m.m.a.HttpEntityMethodProcessor",
+                    "message": "Writing [{timestamp=Wed Nov 05 10:16:16 CST 2025, status=404, error=Not Found, message=No message available,  (truncated)...]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.221",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-29",
+                    "class": "o.s.w.s.m.m.a.HttpEntityMethodProcessor",
+                    "message": "Writing [{timestamp=Wed Nov 05 10:16:16 CST 2025, status=404, error=Not Found, message=No message available,  (truncated)...]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.232",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-28",
+                    "class": "o.s.w.s.m.m.a.HttpEntityMethodProcessor",
+                    "message": "Writing [{timestamp=Wed Nov 05 10:16:16 CST 2025, status=404, error=Not Found, message=No message available,  (truncated)...]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.246",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-27",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Exiting from "ERROR" dispatch, status 404" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.246",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-29",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Exiting from "ERROR" dispatch, status 404" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.246",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-28",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Exiting from "ERROR" dispatch, status 404" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.298",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-4",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "GET "/api/v1/static/upload/2025/11/01/0_20251101111908A554.png", parameters={}" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.299",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-4",
+                    "class": "o.s.w.s.handler.SimpleUrlHandlerMapping",
+                    "message": "Mapped to ResourceHttpRequestHandler ["classpath:/static/"]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.300",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-4",
+                    "class": "o.s.w.s.r.ResourceHttpRequestHandler",
+                    "message": "Resource not found" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.303",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-4",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Completed 404 NOT_FOUND" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.303",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-4",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": ""ERROR" dispatch for GET "/error", parameters={}" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.304",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-4",
+                    "class": "o.s.w.s.m.m.a.RequestMappingHandlerMapping",
+                    "message": "Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.305",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-4",
+                    "class": "o.s.w.s.m.m.a.HttpEntityMethodProcessor",
+                    "message": "Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json, application/json, application/*+json]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.305",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-4",
+                    "class": "o.s.w.s.m.m.a.HttpEntityMethodProcessor",
+                    "message": "Writing [{timestamp=Wed Nov 05 10:16:16 CST 2025, status=404, error=Not Found, message=No message available,  (truncated)...]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:16.307",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-4",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Exiting from "ERROR" dispatch, status 404" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:48.727",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-15",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:48.727",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-8",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:48.727",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-10",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:48.727",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-16",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:48.727",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-3",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:48.727",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-9",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:48.759",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-13",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:48.759",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-12",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:48.759",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-17",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:48.759",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-7",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:16:48.760",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-18",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:17:19.022",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-19",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:17:19.022",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-14",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:17:19.024",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-20",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:17:19.029",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-6",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:17:19.029",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-11",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:17:19.031",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-21",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:17:19.106",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-23",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:17:19.106",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-25",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:17:19.109",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-24",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:17:19.110",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-26",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:17:19.110",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-22",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:21:11.485",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-4",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:21:11.485",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-2",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:21:11.485",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-15",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:21:11.486",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-4",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:21:11.488",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-10",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:21:11.489",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-16",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:21:11.556",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-9",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:21:11.556",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-3",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:21:11.558",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-13",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:21:11.561",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-12",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:21:11.565",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-17",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:21:30.711",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-7",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:21:30.711",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-18",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:21:30.711",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-19",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:21:30.716",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-19",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:21:30.716",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-14",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:21:30.717",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-20",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:21:30.742",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-21",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:21:30.742",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-11",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:21:30.742",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-25",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:21:30.743",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-24",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:21:30.744",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-23",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:22:18.968",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-26",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:22:18.969",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-22",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:22:18.969",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-28",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:22:18.970",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-29",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:22:18.972",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-27",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:22:18.973",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-1",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:22:19.032",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-30",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:22:19.032",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-5",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:22:19.035",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-15",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:22:19.035",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-8",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:22:19.035",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-2",
+                    "class": "o.s.web.cors.DefaultCorsProcessor",
+                    "message": "Reject: 'http://192.168.32.1:8000' origin is not allowed" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:30:35.456",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-13",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "GET "/api/front/merchant/street", parameters={}" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:30:35.457",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-13",
+                    "class": "o.s.w.s.m.m.a.RequestMappingHandlerMapping",
+                    "message": "Mapped to com.zbkj.front.controller.MerchantController#getStreet(PageParamRequest)" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:30:35.838",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-13",
+                    "class": "o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor",
+                    "message": "Using 'application/json;q=0.8', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.7, */*;q=0.8] and supported [application/json, application/*+json, application/json, application/*+json]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:30:35.839",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-13",
+                    "class": "o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor",
+                    "message": "Writing [com.zbkj.common.response.CommonResult@5061c6dc]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:30:35.845",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-13",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Completed 200 OK" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:30:35.896",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-12",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "GET "/favicon.ico", parameters={}" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:30:35.908",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-12",
+                    "class": "o.s.w.s.handler.SimpleUrlHandlerMapping",
+                    "message": "Mapped to ResourceHttpRequestHandler ["classpath:/static/"]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:30:35.909",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-12",
+                    "class": "o.s.w.s.r.ResourceHttpRequestHandler",
+                    "message": "Resource not found" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:30:35.910",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-12",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Completed 404 NOT_FOUND" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:30:35.911",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-12",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": ""ERROR" dispatch for GET "/error", parameters={}" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:30:35.912",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-12",
+                    "class": "o.s.w.s.m.m.a.RequestMappingHandlerMapping",
+                    "message": "Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:30:35.913",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-12",
+                    "class": "o.s.w.s.m.m.a.HttpEntityMethodProcessor",
+                    "message": "Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json, application/json, application/*+json]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:30:35.913",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-12",
+                    "class": "o.s.w.s.m.m.a.HttpEntityMethodProcessor",
+                    "message": "Writing [{timestamp=Wed Nov 05 10:30:35 CST 2025, status=404, error=Not Found, message=No message available,  (truncated)...]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:30:35.913",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-12",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Exiting from "ERROR" dispatch, status 404" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:30:41.664",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-17",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "GET "/", parameters={}" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:30:41.666",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-17",
+                    "class": "o.s.w.s.handler.SimpleUrlHandlerMapping",
+                    "message": "Mapped to ResourceHttpRequestHandler ["classpath:/static/"]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:30:41.666",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-17",
+                    "class": "o.s.w.s.r.ResourceHttpRequestHandler",
+                    "message": "Resource not found" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:30:41.667",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-17",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Completed 404 NOT_FOUND" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:30:41.667",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-17",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": ""ERROR" dispatch for GET "/error", parameters={}" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:30:41.668",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-17",
+                    "class": "o.s.w.s.m.m.a.RequestMappingHandlerMapping",
+                    "message": "Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#errorHtml(HttpServletRequest, HttpServletResponse)" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:30:41.695",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-17",
+                    "class": "o.s.w.s.v.ContentNegotiatingViewResolver",
+                    "message": "Selected 'text/html' given [text/html, text/html;q=0.8]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:30:41.697",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-17",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Exiting from "ERROR" dispatch, status 404" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:32.287",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.c.l.ClasspathLoggingApplicationListener",
+                    "message": "Application started with classpath: [jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/classes!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/crmeb-service-0.0.1-SNAPSHOT.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/crmeb-common-0.0.1-SNAPSHOT.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/javax.servlet-api-4.0.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jstl-1.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/tomcat-embed-jasper-9.0.33.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/tomcat-embed-core-9.0.33.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/tomcat-annotations-api-9.0.33.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/tomcat-embed-el-9.0.33.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/ecj-3.18.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/tomcat-jsp-api-9.0.33.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/tomcat-el-api-9.0.33.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/tomcat-servlet-api-9.0.33.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/fastjson-2.0.38.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/fastjson2-extension-2.0.38.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/fastjson2-2.0.38.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/druid-1.1.20.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/mysql-connector-j-8.0.33.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/protobuf-java-3.21.9.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/lombok-1.18.12.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/mybatis-plus-boot-starter-3.3.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-starter-jdbc-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/HikariCP-3.4.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-jdbc-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-test-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-context-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-test-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-core-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-jcl-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/mybatis-plus-3.3.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/mybatis-plus-extension-3.3.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/mybatis-plus-core-3.3.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/mybatis-plus-annotation-3.3.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/mybatis-3.5.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/mybatis-spring-2.0.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/mybatis-plus-generator-3.3.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/swagger-annotations-1.5.21.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/springfox-swagger2-2.9.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/springfox-spi-2.9.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/springfox-core-2.9.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/byte-buddy-1.10.8.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/springfox-schema-2.9.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/springfox-swagger-common-2.9.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/springfox-spring-web-2.9.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/classmate-1.5.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/slf4j-api-1.7.30.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-plugin-core-1.2.0.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-plugin-metadata-1.2.0.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/mapstruct-1.2.0.Final.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/swagger-models-1.5.22.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jackson-annotations-2.10.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/swagger-bootstrap-ui-1.9.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-autoconfigure-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/logback-classic-1.2.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/logback-core-1.2.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/logstash-logback-encoder-5.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jackson-databind-2.10.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-starter-web-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-starter-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-starter-logging-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/log4j-to-slf4j-2.12.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/log4j-api-2.12.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jul-to-slf4j-1.7.30.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jakarta.annotation-api-1.3.5.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/snakeyaml-1.25.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-starter-json-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jackson-datatype-jdk8-2.10.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jackson-datatype-jsr310-2.10.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jackson-module-parameter-names-2.10.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-starter-tomcat-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/tomcat-embed-websocket-9.0.33.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-starter-validation-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jakarta.validation-api-2.0.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/hibernate-validator-6.0.18.Final.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jboss-logging-3.4.1.Final.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-web-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-webmvc-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-expression-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-starter-data-redis-2.2.0.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-data-redis-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-data-keyvalue-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-tx-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-oxm-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/lettuce-core-5.2.2.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/netty-common-4.1.48.Final.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/netty-handler-4.1.48.Final.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/netty-resolver-4.1.48.Final.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/netty-buffer-4.1.48.Final.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/netty-codec-4.1.48.Final.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/netty-transport-4.1.48.Final.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/reactor-core-3.3.4.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/reactive-streams-1.0.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jedis-3.1.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/commons-pool2-2.7.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/pagehelper-spring-boot-starter-1.2.5.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/mybatis-spring-boot-starter-1.3.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/mybatis-spring-boot-autoconfigure-1.3.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/pagehelper-spring-boot-autoconfigure-1.2.5.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/pagehelper-5.1.4.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jsqlparser-1.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/validation-api-1.1.0.Final.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-data-commons-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-beans-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/hutool-all-4.5.7.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-starter-actuator-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-actuator-autoconfigure-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-actuator-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/micrometer-core-1.3.6.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/HdrHistogram-2.1.11.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/LatencyUtils-2.0.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/httpclient-4.5.6.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/httpcore-4.4.13.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/commons-logging-1.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/commons-codec-1.13.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-starter-aop-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-aop-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/aspectjweaver-1.9.5.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/commons-lang3-3.10.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/poi-3.17.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/commons-collections4-4.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/poi-ooxml-3.17.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/poi-ooxml-schemas-3.17.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/xmlbeans-2.6.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/curvesapi-1.04.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/commons-fileupload-1.3.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/commons-io-2.4.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/aliyun-sdk-oss-3.5.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jdom-1.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jettison-1.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/stax-api-1.0.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/aliyun-java-sdk-core-3.4.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/aliyun-java-sdk-ram-3.0.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/aliyun-java-sdk-sts-3.0.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/aliyun-java-sdk-ecs-4.2.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/cos_api-5.6.22.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/joda-time-2.10.5.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/bcprov-jdk15on-1.64.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/qiniu-java-sdk-7.2.28.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/okhttp-3.14.7.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/okio-1.17.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/gson-2.8.6.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/dom4j-1.6.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/xml-apis-1.0.b2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/xstream-1.4.10.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/xmlpull-1.1.3.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/xpp3_min-1.1.4c.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/httpmime-4.5.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jjwt-0.9.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jwks-rsa-0.9.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-starter-security-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-security-config-5.2.2.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-security-core-5.2.2.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-security-web-5.2.2.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-starter-mail-2.2.6.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-context-support-5.2.5.RELEASE.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jakarta.mail-1.6.5.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jakarta.activation-1.2.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/checkout-sdk-1.0.4.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/paypalhttp-1.0.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/dysmsapi20170525-2.0.8.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/tea-util-0.2.13.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/endpoint-util-0.0.6.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/tea-1.1.14.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/org.jacoco.agent-0.8.4-runtime.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/tea-openapi-0.1.6.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/credentials-java-0.2.4.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/ini4j-0.5.4.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jaxb-api-2.3.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/javax.activation-api-1.2.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jaxb-core-2.3.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jaxb-impl-2.3.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/openapiutil-0.1.13.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/sdk-core-java-1.1.7.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/juniversalchardet-1.0.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/plexus-digest-1.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/plexus-container-default-1.0-alpha-8.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/plexus-utils-1.0.4.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/classworlds-1.1-alpha-2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/stripe-java-20.124.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/weixin-java-pay-4.5.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/weixin-java-common-4.5.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jcl-over-slf4j-1.7.30.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/dom4j-2.1.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/qrcode-utils-1.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/bcpkix-jdk15on-1.68.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jodd-http-6.2.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jodd-util-6.1.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/javase-3.3.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/core-3.3.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jcommander-1.72.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jai-imageio-core-1.4.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/google-api-client-1.30.10.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/google-oauth-client-1.31.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/google-http-client-1.35.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/opencensus-api-0.24.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/grpc-context-1.22.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/opencensus-contrib-http-util-0.24.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jsr305-3.0.2.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/google-http-client-jackson2-1.36.0.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/jackson-core-2.10.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/guava-29.0-android.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/failureaccess-1.0.1.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/checker-compat-qual-2.5.5.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/error_prone_annotations-2.3.4.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/j2objc-annotations-1.3.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/twitter4j-core-4.0.7.jar!/, jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/lib/spring-boot-jarmode-layertools-2.6.6.jar!/]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:32.389",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.springframework.boot.SpringApplication",
+                    "message": "Loading source class com.zbkj.front.CrmebFrontApplication" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:32.436",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.c.c.ConfigFileApplicationListener",
+                    "message": "Loaded config file 'jar:file:/E:/2zynt/StoreProject2kai/CRMEB-JAVA-ET-V1.2(2025.4.25)/et_java/crmeb-front/target/Crmeb-front.jar!/BOOT-INF/classes!/application.yml' (classpath:/application.yml)" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:32.437",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext",
+                    "message": "Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@c038203" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:34.432",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.w.e.t.TomcatServletWebServerFactory",
+                    "message": "Code archive: E:\2zynt\StoreProject2kai\CRMEB-JAVA-ET-V1.2(2025.4.25)\et_java\crmeb-front\target\Crmeb-front.jar" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:34.433",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.w.e.t.TomcatServletWebServerFactory",
+                    "message": "Code archive: E:\2zynt\StoreProject2kai\CRMEB-JAVA-ET-V1.2(2025.4.25)\et_java\crmeb-front\target\Crmeb-front.jar" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:34.434",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.w.e.t.TomcatServletWebServerFactory",
+                    "message": "None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored." }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:34.887",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.web.context.ContextLoader",
+                    "message": "Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:35.308",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.w.s.ServletContextInitializerBeans",
+                    "message": "Mapping filters: filterRegistrationBean urls=[/*] order=-2147483647, springSecurityFilterChain urls=[/*] order=-100, filterRegistrationBean urls=[/*] order=2147483647, filterRegistrationBean urls=[/*] order=2147483647, characterEncodingFilter urls=[/*] order=-2147483648, formContentFilter urls=[/*] order=-9900, requestContextFilter urls=[/*] order=-105, corsFilter urls=[/*] order=2147483647" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:35.309",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.w.s.ServletContextInitializerBeans",
+                    "message": "Mapping servlets: statViewServlet urls=[/druid/*], dispatcherServlet urls=[/]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:35.335",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.a.m.w.servlet.WebMvcMetricsFilter",
+                    "message": "Filter 'webMvcMetricsFilter' configured for use" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:35.336",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.w.s.f.OrderedRequestContextFilter",
+                    "message": "Filter 'requestContextFilter' configured for use" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:35.337",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.springframework.web.filter.CorsFilter",
+                    "message": "Filter 'corsFilter' configured for use" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:35.337",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.w.s.f.OrderedCharacterEncodingFilter",
+                    "message": "Filter 'characterEncodingFilter' configured for use" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:35.337",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.w.s.DelegatingFilterProxyRegistrationBean$1",
+                    "message": "Filter 'springSecurityFilterChain' configured for use" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:35.338",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.b.w.s.f.OrderedFormContentFilter",
+                    "message": "Filter 'formContentFilter' configured for use" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:39.841",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.w.s.m.m.a.RequestMappingHandlerMapping",
+                    "message": "159 mappings in 'requestMappingHandlerMapping'" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:40.178",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.w.s.m.m.a.RequestMappingHandlerAdapter",
+                    "message": "ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:40.241",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.w.s.handler.SimpleUrlHandlerMapping",
+                    "message": "Patterns [/webjars/**, /**, /doc.html, /crmebimage/**, /uploadf/**] in 'resourceHandlerMapping'" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:40.252",
+                    "level": "DEBUG",
+                    "thread": "main",
+                    "class": "o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver",
+                    "message": "ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:47.494",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-1",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Detected StandardServletMultipartResolver" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:47.496",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-1",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Detected I18nLocaleResolver" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:47.503",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-1",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:47.521",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-1",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "GET "/", parameters={}" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:47.527",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-1",
+                    "class": "o.s.w.s.handler.SimpleUrlHandlerMapping",
+                    "message": "Mapped to ResourceHttpRequestHandler ["classpath:/static/"]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:47.530",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-1",
+                    "class": "o.s.w.s.r.ResourceHttpRequestHandler",
+                    "message": "Resource not found" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:47.530",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-1",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Completed 404 NOT_FOUND" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:47.535",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-1",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": ""ERROR" dispatch for GET "/error", parameters={}" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:47.536",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-1",
+                    "class": "o.s.w.s.m.m.a.RequestMappingHandlerMapping",
+                    "message": "Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#errorHtml(HttpServletRequest, HttpServletResponse)" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:47.569",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-1",
+                    "class": "o.s.w.s.v.ContentNegotiatingViewResolver",
+                    "message": "Selected 'text/html' given [text/html, text/html;q=0.8]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:47.573",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-1",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Exiting from "ERROR" dispatch, status 404" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:47.587",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-2",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "GET "/favicon.ico", parameters={}" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:47.600",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-2",
+                    "class": "o.s.w.s.handler.SimpleUrlHandlerMapping",
+                    "message": "Mapped to ResourceHttpRequestHandler ["classpath:/static/"]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:47.601",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-2",
+                    "class": "o.s.w.s.r.ResourceHttpRequestHandler",
+                    "message": "Resource not found" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:47.601",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-2",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Completed 404 NOT_FOUND" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:47.602",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-2",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": ""ERROR" dispatch for GET "/error", parameters={}" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:47.603",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-2",
+                    "class": "o.s.w.s.m.m.a.RequestMappingHandlerMapping",
+                    "message": "Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:47.613",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-2",
+                    "class": "o.s.w.s.m.m.a.HttpEntityMethodProcessor",
+                    "message": "Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json, application/json, application/*+json]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:47.614",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-2",
+                    "class": "o.s.w.s.m.m.a.HttpEntityMethodProcessor",
+                    "message": "Writing [{timestamp=Wed Nov 05 10:39:47 CST 2025, status=404, error=Not Found, message=No message available,  (truncated)...]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:47.627",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-2",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Exiting from "ERROR" dispatch, status 404" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:49.025",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-6",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "GET "/", parameters={}" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:49.028",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-6",
+                    "class": "o.s.w.s.handler.SimpleUrlHandlerMapping",
+                    "message": "Mapped to ResourceHttpRequestHandler ["classpath:/static/"]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:49.029",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-6",
+                    "class": "o.s.w.s.r.ResourceHttpRequestHandler",
+                    "message": "Resource not found" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:49.029",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-6",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Completed 404 NOT_FOUND" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:49.030",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-6",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": ""ERROR" dispatch for GET "/error", parameters={}" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:49.031",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-6",
+                    "class": "o.s.w.s.m.m.a.RequestMappingHandlerMapping",
+                    "message": "Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#errorHtml(HttpServletRequest, HttpServletResponse)" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:49.033",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-6",
+                    "class": "o.s.w.s.v.ContentNegotiatingViewResolver",
+                    "message": "Selected 'text/html' given [text/html, text/html;q=0.8]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:49.033",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-6",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Exiting from "ERROR" dispatch, status 404" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:49.042",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-4",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "GET "/favicon.ico", parameters={}" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:49.043",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-4",
+                    "class": "o.s.w.s.handler.SimpleUrlHandlerMapping",
+                    "message": "Mapped to ResourceHttpRequestHandler ["classpath:/static/"]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:49.044",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-4",
+                    "class": "o.s.w.s.r.ResourceHttpRequestHandler",
+                    "message": "Resource not found" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:49.044",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-4",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Completed 404 NOT_FOUND" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:49.044",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-4",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": ""ERROR" dispatch for GET "/error", parameters={}" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:49.047",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-4",
+                    "class": "o.s.w.s.m.m.a.RequestMappingHandlerMapping",
+                    "message": "Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:49.048",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-4",
+                    "class": "o.s.w.s.m.m.a.HttpEntityMethodProcessor",
+                    "message": "Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json, application/json, application/*+json]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:49.049",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-4",
+                    "class": "o.s.w.s.m.m.a.HttpEntityMethodProcessor",
+                    "message": "Writing [{timestamp=Wed Nov 05 10:39:49 CST 2025, status=404, error=Not Found, message=No message available,  (truncated)...]" }
+                    
+{
+                    "app": "Crmeb",
+                    "timestamp":"2025-11-05 10:39:49.049",
+                    "level": "DEBUG",
+                    "thread": "http-nio-8001-exec-4",
+                    "class": "o.s.web.servlet.DispatcherServlet",
+                    "message": "Exiting from "ERROR" dispatch, status 404" }
+                    

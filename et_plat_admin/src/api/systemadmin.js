@@ -208,3 +208,15 @@ export function adminAccountUpdate(pram) {
     data,
   });
 }
+
+/**
+ * 获取分类列表
+ * @param params
+ */
+export function listCategroy(params) {
+  return request({
+    url: '/admin/platform/category/list',
+    method: 'GET',
+    params,
+  });
+}

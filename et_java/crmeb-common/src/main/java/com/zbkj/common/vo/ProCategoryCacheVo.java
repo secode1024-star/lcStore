@@ -55,4 +55,23 @@ public class ProCategoryCacheVo implements Serializable {
 
     @ApiModelProperty(value = "子对象列表")
     private List<ProCategoryCacheVo> childList;
+
+    // 多语言字段
+    @ApiModelProperty(value = "英文名称")
+    private String nameEn;
+
+    @ApiModelProperty(value = "法文名称")
+    private String nameFr;
+
+    @ApiModelProperty(value = "泰文名称")
+    private String nameTh;
+
+    @ApiModelProperty(value = "韩文名称")
+    private String nameKo;
+
+    @ApiModelProperty(value = "日文名称")
+    private String nameJa;
+
+    @ApiModelProperty(value = "阿拉伯文名称")
+    private String nameAr;
 }

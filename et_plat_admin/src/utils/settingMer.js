@@ -30,3 +30,4 @@ const SettingMer = {
 };
 
 export default SettingMer;
+

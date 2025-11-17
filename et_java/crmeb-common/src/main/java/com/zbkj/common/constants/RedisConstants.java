@@ -57,4 +57,7 @@ public class RedisConstants {
 
     /** 物流公司缓存Key */
     public static final String EXPRESS_CACHE_LIST_KEY = "expressList";
+
+    /** 翻译缓存Key前缀 */
+    public static final String TRANSLATION_CACHE_PREFIX = "translation:cache:";
 }

@@ -65,6 +65,7 @@ module.exports = {
     { src: "@/plugins/vue-clipboard.js", ssr: true },
     { src: "@/plugins/filter.js", ssr: true },
     { src: "@/plugins/component.js", ssr: true },
+    { src: "@/plugins/categoryTranslation.js", ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -361,3 +362,4 @@ module.exports = {
     host: "0.0.0.0", // default: localhost
   },
 };
+

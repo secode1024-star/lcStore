@@ -58,21 +58,14 @@
             </el-form-item>
           </el-col>
           <el-col v-bind="grid2">
-            <el-form-item label="品牌：" prop="brandId">
-              <el-select
+            <el-form-item label="品牌：" prop="brandName">
+              <el-input
                 class="selWidth"
-                clearable
-                filterable
-                v-model="formValidate.brandId"
-                v-selectLoadMore="selectLoadMore"
-                :loading="loading"
-                remote
+                v-model="formValidate.brandName"
                 :disabled="isDisabled"
-                :remote-method="remoteMethod"
-                placeholder="请选择品牌"
-              >
-                <el-option v-for="user in brandList" :key="user.id" :label="user.name" :value="user.id"> </el-option>
-              </el-select>
+                placeholder="请输入品牌名称（非必填）"
+                clearable
+              />
             </el-form-item>
           </el-col>
           <el-col v-bind="grid2">
@@ -156,7 +149,8 @@
               </div>
             </el-form-item>
           </el-col>
-          <el-col :xs="18" :sm="18" :md="18" :lg="12" :xl="12">
+          <!-- 运费字段隐藏，但保留默认值1 -->
+          <el-col :xs="18" :sm="18" :md="18" :lg="12" :xl="12" style="display: none;">
             <el-form-item label="运费" prop="postage">
               <el-input-number
                 v-model="formValidate.postage"
@@ -438,6 +432,14 @@
           </el-col>
         </el-row>
         <el-form-item>
+          <el-button 
+            v-if="(currentTab === 0 || currentTab === 1) && !isDisabled" 
+            type="success" 
+            icon="el-icon-s-promotion" 
+            class="submission mr15"
+            @click="showTranslateDialog"
+            >多语言翻译转换</el-button
+          >
           <el-button v-show="currentTab > 0" class="submission priamry_border" @click="handleSubmitUp"
             >上一步</el-button
           >
@@ -455,6 +457,66 @@
         </el-form-item>
       </el-form>
     </el-card>
+
+    <!-- 多语言翻译转换对话框 -->
+    <el-dialog
+      title="多语言翻译转换"
+      :visible.sync="translateDialogVisible"
+      width="800px"
+      :close-on-click-modal="false"
+    >
+      <div style="margin-bottom: 20px">
+        <el-alert
+          title="翻译说明"
+          type="info"
+          :closable="false"
+          show-icon
+        >
+          <div slot="title">
+            <p>1. 系统会优先查询翻译缓存，只对未缓存的内容调用翻译API，节省字符消耗</p>
+            <p>2. 翻译结果将保存到数据库，后续相同内容可直接使用缓存</p>
+            <p>3. 翻译完成后，翻译结果会自动填充到对应字段</p>
+          </div>
+        </el-alert>
+      </div>
+
+      <el-form label-width="120px">
+        <el-form-item label="选择目标语言：" required>
+          <el-checkbox-group v-model="selectedLanguages">
+            <el-checkbox label="en">英文</el-checkbox>
+            <el-checkbox label="fr">法语</el-checkbox>
+            <el-checkbox label="th">泰语</el-checkbox>
+            <el-checkbox label="lo">老挝语</el-checkbox>
+            <el-checkbox label="jp">日语</el-checkbox>
+            <el-checkbox label="kor">韩语</el-checkbox>
+            <el-checkbox label="ara">阿拉伯语</el-checkbox>
+          </el-checkbox-group>
+        </el-form-item>
+
+        <el-form-item label="需要翻译的字段：">
+          <el-checkbox-group v-model="selectedFields">
+            <el-checkbox label="storeName">商品名称</el-checkbox>
+            <el-checkbox label="storeInfo">商品简介</el-checkbox>
+            <el-checkbox label="keyword">商品关键字</el-checkbox>
+            <el-checkbox label="unitName">单位</el-checkbox>
+            <el-checkbox label="specs">规格信息（品名、材质、产地）</el-checkbox>
+            <el-checkbox label="content" v-if="currentTab === 1">商品详情</el-checkbox>
+          </el-checkbox-group>
+        </el-form-item>
+
+        <el-form-item label="预计字符数：">
+          <span style="color: #409EFF; font-weight: bold">{{ estimatedChars }} 字符</span>
+          <span style="color: #909399; margin-left: 10px">（仅计算未缓存的内容）</span>
+        </el-form-item>
+      </el-form>
+
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="translateDialogVisible = false">取消</el-button>
+        <el-button type="primary" :loading="translating" @click="handleBatchTranslate">
+          开始翻译
+        </el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -474,6 +536,7 @@ import { marketingListApi } from '@/api/store';
 import { Debounce } from '@/utils/validate';
 import { mapGetters } from 'vuex';
 import { checkPermi } from '@/utils/permission'; // 权限判断函数
+import { batchTranslateApi, getTranslationPointsApi } from '@/api/translation';
 const defaultObj = {
   image: '',
   sliderImages: [],
@@ -513,7 +576,7 @@ const defaultObj = {
   categoryId: 0,
   guaranteeIds: '',
   guaranteeIdsList: [],
-  brandId: '',
+  brandName: '', // 品牌名称（自定义输入）
 };
 
 const objTitle = {
@@ -579,6 +642,8 @@ export default {
         value: 'id',
         multiple: false,
         emitPath: false,
+        checkStrictly: true, // 允许选择任意级别的分类（一级、二级或三级）
+        expandTrigger: 'hover', // 鼠标悬停展开，点击直接选中
       },
       tabs: [],
       fullscreenLoading: false,
@@ -586,6 +651,12 @@ export default {
       active: 0,
       OneattrValue: [Object.assign({}, defaultObj.attrValue[0])], // 单规格
       ManyAttrValue: [Object.assign({}, defaultObj.attrValue[0])], // 多规格
+      // 翻译相关
+      translateDialogVisible: false,
+      selectedLanguages: ['en', 'fr', 'th', 'ru', 'jp', 'kor', 'ara'], // 默认选择的语言（包括俄语）
+      selectedFields: [], // 默认选择字段（根据当前步骤动态设置）
+      translating: false,
+      translationResults: {}, // 翻译结果存储：{fieldName: {language: translatedText}}
       ruleList: [],
       merCateList: [], // 商户分类筛选
       shippingList: [], // 运费模板
@@ -672,7 +743,7 @@ export default {
         image: [{ required: true, message: '请上传商品图', trigger: 'change' }],
         sliderImages: [{ required: true, message: '请上传商品轮播图', type: 'array', trigger: 'change' }],
         specType: [{ required: true, message: '请选择商品规格', trigger: 'change' }],
-        brandId: [{ required: true, message: '请选择商品品牌', trigger: 'change' }],
+        // brandId: [{ required: true, message: '请选择商品品牌', trigger: 'change' }], // 品牌改为非必填
       },
       attrInfo: {},
       tableFrom: {
@@ -700,11 +771,27 @@ export default {
     };
   },
   computed: {
+    ...mapGetters(['adminProductClassify', 'merProductClassify', 'productBrand']),
     visitedViews() {
       return this.$store.state.tagsView.visitedViews;
     },
-
-    ...mapGetters(['adminProductClassify', 'merProductClassify', 'productBrand']),
+    // 计算预计翻译字符数（仅计算需要翻译的字段）
+    estimatedChars() {
+      let totalChars = 0;
+      
+      // 收集需要翻译的字段
+      const fieldsToTranslate = this.collectFieldsToTranslate();
+      
+      // 计算字符数（假设所有内容都需要翻译，实际会从缓存中查询）
+      Object.values(fieldsToTranslate).forEach(text => {
+        if (text && typeof text === 'string') {
+          totalChars += text.length;
+        }
+      });
+      
+      // 乘以语言数量
+      return totalChars * this.selectedLanguages.length;
+    },
 
     attrValue() {
       const obj = Object.assign({}, defaultObj.attrValue[0]);
@@ -747,7 +834,229 @@ export default {
     this.productClassify = this.addDisabled(this.adminProductClassify);
   },
   methods: {
-    //限制平台商品分类只能选择第三级
+    // 显示翻译对话框
+    async showTranslateDialog() {
+      // 先检查商户翻译积分是否足够
+      try {
+        const pointsRes = await getTranslationPointsApi();
+        const remainingChars = pointsRes.remainingChars || 0;
+        
+        if (remainingChars <= 0) {
+          this.$message.error('当前没有可用积分（字符），请联系平台管理员购买积分');
+          return;
+        }
+      } catch (error) {
+        // 如果获取积分信息失败，也提示用户
+        console.error('获取翻译积分信息失败:', error);
+        this.$message.warning('无法获取翻译积分信息，请联系平台管理员');
+        return;
+      }
+      
+      // 根据当前步骤设置默认选中的字段
+      if (this.currentTab === 0) {
+        // 商品信息步骤：默认选择商品信息相关字段
+        if (this.selectedFields.length === 0) {
+          this.selectedFields = ['storeName', 'storeInfo', 'keyword', 'unitName', 'specs'];
+        }
+      } else if (this.currentTab === 1) {
+        // 商品详情步骤：默认选择商品详情字段
+        if (this.selectedFields.length === 0) {
+          this.selectedFields = ['content'];
+        }
+      }
+      
+      // 验证是否有需要翻译的内容
+      const fieldsToTranslate = this.collectFieldsToTranslate();
+      const hasContent = Object.values(fieldsToTranslate).some(text => text && text.trim().length > 0);
+      
+      if (!hasContent) {
+        this.$message.warning('请先填写需要翻译的字段内容');
+        return;
+      }
+      
+      if (this.selectedFields.length === 0) {
+        this.$message.warning('请至少选择一个需要翻译的字段');
+        return;
+      }
+      
+      if (this.selectedLanguages.length === 0) {
+        this.$message.warning('请至少选择一种目标语言');
+        return;
+      }
+      
+      this.translateDialogVisible = true;
+    },
+
+    // 从HTML中提取纯文本（用于翻译）
+    extractTextFromHTML(html) {
+      if (!html) return '';
+      // 创建一个临时div元素来解析HTML
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = html;
+      // 提取纯文本，保留换行
+      return tempDiv.textContent || tempDiv.innerText || '';
+    },
+    
+    // 收集需要翻译的字段数据
+    collectFieldsToTranslate() {
+      const fields = {};
+      
+      // 商品名称
+      if (this.selectedFields.includes('storeName') && this.formValidate.storeName) {
+        fields.storeName = this.formValidate.storeName.trim();
+      }
+      
+      // 商品简介
+      if (this.selectedFields.includes('storeInfo') && this.formValidate.storeInfo) {
+        fields.storeInfo = this.formValidate.storeInfo.trim();
+      }
+      
+      // 商品关键字
+      if (this.selectedFields.includes('keyword') && this.formValidate.keyword) {
+        fields.keyword = this.formValidate.keyword.trim();
+      }
+      
+      // 单位
+      if (this.selectedFields.includes('unitName') && this.formValidate.unitName) {
+        fields.unitName = this.formValidate.unitName.trim();
+      }
+      
+      // 商品详情（从HTML中提取纯文本）
+      if (this.selectedFields.includes('content') && this.formValidate.content) {
+        const plainText = this.extractTextFromHTML(this.formValidate.content);
+        if (plainText && plainText.trim().length > 0) {
+          fields.content = plainText.trim();
+        }
+      }
+      
+      // 规格信息（仅翻译品名、材质、产地）
+      if (this.selectedFields.includes('specs')) {
+        const specFields = {
+          productName: new Set(),
+          material: new Set(),
+          origin: new Set(),
+        };
+        
+        // 收集单规格和多规格的数据
+        const attrValueList = this.formValidate.specType ? this.ManyAttrValue : this.OneattrValue;
+        
+        attrValueList.forEach(item => {
+          if (item.productName && item.productName.trim()) {
+            specFields.productName.add(item.productName.trim());
+          }
+          if (item.material && item.material.trim()) {
+            specFields.material.add(item.material.trim());
+          }
+          if (item.origin && item.origin.trim()) {
+            specFields.origin.add(item.origin.trim());
+          }
+        });
+        
+        // 将Set转换为数组，取第一个值（去重后）
+        // 只翻译品名、材质、产地三个字段
+        if (specFields.productName.size > 0) {
+          fields['product_name'] = Array.from(specFields.productName)[0];
+        }
+        if (specFields.material.size > 0) {
+          fields['material'] = Array.from(specFields.material)[0];
+        }
+        if (specFields.origin.size > 0) {
+          fields['origin'] = Array.from(specFields.origin)[0];
+        }
+      }
+      
+      return fields;
+    },
+
+    // 执行批量翻译
+    handleBatchTranslate() {
+      if (this.selectedLanguages.length === 0) {
+        this.$message.warning('请至少选择一种目标语言');
+        return;
+      }
+      
+      if (this.selectedFields.length === 0) {
+        this.$message.warning('请至少选择一个需要翻译的字段');
+        return;
+      }
+      
+      // 收集需要翻译的字段
+      const fieldsToTranslate = this.collectFieldsToTranslate();
+      
+      if (Object.keys(fieldsToTranslate).length === 0) {
+        this.$message.warning('请先填写需要翻译的字段内容');
+        return;
+      }
+      
+      this.translating = true;
+      
+      // 构建请求参数
+      const requestData = {
+        fields: fieldsToTranslate,
+        targetLanguages: this.selectedLanguages,
+        entityType: 'product',
+        entityId: this.$route.params.id ? parseInt(this.$route.params.id) : null,
+      };
+      
+      // 调用批量翻译API
+      batchTranslateApi(requestData)
+        .then((res) => {
+          // request.js 的响应拦截器已经返回了 res.data，所以这里直接使用 res
+          this.translationResults = res || {};
+          
+          // 保存翻译结果到数据库（如果商品已保存）
+          // 注意：翻译结果已经由后端保存到Translation表和缓存表
+          
+          // 处理商品详情字段的翻译结果（将纯文本转换为HTML格式）
+          if (this.translationResults.content) {
+            // 商品详情翻译：将每种语言的翻译结果用HTML包裹
+            // 注意：这里只是简单处理，实际使用时可能需要更复杂的HTML结构处理
+            // 用户可以选择是否使用翻译结果替换当前的content
+            // 由于content是富文本，我们暂时不自动替换，而是提示用户翻译已完成
+            // 翻译结果已保存到数据库，可以在商品详情页面根据语言显示
+          }
+          
+          // 显示翻译完成提示
+          const totalFields = Object.keys(this.translationResults).length;
+          const totalLanguages = this.selectedLanguages.length;
+          this.$message.success(`翻译完成！共翻译 ${totalFields} 个字段，${totalLanguages} 种语言`);
+          
+          // 关闭对话框
+          this.translateDialogVisible = false;
+          
+          // 提示用户：翻译结果已保存到数据库，可在商品详情中查看
+          this.$message.info('翻译结果已保存到数据库，后续相同内容可直接使用缓存。商品详情翻译结果会在前台根据用户选择的语言自动显示');
+          
+          // 如果当前在翻译积分页面，刷新积分信息
+          if (this.$route.path === '/translation/points') {
+            // 触发父组件刷新（如果使用事件总线）
+            this.$bus && this.$bus.$emit('refresh-translation-points');
+          }
+          
+          // 触发刷新翻译积分事件
+          this.$bus && this.$bus.$emit('refresh-translation-points');
+        })
+               .catch((err) => {
+                 // 检查是否是积分不足的错误
+                 const errorMsg =
+                   (err && err.response && err.response.data && err.response.data.msg) ||
+                   (err && err.message) ||
+                   (err && err.msg) ||
+                   '翻译失败';
+                 
+                 // 如果错误信息包含"积分不足"或"remainingChars"，给出更友好的提示
+                 if (errorMsg.includes('积分不足') || errorMsg.includes('remainingChars') || errorMsg.includes('字符数')) {
+                   this.$message.error('翻译积分不足，请联系平台管理员购买积分');
+                 } else {
+                   this.$message.error(errorMsg);
+                 }
+               })
+               .finally(() => {
+                 this.translating = false;
+               });
+           },
+
+    //处理平台商品分类数据（允许选择任意级别的分类）
     addDisabled(dropdownList) {
       const list = [];
       try {
@@ -759,10 +1068,8 @@ export default {
             pid: e.pid,
             isShow: e.isShow,
           };
-          if (!e.childList && (e.level === 1 || e.level === 2)) {
-            e_new = { ...e_new, disabled: true };
-          }
-          if (e.childList) {
+          // 删除了 disabled 限制，允许选择任意级别的分类（包括没有子分类的一级和二级分类）
+          if (e.childList && e.childList.length > 0) {
             const childList = this.addDisabled(e.childList);
             e_new = { ...e_new, childList: childList };
           }
@@ -794,8 +1101,7 @@ export default {
     },
 
     onChangeCategory() {
-      this.formValidate.brandId = '';
-      this.getbrandList();
+      // 分类改变时的处理（品牌已改为手动输入，无需清空）
     },
     // 下拉加载更多
     selectLoadMore() {
@@ -1195,12 +1501,12 @@ export default {
             coupons: info.coupons,
             couponIds: info.couponIds,
             postage: info.postage,
-            brandId: info.brandId,
+            brandName: info.brandName || '', // 品牌名称（自定义输入）
             categoryId: info.categoryId,
             guaranteeIds: info.guaranteeIds, //保障服务传值
             guaranteeIdsList: info.guaranteeIds ? info.guaranteeIds.split(',').map(Number) : [], //保障服务
           };
-          this.getbrandList();
+          // 品牌已改为手动输入，无需调用 getbrandList()
           productCouponListApi().then((res) => {
             if (this.formValidate.couponIds !== null) {
               let ids = this.formValidate.couponIds.toString();

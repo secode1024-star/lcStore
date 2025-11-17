@@ -109,8 +109,7 @@ public class StoreProductAddRequest implements Serializable {
     @DecimalMin(value = "0", message = "邮费不能小于0")
     private BigDecimal postage;
 
-    @ApiModelProperty(value = "品牌id", required = true)
-    @NotNull(message = "品牌id不能为空")
+    @ApiModelProperty(value = "品牌id")
     private Integer brandId;
 
     @ApiModelProperty(value = "平台分类id", required = true)
@@ -119,4 +118,10 @@ public class StoreProductAddRequest implements Serializable {
 
     @ApiModelProperty(value = "保障服务ids(英文逗号拼接)")
     private String guaranteeIds;
+
+    @ApiModelProperty(value = "是否自动翻译：true-是，false-否")
+    private Boolean autoTranslate = false;
+
+    @ApiModelProperty(value = "需要翻译的目标语言列表（逗号分隔）：en,fr,th等")
+    private String translateLanguages;
 }

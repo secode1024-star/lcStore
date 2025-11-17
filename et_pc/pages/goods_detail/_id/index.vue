@@ -120,7 +120,7 @@
                   :key="index"
                   class="acea-row size-wrapper"
                 >
-                  <div class="label">{{ item.attrName }}</div>
+                  <div class="label">{{ translateAttrName(item.attrName) }}</div>
                   <div class="acea-row list">
                     <label
                       v-for="(itm, idx) in item.attrValues.split(',')"
@@ -140,40 +140,6 @@
                         <div class="iconfont icon-xuanzhong4"></div>
                       </div>
                     </label>
-                  </div>
-                </div>
-              </div>
-              <!-- 商品属性信息 -->
-              <div v-if="attrValueSelected" class="product-specs-wrapper">
-                <div class="specs-title">商品规格信息</div>
-                <div class="specs-content">
-                  <div v-if="attrValueSelected.productName" class="spec-item">
-                    <span class="spec-label">品名：</span>
-                    <span class="spec-value">{{ attrValueSelected.productName }}</span>
-                  </div>
-                  <div v-if="attrValueSelected.material" class="spec-item">
-                    <span class="spec-label">材质(成分)：</span>
-                    <span class="spec-value">{{ attrValueSelected.material }}</span>
-                  </div>
-                  <div v-if="attrValueSelected.capacity" class="spec-item">
-                    <span class="spec-label">容量：</span>
-                    <span class="spec-value">{{ attrValueSelected.capacity }}</span>
-                  </div>
-                  <div v-if="attrValueSelected.origin" class="spec-item">
-                    <span class="spec-label">产地：</span>
-                    <span class="spec-value">{{ attrValueSelected.origin }}</span>
-                  </div>
-                  <div v-if="attrValueSelected.skuLadderPrice" class="spec-item">
-                    <span class="spec-label">SKU(阶梯价格)：</span>
-                    <span class="spec-value">{{ attrValueSelected.skuLadderPrice }}</span>
-                  </div>
-                  <div v-if="attrValueSelected.size" class="spec-item">
-                    <span class="spec-label">尺寸：</span>
-                    <span class="spec-value">{{ attrValueSelected.size }}</span>
-                  </div>
-                  <div v-if="attrValueSelected.packQuantity" class="spec-item">
-                    <span class="spec-label">装箱数量：</span>
-                    <span class="spec-value">{{ attrValueSelected.packQuantity }}</span>
                   </div>
                 </div>
               </div>
@@ -198,6 +164,50 @@
                   <span>{{$t(`page.goodsDetail.inventory`)}}：{{stock || 0}}{{productInfo.unitName || ''}}</span>
                 </div>
               </div>
+              
+              <!-- 商品规格信息 -->
+              <div class="product-specs-wrapper">
+                <div class="specs-title">{{$t('page.goodsDetail.specsInfo')}}</div>
+                <div class="specs-content">
+                  <div v-if="attrValueSelected && attrValueSelected.productName" class="spec-item">
+                    <span class="spec-label">{{$t('page.goodsDetail.productName')}}：</span>
+                    <span class="spec-value">{{ attrValueSelected.productName }}</span>
+                  </div>
+                  <div v-if="attrValueSelected && attrValueSelected.material" class="spec-item">
+                    <span class="spec-label">{{$t('page.goodsDetail.material')}}：</span>
+                    <span class="spec-value">{{ attrValueSelected.material }}</span>
+                  </div>
+                  <div v-if="attrValueSelected && attrValueSelected.capacity" class="spec-item">
+                    <span class="spec-label">{{$t('page.goodsDetail.capacity')}}：</span>
+                    <span class="spec-value">{{ attrValueSelected.capacity }}</span>
+                  </div>
+                  <div v-if="attrValueSelected && attrValueSelected.origin" class="spec-item">
+                    <span class="spec-label">{{$t('page.goodsDetail.origin')}}：</span>
+                    <span class="spec-value">{{ attrValueSelected.origin }}</span>
+                  </div>
+                  <div v-if="attrValueSelected && attrValueSelected.size" class="spec-item">
+                    <span class="spec-label">{{$t('page.goodsDetail.size')}}：</span>
+                    <span class="spec-value">{{ attrValueSelected.size }}</span>
+                  </div>
+                  <div v-if="attrValueSelected && attrValueSelected.weight" class="spec-item">
+                    <span class="spec-label">{{$t('page.goodsDetail.weight')}}：</span>
+                    <span class="spec-value">{{ attrValueSelected.weight }} KG</span>
+                  </div>
+                  <div v-if="attrValueSelected && attrValueSelected.volume" class="spec-item">
+                    <span class="spec-label">{{$t('page.goodsDetail.volume')}}：</span>
+                    <span class="spec-value">{{ attrValueSelected.volume }} m³</span>
+                  </div>
+                  <div v-if="attrValueSelected && attrValueSelected.packQuantity" class="spec-item">
+                    <span class="spec-label">{{$t('page.goodsDetail.packQuantity')}}：</span>
+                    <span class="spec-value">{{ attrValueSelected.packQuantity }}</span>
+                  </div>
+                  <div v-if="attrValueSelected && attrValueSelected.skuLadderPrice" class="spec-item">
+                    <span class="spec-label">{{$t('page.goodsDetail.skuLadderPrice')}}：</span>
+                    <span class="spec-value">{{ attrValueSelected.skuLadderPrice }}</span>
+                  </div>
+                </div>
+              </div>
+              
               <div class="button-wrapper" v-if="stock">
                 <button
                   class="btn cart"
@@ -508,12 +518,21 @@
       productAttr: {
         immediate: true,
         handler(attr) {
-          if (attr.length) {
+          if (attr && attr.length) {
             attr.forEach((value, index) => {
               this.attrSelected[index] = value.attrValues.split(',')[0];
             });
-          } else {
-            this.unique = this.productValue[""].unique
+          }
+          // 初始化 attrValueSelected（如果还没有赋值）
+          this.initializeAttrValueSelected();
+        }
+      },
+      productValue: {
+        immediate: true,
+        handler(val) {
+          // 当 productValue 数据到达时，初始化 attrValueSelected
+          if (val && Object.keys(val).length > 0) {
+            this.initializeAttrValueSelected();
           }
         }
       },
@@ -525,9 +544,8 @@
         }
       },
       attrSelected: {
-        immediate: true,
         handler(attr) {
-          if (attr.length) {
+          if (attr && attr.length) {
             let name = attr.join(),
               value = this.productValue[name];
             if (value) {
@@ -536,13 +554,19 @@
               this.unique = value.id;
               this.checkedImage = value.image
             }else{
-              this.attrValueSelected = null;
-              this.stock = 0;
-              this.unique = '';
+              // 如果匹配失败，尝试使用第一个可用的规格（兜底方案）
+              const firstKey = Object.keys(this.productValue || {})[0];
+              if (firstKey && this.productValue[firstKey]) {
+                this.attrValueSelected = this.productValue[firstKey];
+                this.stock = this.productValue[firstKey].stock;
+                this.unique = this.productValue[firstKey].id;
+                this.checkedImage = this.productValue[firstKey].image || '';
+              } else {
+                this.attrValueSelected = null;
+                this.stock = 0;
+                this.unique = '';
+              }
             }
-          }else {
-            this.stock = this.productInfo.stock;
-            this.unique = this.productValue[""].id
           }
         }
       }
@@ -550,8 +574,17 @@
     // 商品详情
     async asyncData({error, app, params, query}) {
       try {
+        // 获取当前语言（从cookie或localStorage）
+        const currentLocale = app.$cookies.get('locale') || app.$i18n.locale || 'zh-CN';
+        
+        // 构建API请求URL，添加语言参数
+        const apiUrl = `/api/front/product/detail/${params.id}`;
+        const requestParams = currentLocale && currentLocale !== 'zh-CN' 
+          ? { language: currentLocale } 
+          : {};
+        
         let [goods] = await Promise.all([
-          app.$axios.get(`/api/front/product/detail/${params.id}`)
+          app.$axios.get(apiUrl, { params: requestParams })
         ]);
         return {
           productInfo: goods.data.productInfo,
@@ -563,13 +596,11 @@
           userCollect: goods.data.userCollect,
           merId: goods.data.productInfo.merId,
           guaranteeList: goods.data.guaranteeList || [],
-
+          currentLocale: currentLocale,
         };
       } catch (e) {
         error({statusCode: 500, msg: typeof e === 'string' ? e : '系统繁忙'});
       }
-      console.log('啦啦啦啦啦啦',JSON.parse(this.productInfo.sliderImage))
-
     },
     head() {
       return {
@@ -582,6 +613,14 @@
       this.getReplyConfig();
       this.getReply(1)
     },
+    watch: {
+      // 监听语言切换，自动刷新商品详情
+      '$i18n.locale'(newLocale) {
+        if (newLocale && newLocale !== this.currentLocale) {
+          this.refreshProductDetail(newLocale);
+        }
+      }
+    },
     mounted() {
       // 检测移动设备并自动跳转到H5页面
       // ⚠️ 临时禁用：H5页面尚未部署
@@ -591,6 +630,10 @@
         this.getCartCount();
       }
       this.getMerCustomer()
+      
+      // 确保 attrValueSelected 被初始化
+      this.initializeAttrValueSelected();
+      
       this.$nextTick(() => {
         document.body.setAttribute("style", "background:#ffffff");
       });
@@ -600,6 +643,103 @@
       document.body.removeAttribute("style");
     },
     methods: {
+      /**
+       * 翻译商品规格属性名称
+       * @param {String} attrName - 属性名称（如"默认"、"颜色"、"尺寸"等）
+       * @returns {String} 翻译后的属性名称
+       */
+      translateAttrName(attrName) {
+        if (!attrName) return '';
+        
+        // 常见规格名称的翻译映射
+        const translations = {
+          '默认': this.$t('page.goodsDetail.default'),
+          '规格': this.$t('page.goodsDetail.spec') || attrName,
+          '颜色': this.$t('page.goodsDetail.color') || attrName,
+          '尺寸': this.$t('page.goodsDetail.size'),
+          '尺码': this.$t('page.goodsDetail.size'),
+          '容量': this.$t('page.goodsDetail.capacity'),
+          '材质': this.$t('page.goodsDetail.material') || attrName,
+        };
+        
+        return translations[attrName] || attrName;
+      },
+      
+      /**
+       * 初始化 attrValueSelected（选中的规格）
+       * 适用于单规格商品或多规格商品的默认值设置
+       */
+      initializeAttrValueSelected() {
+        // 如果已经有值，不重复初始化
+        if (this.attrValueSelected) {
+          return;
+        }
+
+        // 确保 productValue 存在且有数据
+        if (!this.productValue || Object.keys(this.productValue).length === 0) {
+          return;
+        }
+
+        // 尝试根据 attrSelected 匹配
+        if (this.attrSelected && this.attrSelected.length > 0) {
+          const name = this.attrSelected.join(',');
+          const matchedValue = this.productValue[name];
+          if (matchedValue) {
+            this.attrValueSelected = matchedValue;
+            this.stock = matchedValue.stock;
+            this.unique = matchedValue.id;
+            this.checkedImage = matchedValue.image || '';
+            return;
+          }
+        }
+
+        // 如果没有匹配到，使用第一个可用的规格
+        const firstKey = Object.keys(this.productValue)[0];
+        if (firstKey && this.productValue[firstKey]) {
+          this.attrValueSelected = this.productValue[firstKey];
+          this.stock = this.productValue[firstKey].stock || (this.productInfo ? this.productInfo.stock : 0);
+          this.unique = this.productValue[firstKey].id;
+          this.checkedImage = this.productValue[firstKey].image || '';
+        }
+      },
+      /**
+       * 刷新商品详情（语言切换时调用）
+       * @param {String} newLocale 新语言代码
+       */
+      async refreshProductDetail(newLocale) {
+        try {
+          const productId = this.id || this.$route.params.id;
+          if (!productId) {
+            return;
+          }
+          
+          // 构建API请求参数
+          const requestParams = newLocale && newLocale !== 'zh-CN' 
+            ? { language: newLocale } 
+            : {};
+          
+          // 调用API获取翻译后的商品详情
+          const response = await this.$axios.get(`/api/front/product/detail/${productId}`, {
+            params: requestParams
+          });
+          
+          // 更新商品信息
+          if (response.data) {
+            this.productInfo = response.data.productInfo || this.productInfo;
+            this.productAttr = response.data.productAttr || this.productAttr;
+            this.productValue = response.data.productValue || this.productValue;
+            this.currentLocale = newLocale;
+            
+            // 更新页面标题
+            if (this.productInfo && this.productInfo.storeName) {
+              document.title = this.productInfo.storeName;
+            }
+          }
+        } catch (error) {
+          console.error('刷新商品详情失败:', error);
+          // 失败时不显示错误，避免影响用户体验
+        }
+      },
       /**
        * 检测移动设备并自动跳转到H5页面
        */
@@ -2267,3 +2407,4 @@
     }
   }
 </style>
+       

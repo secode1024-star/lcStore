@@ -34,16 +34,18 @@ public interface ProductService {
      * 商品列表
      * @param request 请求参数
      * @param pageParamRequest 分页参数
+     * @param language 目标语言代码（可选，如：en, fr, th, lo, jp, kor, ara等），不传或zh-CN则返回中文原文
      * @return List
      */
-    PageInfo<IndexProductResponse> getList(ProductRequest request, PageParamRequest pageParamRequest);
+    PageInfo<IndexProductResponse> getList(ProductRequest request, PageParamRequest pageParamRequest, String language);
 
     /**
      * 获取商品详情
      * @param id 商品编号
+     * @param language 目标语言代码（可选，如：en, fr, th, lo, jp, kor, ara等），不传或zh-CN则返回中文原文
      * @return 商品详情信息
      */
-    ProductDetailResponse getDetail(Integer id);
+    ProductDetailResponse getDetail(Integer id, String language);
 
     /**
      * 获取商品SKU详情

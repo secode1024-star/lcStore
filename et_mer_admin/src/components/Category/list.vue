@@ -23,6 +23,15 @@
               v-hasPermi="['merchant:store:product:category:add']"
               >新增{{ biztype.name }}</el-button
             >
+            <el-button
+              size="mini"
+              type="success"
+              @click="handleBatchTranslate"
+              :loading="batchTranslating"
+              v-hasPermi="['merchant:store:product:category:update']"
+              style="margin-left: 10px;"
+              >{{ batchTranslating ? '翻译中...' : '批量翻译' }}</el-button
+            >
           </div>
           <el-table
             :data="dataList"
@@ -184,6 +193,7 @@ export default {
         visible: false,
       },
       defaultImg: require('@/assets/imgs/moren.jpg'),
+      batchTranslating: false, // 批量翻译状态
     };
   },
   mounted() {
@@ -251,6 +261,67 @@ export default {
         });
       });
     },
+    // 批量翻译所有分类
+    async handleBatchTranslate() {
+      this.$modalSure('确定要翻译所有分类吗？这可能需要一些时间。').then(async () => {
+        this.batchTranslating = true;
+        
+        try {
+          // 收集所有分类
+          const allCategories = this.getAllCategories(this.dataList);
+          
+          if (allCategories.length === 0) {
+            this.$message.warning('没有找到需要翻译的分类');
+            return;
+          }
+
+          console.log(`开始批量翻译 ${allCategories.length} 个分类`);
+          
+          // 调用后端批量翻译接口
+          const response = await this.$http.post('/api/admin/translation/category/batch', {
+            categories: allCategories.map(cat => ({
+              id: cat.id,
+              name: cat.name
+            })),
+            sourceLang: 'zh-CN',
+            targetLangs: ['en', 'fr', 'th', 'ko', 'ja', 'ar'],
+            provider: 'baidu'
+          });
+
+          if (response.code === 200) {
+            this.$message.success(`批量翻译完成！共翻译 ${allCategories.length} 个分类`);
+          } else {
+            this.$message.error('批量翻译失败: ' + (response.msg || '未知错误'));
+          }
+          
+        } catch (error) {
+          console.error('批量翻译失败:', error);
+          this.$message.error('批量翻译失败: ' + (error.message || '网络错误'));
+        } finally {
+          this.batchTranslating = false;
+        }
+      }).catch(() => {
+        // 用户取消
+      });
+    },
+    
+    // 递归收集所有分类
+    getAllCategories(categories) {
+      let result = [];
+      
+      categories.forEach(category => {
+        if (category && category.name) {
+          result.push(category);
+          
+          // 递归处理子分类
+          if (category.children && category.children.length > 0) {
+            result = result.concat(this.getAllCategories(category.children));
+          }
+        }
+      });
+      
+      return result;
+    },
     handlerGetList() {
       this.handlerGetTreeList();
     },
@@ -297,13 +368,43 @@ export default {
       const _result = selfUtil.addTreeListLabel(treeData);
       return _result;
     },
-    hideEditDialog() {
+    hideEditDialog(eventData) {
       setTimeout(() => {
         this.editDialogConfig.prent = {};
         this.editDialogConfig.type = 0;
         this.editDialogConfig.visible = false;
         this.handlerGetTreeList();
+        
+        // 如果是新增分类，自动触发翻译
+        if (eventData && eventData.action === 'create' && eventData.category) {
+          this.autoTranslateCategory(eventData.category);
+        }
       }, 200);
+    },
+    
+    // 自动翻译新增的分类
+    async autoTranslateCategory(category) {
+      try {
+        console.log(`自动翻译新增分类: ${category.name} (ID: ${category.id})`);
+        
+        const response = await this.$http.post('/api/admin/translation/category/single', {
+          categoryId: category.id,
+          categoryName: category.name,
+          sourceLang: 'zh-CN',
+          targetLangs: ['en', 'fr', 'th', 'ko', 'ja', 'ar'],
+          provider: 'baidu'
+        });
+
+        if (response.code === 200) {
+          this.$message.success(`分类"${category.name}"翻译完成`);
+        } else {
+          console.warn(`分类"${category.name}"翻译失败:`, response.msg);
+        }
+        
+      } catch (error) {
+        console.error('自动翻译失败:', error);
+        // 不显示错误消息，避免打扰用户
+      }
     },
     handleSelectionChange(d1, { checkedNodes, checkedKeys, halfCheckedNodes, halfCheckedKeys }) {
       // this.multipleSelection =  checkedKeys.concat(halfCheckedKeys)
