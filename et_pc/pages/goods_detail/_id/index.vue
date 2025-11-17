@@ -634,6 +634,13 @@
       // 确保 attrValueSelected 被初始化
       this.initializeAttrValueSelected();
       
+      // 监听全局语言切换事件
+      this.$nuxt.$on('language-changed', (newLocale) => {
+        if (newLocale && newLocale !== this.currentLocale) {
+          this.refreshProductDetail(newLocale);
+        }
+      });
+      
       this.$nextTick(() => {
         document.body.setAttribute("style", "background:#ffffff");
       });
@@ -641,6 +648,8 @@
     },
     beforeDestroy() {
       document.body.removeAttribute("style");
+      // 移除全局语言切换事件监听器
+      this.$nuxt.$off('language-changed');
     },
     methods: {
       /**

@@ -10,14 +10,14 @@
 					<text v-if="isCartPage(item)" class="iconfont icon-gouwuche1" :style="{color: activeColor, fontSize: iconSize + 'px'}"></text>
 					<!-- 其他使用 uni-icons -->
 					<uni-icons v-else :type="getIconType(item, true)" :color="activeColor" :size="iconSize"></uni-icons>
-					<view class="txt">{{item.name}}</view>
+					<view class="txt">{{getTranslatedName(item)}}</view>
 				</block>
 				<block v-else>
 					<!-- 购物车使用 iconfont -->
 					<text v-if="isCartPage(item)" class="iconfont icon-gouwuche" :style="{color: inactiveColor, fontSize: iconSize + 'px'}"></text>
 					<!-- 其他使用 uni-icons -->
 					<uni-icons v-else :type="getIconType(item, false)" :color="inactiveColor" :size="iconSize"></uni-icons>
-					<view class="unchecked">{{item.name}}</view>
+					<view class="unchecked">{{getTranslatedName(item)}}</view>
 				</block>
 				</view>
 			</view>
@@ -115,6 +115,20 @@
 			isCartPage(item) {
 				const link = item.link.split('?')[0];
 				return link === '/pages/order_addcart/order_addcart';
+			},
+			// 获取翻译后的导航名称
+			getTranslatedName(item) {
+				const link = item.link.split('?')[0];
+				// 根据路由映射到多语言key
+				const nameMap = {
+					'/pages/index/index': this.$t('userDrawer.data[0].name'),
+					'/pages/goods_cate/index': this.$t('userDrawer.data[2].name'), 
+					'/pages/discover_index/index': this.$t('userDrawer.data[3].name'),
+					'/pages/order_addcart/order_addcart': this.$t('userDrawer.data[4].name'),
+					'/pages/user/index': this.$t('userDrawer.data[6].name'),
+					'/pages/merchant/street/index': this.$t('page.store.street')
+				};
+				return nameMap[link] || item.name;
 			}
 		}
 	}

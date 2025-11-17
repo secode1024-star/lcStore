@@ -25,11 +25,28 @@ export function getBottomNavigationApi()
 
 /**
  * 获取主页数据 无需授权
- * 
+ * 同时通过请求头和URL参数传递语言信息
 */
 export function getIndexData()
 {
-  return request.get("index",{},{ noAuth : true});
+  const languageKey = uni.getStorageSync('locale') || 'zh';
+  return request.get("index", {
+    lang: languageKey,
+    language: languageKey
+  }, { noAuth : true});
+}
+
+/**
+ * 获取PC端首页数据（包含翻译后的分类）
+ */
+export function getPcIndexData()
+{
+  const languageKey = uni.getStorageSync('locale') || 'zh';
+  const params = {};
+  if (languageKey && languageKey !== 'zh') {
+    params.language = languageKey;
+  }
+  return request.get("../pc/home/index", params, { noAuth : true});
 }
 
 /**

@@ -57,7 +57,7 @@
 				langList: [{
 					name: '语言',
 					current: 1,
-					intro: ['zh', 'en', 'fr', 'th', 'lao']
+					intro: ['zh', 'en', 'fr', 'th', 'ru', 'ko', 'ar', 'ja']
 				}],
 				drawerNav: [{
 						icon: "icon-shouye8",
@@ -123,8 +123,24 @@
 			languagelTab(n) {
 				//  语言切换
 				this._i18n.locale = n;
-				uni.setStorageSync('locale', n)
-
+				uni.setStorageSync('locale', n);
+				
+				// 触发全局语言切换事件
+				uni.$emit('languageChanged', n);
+				console.log('语言切换事件已触发:', n);
+				
+				// 刷新当前页面以应用新语言
+				setTimeout(() => {
+					// 获取当前页面路径
+					const pages = getCurrentPages();
+					const currentPage = pages[pages.length - 1];
+					const currentRoute = '/' + currentPage.route;
+					
+					// 重新加载当前页面
+					uni.reLaunch({
+						url: currentRoute
+					});
+				}, 100);
 			},
 		}
 	}

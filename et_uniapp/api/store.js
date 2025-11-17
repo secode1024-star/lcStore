@@ -78,7 +78,6 @@ export function postCartAdd(data) {
 
 /**
  * 获取分类列表
- * 
  */
 export function getCategoryList() {
 	return request.get('product/category', {}, {

@@ -103,7 +103,7 @@
 	import WaterfallsFlow from '@/components/WaterfallsFlow/WaterfallsFlow.vue'
 	import pageFooter from "@/components/pageFooter/index.vue";
 	import {getGroomList, getActivityindexList} from '@/api/store.js';
-	import {getIndexData,setCouponReceive,} from '@/api/api.js';
+	import {getIndexData,setPcIndexData,getPcIndexData} from '@/api/api.js';
 	import Cache from "@/utils/cache.js"
 	import {mapGetters} from "vuex"; 
 	import {
@@ -157,8 +157,6 @@
 			uni.setNavigationBarTitle({
 				title: this.$t(`page.store.merInfo`)
 			})
-			// let locale = (navigator.language || navigator.browserLanguage).toLowerCase();
-			// uni.setStorageSync('locale', locale);
 			uni.setNavigationBarTitle({
 				title: this.$t(`userDrawer.data[0].name`)
 			})
@@ -200,9 +198,9 @@
 				getIndexData().then(res => {
 					that.$set(that, "logoUrl", res.data.logoUrl);
 					that.$set(that, "imgUrls", res.data.banner);
-					that.$set(that, "menuList", res.data.menus); //bastBanner
-					that.$set(that, "bastBanner", res.data.bastBanner); //bastBanner
-					that.$set(that, "categoryList", res.data.categoryList); //categoryList
+					that.$set(that, "menuList", res.data.menus);
+					that.$set(that, "bastBanner", res.data.bastBanner);
+					that.$set(that, "categoryList", res.data.categoryList);
 					that.$set(that, "rankingList", res.data.ranking);
 					that.$set(that, "indexBannerType", res.data.indexBannerType);
 					// 保存商品分类页配置
@@ -217,11 +215,11 @@
 					Cache.setItem({
 						name:'merPlatChatConfig',
 						value:{
-							consumerHotline:res.data.consumerHotline, //客服电话
-							consumerH5Url:res.data.consumerH5Url, //云智服
-							consumerMessage:res.data.consumerMessage, //基于facebook的message消息
-							consumerEmail:res.data.consumerEmail, //客服邮箱
-							consumerType:res.data.consumerType //客服类型四选一
+							consumerHotline:res.data.consumerHotline,
+							consumerH5Url:res.data.consumerH5Url,
+							consumerMessage:res.data.consumerMessage,
+							consumerEmail:res.data.consumerEmail,
+							consumerType:res.data.consumerType
 						}
 					});
 					this.skeletonShow = false;
@@ -231,7 +229,7 @@
 					return this.$util.Tips({
 						title: err
 					});
-				});;
+				});
 			},
 			// 精品推荐
 			getGroomList(onloadH) {

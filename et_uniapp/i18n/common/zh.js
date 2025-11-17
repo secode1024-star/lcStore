@@ -15,7 +15,10 @@ export default {
       {name:'英文'},
       {name:'法文'},
       {name:'泰语'},
-      {name:'老挝语'},
+      {name:'俄语'},
+      {name:'韩语'},
+      {name:'阿拉伯语'},
+      {name:'日语'},
     ]
   },
   page:{

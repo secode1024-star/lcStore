@@ -5,6 +5,9 @@ import en from './common/en.js'
 import fr from './common/fr.js'
 import th from './common/th.js'
 import ru from './common/ru.js'
+import ar from './common/ar.js'
+import ja from './common/ja.js'
+import ko from './common/ko.js'
 
 Vue.use(VueI18n)
 export default new VueI18n({
@@ -14,6 +17,9 @@ export default new VueI18n({
 		'zh': zh,
 		'fr': fr,
 		'th': th,
-		'ru': ru
+		'ru': ru,
+		'ar': ar,
+		'ja': ja,
+		'ko': ko
 	}
 })

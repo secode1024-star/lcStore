@@ -486,7 +486,7 @@
             <el-checkbox label="en">英文</el-checkbox>
             <el-checkbox label="fr">法语</el-checkbox>
             <el-checkbox label="th">泰语</el-checkbox>
-            <el-checkbox label="lo">老挝语</el-checkbox>
+            <el-checkbox label="ru">俄语</el-checkbox>
             <el-checkbox label="jp">日语</el-checkbox>
             <el-checkbox label="kor">韩语</el-checkbox>
             <el-checkbox label="ara">阿拉伯语</el-checkbox>

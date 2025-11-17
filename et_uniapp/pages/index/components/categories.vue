@@ -11,7 +11,7 @@
 				<view class="grid_item flex flex-column align-center " v-for="(item,index) in categoryList" :key="index"
 				@click="menusTap('/pages/goods_cate/index?index=' +index)">
 					<image :src="item.icon" class="tui-skeleton-circular"></image>
-					<text class="grid_item_name">{{item.name}}</text>											
+					<text class="grid_item_name">{{getTranslatedName(item)}}</text>											
 				</view>
 			</view>					 
 		</view>
@@ -22,7 +22,7 @@
 						<view class='img-box tui-skeleton-fillet'>
 							<image :src='item.icon'></image>
 						</view>
-						<view class='pro-info text-overflow-2'>{{item.name}}</view>
+						<view class='pro-info text-overflow-2'>{{getTranslatedName(item)}}</view>
 					</view>
 				</block>
 			</scroll-view>
@@ -52,6 +52,28 @@
 				uni.navigateTo({
 					url
 				})
+			},
+			getTranslatedName(item) {
+				const locale = uni.getStorageSync('locale') || 'zh';
+				// 根据当前语言返回对应的翻译名称
+				switch(locale) {
+					case 'en':
+						return item.nameEn || item.name;
+					case 'fr':
+						return item.nameFr || item.name;
+					case 'th':
+						return item.nameTh || item.name;
+					case 'ko':
+						return item.nameKo || item.name;
+					case 'ja':
+						return item.nameJa || item.name;
+					case 'ar':
+						return item.nameAr || item.name;
+					case 'ru':
+						return item.nameRu || item.name;
+					default:
+						return item.name;
+				}
 			}
 		}
 	};

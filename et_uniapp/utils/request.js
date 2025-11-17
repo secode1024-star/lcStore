@@ -21,11 +21,14 @@ import {
 import store from '../store';
 
 const language= {
-	"lao":'lo_LA',
+	"ru":'ru_RU',
 	"th":"th_TH",
 	"fr":"fr_FR",
 	"en":"en_US",
-	"zh":"zh_CN"
+	"zh":"zh_CN",
+	"ar":"ar_SA",
+	"ja":"ja_JP",
+	"ko":"ko_KR"
 }
 /**
  * 发送请求
@@ -48,8 +51,6 @@ function baseRequest(url, method, data, {
 		}
 	}
 	if (store.state.app.token) header[TOKENNAME] = store.state.app.token;
-	let languageKey = uni.getStorageSync('locale')
-	header['content-language']=languageKey?language[languageKey]:' en_US'
 	return new Promise((reslove, reject) => {
 		uni.request({
 			url: Url + '/api/front/' + url,

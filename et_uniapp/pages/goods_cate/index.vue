@@ -16,7 +16,7 @@
 					<view class='aside' :style="{bottom: tabbarH + 'px',height: height + 'rpx'}">
 						<scroll-view scroll-y="true" scroll-with-animation='true' style="height: 100%;">
 							<view class='item acea-row row-center-wrapper' :class='index==navActive?"on":""' v-for="(item,index) in categoryList"
-						 :key="index" @click='onTap(index,"b"+index)'><text class="tui-skeleton-rect line1" style="padding-left: 10rpx;">{{item.name}}</text></view>
+						 :key="index" @click='onTap(index,"b"+index)'><text class="tui-skeleton-rect line1" style="padding-left: 10rpx;">{{getTranslatedName(item)}}</text></view>
 						 </scroll-view>
 					</view>
 					<view class='conter'>
@@ -26,16 +26,16 @@
 								<view class='listw' :id="'b'+index" v-for="(item,indexs) in p.childList" :key="indexs">
 									<view class='title acea-row row-center-wrapper'>
 										<view class='line'></view>
-										<view class='name tui-skeleton-fillet'>{{item.name}}</view>
+										<view class='name tui-skeleton-fillet'>{{getTranslatedName(item)}}</view>
 										<view class='line'></view>
 									</view>
 									<view class='list acea-row'>
 										<block v-for="(itemn,indexn) in item.childList" :key="indexn">
-											<navigator hover-class='none' :url='"/pages/goods_list/index?cid="+itemn.id+"&title="+itemn.name' class='item acea-row row-column row-middle'>
+											<navigator hover-class='none' :url='"/pages/goods_list/index?cid="+itemn.id+"&title="+getTranslatedName(itemn)' class='item acea-row row-column row-middle'>
 												<view class='picture tui-skeleton-circular' :style="{'background-color':itemn.icon?'none':'#f7f7f7'}">
 													<image :src='itemn.icon'></image>
 												</view>
-												<view class='name line1'>{{itemn.name}}</view>
+												<view class='name line1'>{{getTranslatedName(itemn)}}</view>
 											</navigator>
 										</block>
 									</view>
@@ -70,7 +70,7 @@
 				
 				skeletonShow: true, //骨架屏显示隐藏
 				navlist: [],
-				categoryList: [{name:'占位占位',child:[{extra:''},{extra:''}]},{name:'占位占位',child:[{extra:''},{extra:''}]},{name:'占位占位',child:[{extra:''},{extra:''}]},{name:'占位占位'}],				
+				categoryList: [{name:'占位占位',child:[{extra:''},{extra:''}]},{name:'占位占位',child:[{extra:''},{extra:''}]},{name:'占位占位',child:[{extra:''},{extra:''}]},{name:'占位占位'}],
 				number: "",
 				height: 0,
 				hightArr: [],
@@ -185,6 +185,30 @@
 						title: this.$t('page.goodsSearch.placeSearch')
 					});
 			},
+			// 获取翻译后的分类名称
+			getTranslatedName(item) {
+				if (!item) return '';
+				const locale = uni.getStorageSync('locale') || 'zh';
+				// 根据当前语言返回对应的翻译名称
+				switch(locale) {
+					case 'en':
+						return item.nameEn || item.name;
+					case 'fr':
+						return item.nameFr || item.name;
+					case 'th':
+						return item.nameTh || item.name;
+					case 'ko':
+						return item.nameKo || item.name;
+					case 'ja':
+						return item.nameJa || item.name;
+					case 'ar':
+						return item.nameAr || item.name;
+					case 'ru':
+						return item.nameRu || item.name;
+					default:
+						return item.name;
+				}
+			}
 		}
 	}
 </script>

@@ -172,10 +172,8 @@ export default {
       // 触发确认事件
       this.$emit('confirm', this.selectedLanguage);
       
-      // 延迟刷新页面以应用新语言
-      setTimeout(() => {
-        window.location.reload();
-      }, 500);
+      // 触发全局事件通知页面语言已切换
+      this.$nuxt.$emit('language-changed', this.selectedLanguage);
     },
     
     handleSkip() {
