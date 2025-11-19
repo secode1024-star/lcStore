@@ -72,7 +72,15 @@ public class ProductController {
     public CommonResult<ProductDetailResponse> getDetail(
             @PathVariable Integer id,
             @RequestParam(value = "language", required = false) String language) {
-        return CommonResult.success(productService.getDetail(id, language));
+        try {
+            log.info("获取商品详情 - 商品ID: {}, 语言: {}", id, language);
+            ProductDetailResponse response = productService.getDetail(id, language);
+            log.info("商品详情获取成功 - 商品ID: {}", id);
+            return CommonResult.success(response);
+        } catch (Exception e) {
+            log.error("获取商品详情失败 - 商品ID: {}, 错误: {}", id, e.getMessage(), e);
+            return CommonResult.failed("获取商品详情失败: " + e.getMessage());
+        }
     }
 
     /**

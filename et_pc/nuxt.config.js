@@ -2,10 +2,16 @@ const VUE_APP_API_URL = "https://api.hqlccn.com"; //通过Nginx反向代理访�
 //const MODE = "universal"; //服务器渲染模式 (需要独立部署) 打包命令 npm run build
 const MODE = "spa"; //单页面形式渲染模式 (打包后将 dist目录覆盖到 public/pc 目录下) 打包命令: npm run generate
 
+// H5移动端配置
+const H5_URL = "/h5"; // H5版本的访问路径，可以是相对路径或完整URL，如 "https://m.hqlccn.com"
+const ENABLE_MOBILE_REDIRECT = true; // 是否启用移动端自动跳转，设置为false可禁用
+
 //(上方配置,不做独立部署无需修改)
 module.exports = {
   env: {
     BASE_URL: VUE_APP_API_URL,
+    H5_URL: H5_URL,
+    ENABLE_MOBILE_REDIRECT: ENABLE_MOBILE_REDIRECT,
   },
   mode: MODE,
   // Global page headers: https://go.nuxtjs.dev/config-head

@@ -132,10 +132,16 @@ public class ProductServiceImpl implements ProductService {
         
         // 如果提供了语言参数且不是中文，应用翻译
         if (StrUtil.isNotBlank(language) && !"zh-CN".equals(language) && translationService != null) {
-            LOGGER.info("开始翻译商品详情: productId={}, language={}, storeName={}", 
-                       storeProduct.getId(), language, storeProduct.getStoreName());
-            translateStoreProduct(storeProduct, language, storeProduct.getId(), storeProduct.getMerId());
-            LOGGER.info("翻译后商品名称: {}", storeProduct.getStoreName());
+            try {
+                LOGGER.info("开始翻译商品详情: productId={}, language={}, storeName={}", 
+                           storeProduct.getId(), language, storeProduct.getStoreName());
+                translateStoreProduct(storeProduct, language, storeProduct.getId(), storeProduct.getMerId());
+                LOGGER.info("翻译后商品名称: {}", storeProduct.getStoreName());
+            } catch (Exception e) {
+                LOGGER.error("翻译商品详情失败，使用原文: productId={}, language={}, error={}", 
+                           storeProduct.getId(), language, e.getMessage(), e);
+                // 翻译失败不影响商品详情的正常返回，继续使用原文
+            }
         }
         
         if (StrUtil.isNotBlank(storeProduct.getGuaranteeIds())) {
@@ -154,7 +160,13 @@ public class ProductServiceImpl implements ProductService {
             
             // 如果提供了语言参数且不是中文，翻译SKU属性
             if (StrUtil.isNotBlank(language) && !"zh-CN".equals(language) && translationService != null) {
-                translateProductAttrValue(atr, language, storeProduct.getId(), storeProduct.getMerId());
+                try {
+                    translateProductAttrValue(atr, language, storeProduct.getId(), storeProduct.getMerId());
+                } catch (Exception e) {
+                    LOGGER.error("翻译SKU属性失败，使用原文: productId={}, sku={}, error={}", 
+                               storeProduct.getId(), atr.getSku(), e.getMessage());
+                    // 翻译失败不影响SKU的正常返回
+                }
             }
             
             skuMap.put(atr.getSku(), atr);

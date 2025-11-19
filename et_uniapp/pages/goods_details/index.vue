@@ -73,7 +73,7 @@
 								</view>
 							</view>
 						<!-- 商品规格信息 -->
-						<view v-if="attr.productSelect && (attr.productSelect.productName || attr.productSelect.material || attr.productSelect.capacity || attr.productSelect.origin || attr.productSelect.skuLadderPrice || attr.productSelect.size || attr.productSelect.packQuantity)" class='product-specs mb30 borRadius14'>
+						<view v-if="attr.productSelect && (attr.productSelect.productName || attr.productSelect.material || attr.productSelect.capacity || attr.productSelect.origin || attr.productSelect.size || attr.productSelect.weight || attr.productSelect.volume || attr.productSelect.sku || attr.productSelect.packQuantity)" class='product-specs mb30 borRadius14'>
 							<view class="specs-title text-333 fw-bold">商品规格信息</view>
 							<view class="specs-content">
 								<view v-if="attr.productSelect.productName" class="spec-item acea-row">
@@ -92,13 +92,21 @@
 									<text class="spec-label text-666">产地：</text>
 									<text class="spec-value text-333">{{attr.productSelect.origin}}</text>
 								</view>
-								<view v-if="attr.productSelect.skuLadderPrice" class="spec-item acea-row">
-									<text class="spec-label text-666">SKU(阶梯价格)：</text>
-									<text class="spec-value text-333">{{attr.productSelect.skuLadderPrice}}</text>
-								</view>
 								<view v-if="attr.productSelect.size" class="spec-item acea-row">
 									<text class="spec-label text-666">尺寸：</text>
 									<text class="spec-value text-333">{{attr.productSelect.size}}</text>
+								</view>
+								<view v-if="attr.productSelect.weight" class="spec-item acea-row">
+									<text class="spec-label text-666">重量：</text>
+									<text class="spec-value text-333">{{attr.productSelect.weight}}</text>
+								</view>
+								<view v-if="attr.productSelect.volume" class="spec-item acea-row">
+									<text class="spec-label text-666">体积：</text>
+									<text class="spec-value text-333">{{attr.productSelect.volume}}</text>
+								</view>
+								<view v-if="attr.productSelect.sku" class="spec-item acea-row">
+									<text class="spec-label text-666">SKU(货物编号)：</text>
+									<text class="spec-value text-333">{{attr.productSelect.sku}}</text>
 								</view>
 								<view v-if="attr.productSelect.packQuantity" class="spec-item acea-row">
 									<text class="spec-label text-666">装箱数量：</text>
@@ -533,6 +541,16 @@
 					this.$set(this.attr.productSelect, "cart_num", 1);
 					this.$set(this.attr.productSelect, "vipPrice", productSelect.vipPrice);
 					this.$set(this.attr.productSelect,'otPrice',productSelect.otPrice);
+					// 设置商品规格信息
+					this.$set(this.attr.productSelect, "sku", productSelect.sku);
+					this.$set(this.attr.productSelect, "productName", productSelect.productName);
+					this.$set(this.attr.productSelect, "material", productSelect.material);
+					this.$set(this.attr.productSelect, "capacity", productSelect.capacity);
+					this.$set(this.attr.productSelect, "origin", productSelect.origin);
+					this.$set(this.attr.productSelect, "size", productSelect.size);
+					this.$set(this.attr.productSelect, "weight", productSelect.weight);
+					this.$set(this.attr.productSelect, "volume", productSelect.volume);
+					this.$set(this.attr.productSelect, "packQuantity", productSelect.packQuantity);
 					this.$set(this, "attrValue", res);
 					this.$set(this, "attrTxt", this.$t(`page.goodsDetail.choose`));
 				} else {
@@ -616,6 +634,15 @@
 					}, 500);
 					
 					that.DefaultSelect();
+					// 调试：打印商品规格信息
+					console.log('=== 商品规格信息调试 ===');
+					console.log('attr.productSelect:', that.attr.productSelect);
+					console.log('productName:', that.attr.productSelect?.productName);
+					console.log('material:', that.attr.productSelect?.material);
+					console.log('weight:', that.attr.productSelect?.weight);
+					console.log('volume:', that.attr.productSelect?.volume);
+					console.log('sku:', that.attr.productSelect?.sku);
+					
 					setTimeout(() => {
 						this.defaultCoupon = this.coupon.list;
 					}, 1000)
@@ -692,6 +719,16 @@
 					this.$set(this.attr.productSelect, "cart_num", 1);
 					this.$set(this.attr.productSelect, "vipPrice", productSelect.vipPrice); //attr.productSelect.otPrice
 					this.$set(this.attr.productSelect,'otPrice',productSelect.otPrice);
+					// 设置商品规格信息
+					this.$set(this.attr.productSelect, "sku", productSelect.sku);
+					this.$set(this.attr.productSelect, "productName", productSelect.productName);
+					this.$set(this.attr.productSelect, "material", productSelect.material);
+					this.$set(this.attr.productSelect, "capacity", productSelect.capacity);
+					this.$set(this.attr.productSelect, "origin", productSelect.origin);
+					this.$set(this.attr.productSelect, "size", productSelect.size);
+					this.$set(this.attr.productSelect, "weight", productSelect.weight);
+					this.$set(this.attr.productSelect, "volume", productSelect.volume);
+					this.$set(this.attr.productSelect, "packQuantity", productSelect.packQuantity);
 					this.$set(this, "attrValue", value.join(","));
 					this.$set(this, "attrTxt", this.$t(`page.goodsDetail.choose`));
 				} else if (!productSelect && productAttr.length) {

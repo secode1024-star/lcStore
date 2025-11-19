@@ -135,13 +135,19 @@
 		onLoad(e) {
 			uni.setStorageSync('countryCode', this.countryCode);
 			this.isToLogin = e.isToLogin || undefined;
+			// #ifdef H5
 			let locale = (navigator.language || navigator.browserLanguage).toLowerCase();
+			// #endif
 			//uni.setStorageSync('locale', locale);
 			this.getLoginInfo();
 			//Twitter跳到回调地址以后执行的继续登录
 			if(e.oauth_verifier){
 				this.twitterLogin(e.oauth_verifier);
 			}
+			// #ifdef MP-WEIXIN
+			// 小程序环境默认显示手机号登录
+			this.active = 1;
+			// #endif
 		},
 		methods: {
 			userAgree(){
@@ -406,13 +412,34 @@
 					uni.hideLoading();
 					this.$store.commit("UPDATE_USERINFO", res.data);
 					let backUrl = this.$Cache.get(BACK_URL) || "/pages/index/index";
-					return that.$util.Tips({
+					console.log('登录成功，准备跳转到:', backUrl);
+					
+					// 显示成功提示
+					uni.showToast({
 						title: this.$t(`message.login.loginSuccess`),
-						icon:'success'
-					}, {
-						tab: 4,
-						url: backUrl
+						icon: 'success',
+						duration: 1500
 					});
+					
+					// 1.5秒后跳转
+					setTimeout(() => {
+						console.log('开始跳转到:', backUrl);
+						uni.reLaunch({
+							url: backUrl,
+							success: function() {
+								console.log('跳转成功');
+							},
+							fail: function(err) {
+								console.error('跳转失败:', err);
+								// 如果reLaunch失败，尝试switchTab
+								if (backUrl === '/pages/index/index') {
+									uni.switchTab({
+										url: backUrl
+									});
+								}
+							}
+						});
+					}, 1500);
 				}).catch(e => {
 					this.$util.Tips({
 						title: e

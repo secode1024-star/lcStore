@@ -1,6 +1,7 @@
 package com.zbkj.service.service.impl;
 
 import cn.hutool.core.util.StrUtil;
+import com.zbkj.service.service.TranslationFailureRecordService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,9 @@ public class AsyncTranslationQueueService {
 
     @Autowired
     private com.zbkj.common.service.TranslationService commonTranslationService;
+
+    @Autowired(required = false)
+    private TranslationFailureRecordService translationFailureRecordService;
 
     /**
      * 翻译任务队列（使用优先级队列）
@@ -72,9 +76,17 @@ public class AsyncTranslationQueueService {
         private final long createTime;
         private int retryCount = 0;
         private final int maxRetries;
+        private final Integer merId; // 商户ID
+        private final String entityType; // 实体类型
+        private final Integer entityId; // 实体ID
 
         public TranslationTask(long taskId, String sourceText, String targetLang, String sourceLang, 
                              String fieldName, int priority, int maxRetries) {
+            this(taskId, sourceText, targetLang, sourceLang, fieldName, priority, maxRetries, null, null, null);
+        }
+
+        public TranslationTask(long taskId, String sourceText, String targetLang, String sourceLang, 
+                             String fieldName, int priority, int maxRetries, Integer merId, String entityType, Integer entityId) {
             this.taskId = taskId;
             this.sourceText = sourceText;
             this.targetLang = targetLang;
@@ -82,6 +94,9 @@ public class AsyncTranslationQueueService {
             this.fieldName = fieldName;
             this.priority = priority;
             this.maxRetries = maxRetries;
+            this.merId = merId;
+            this.entityType = entityType;
+            this.entityId = entityId;
             this.createTime = System.currentTimeMillis();
             this.future = new CompletableFuture<>();
         }
@@ -108,6 +123,9 @@ public class AsyncTranslationQueueService {
         public long getCreateTime() { return createTime; }
         public int getRetryCount() { return retryCount; }
         public int getMaxRetries() { return maxRetries; }
+        public Integer getMerId() { return merId; }
+        public String getEntityType() { return entityType; }
+        public Integer getEntityId() { return entityId; }
         public void incrementRetryCount() { this.retryCount++; }
     }
 
@@ -324,8 +342,30 @@ public class AsyncTranslationQueueService {
                 scheduler.shutdown();
             }, retryDelay, TimeUnit.MILLISECONDS);
         } else {
-            // 重试次数用完，返回原文
+            // 重试次数用完，记录失败并返回原文
             log.error("翻译任务最终失败，返回原文: taskId={}, error={}", task.getTaskId(), errorMessage);
+            
+            // 记录到失败记录表
+            if (translationFailureRecordService != null && task.getMerId() != null) {
+                try {
+                    translationFailureRecordService.recordFailure(
+                        task.getEntityType(),
+                        task.getEntityId(),
+                        task.getFieldName(),
+                        task.getSourceLang(),
+                        task.getTargetLang(),
+                        task.getSourceText(),
+                        errorMessage,
+                        task.getRetryCount(),
+                        task.getMaxRetries(),
+                        task.getMerId()
+                    );
+                    log.info("已记录翻译失败: taskId={}, merId={}", task.getTaskId(), task.getMerId());
+                } catch (Exception e) {
+                    log.error("记录翻译失败异常: taskId={}, error={}", task.getTaskId(), e.getMessage());
+                }
+            }
+            
             task.getFuture().complete(task.getSourceText());
         }
     }

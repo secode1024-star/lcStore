@@ -474,8 +474,8 @@
         >
           <div slot="title">
             <p>1. 系统会优先查询翻译缓存，只对未缓存的内容调用翻译API，节省字符消耗</p>
-            <p>2. 翻译结果将保存到数据库，后续相同内容可直接使用缓存</p>
-            <p>3. 翻译完成后，翻译结果会自动填充到对应字段</p>
+            <p>2. 翻译将在后台运行，您可以继续上传商品，无需等待翻译完成</p>
+            <p>3. 翻译完成后，翻译结果会自动保存到数据库，前台会根据用户选择的语言自动显示</p>
           </div>
         </el-alert>
       </div>
@@ -513,7 +513,7 @@
       <div slot="footer" class="dialog-footer">
         <el-button @click="translateDialogVisible = false">取消</el-button>
         <el-button type="primary" :loading="translating" @click="handleBatchTranslate">
-          开始翻译
+          提交翻译（后台运行）
         </el-button>
       </div>
     </el-dialog>
@@ -537,6 +537,7 @@ import { Debounce } from '@/utils/validate';
 import { mapGetters } from 'vuex';
 import { checkPermi } from '@/utils/permission'; // 权限判断函数
 import { batchTranslateApi, getTranslationPointsApi } from '@/api/translation';
+import { getFailureStatisticsApi, batchRetryTranslationsApi } from '@/api/translationFailure';
 const defaultObj = {
   image: '',
   sliderImages: [],
@@ -657,6 +658,8 @@ export default {
       selectedFields: [], // 默认选择字段（根据当前步骤动态设置）
       translating: false,
       translationResults: {}, // 翻译结果存储：{fieldName: {language: translatedText}}
+      failureStatistics: null, // 翻译失败统计
+      retryingFailures: false, // 是否正在重试失败的翻译
       ruleList: [],
       merCateList: [], // 商户分类筛选
       shippingList: [], // 运费模板
@@ -834,6 +837,55 @@ export default {
     this.productClassify = this.addDisabled(this.adminProductClassify);
   },
   methods: {
+    // 获取翻译失败统计
+    async getFailureStatistics() {
+      try {
+        const stats = await getFailureStatisticsApi();
+        this.failureStatistics = stats;
+        return stats;
+      } catch (error) {
+        console.error('获取翻译失败统计失败:', error);
+        return null;
+      }
+    },
+
+    // 批量重试失败的翻译
+    async batchRetryFailures() {
+      if (this.retryingFailures) {
+        this.$message.warning('正在重试中，请稍候...');
+        return;
+      }
+
+      try {
+        this.retryingFailures = true;
+        
+        this.$message.info('开始批量重试失败的翻译...');
+        
+        const successCount = await batchRetryTranslationsApi('pending');
+        
+        this.$notify({
+          title: '批量重试完成',
+          message: `成功重试 ${successCount} 个翻译任务`,
+          type: 'success',
+          duration: 5000
+        });
+        
+        // 刷新失败统计
+        await this.getFailureStatistics();
+        
+      } catch (error) {
+        console.error('批量重试失败:', error);
+        this.$notify({
+          title: '批量重试失败',
+          message: error.message || '批量重试失败，请稍后再试',
+          type: 'error',
+          duration: 5000
+        });
+      } finally {
+        this.retryingFailures = false;
+      }
+    },
+
     // 显示翻译对话框
     async showTranslateDialog() {
       // 先检查商户翻译积分是否足够
@@ -850,6 +902,21 @@ export default {
         console.error('获取翻译积分信息失败:', error);
         this.$message.warning('无法获取翻译积分信息，请联系平台管理员');
         return;
+      }
+      
+      // 获取失败统计
+      const stats = await this.getFailureStatistics();
+      if (stats && stats.pendingCount > 0) {
+        // 如果有待重试的失败翻译，提示用户
+        this.$confirm(`检测到有 ${stats.pendingCount} 个翻译任务失败，是否先重试这些失败的翻译？`, '提示', {
+          confirmButtonText: '先重试失败的',
+          cancelButtonText: '继续新翻译',
+          type: 'warning'
+        }).then(() => {
+          this.batchRetryFailures();
+        }).catch(() => {
+          // 用户选择继续新翻译
+        });
       }
       
       // 根据当前步骤设置默认选中的字段
@@ -968,7 +1035,7 @@ export default {
       return fields;
     },
 
-    // 执行批量翻译
+    // 执行批量翻译（后台运行）
     handleBatchTranslate() {
       if (this.selectedLanguages.length === 0) {
         this.$message.warning('请至少选择一种目标语言');
@@ -998,7 +1065,20 @@ export default {
         entityId: this.$route.params.id ? parseInt(this.$route.params.id) : null,
       };
       
-      // 调用批量翻译API
+      // 关闭对话框，让用户可以继续操作
+      this.translateDialogVisible = false;
+      this.translating = false;
+      
+      // 显示后台翻译提示
+      const totalFields = Object.keys(fieldsToTranslate).length;
+      const totalLanguages = this.selectedLanguages.length;
+      this.$message.success({
+        message: `翻译任务已提交！正在后台翻译 ${totalFields} 个字段，${totalLanguages} 种语言。您可以继续上传商品，翻译完成后会自动保存。`,
+        duration: 5000,
+        showClose: true
+      });
+      
+      // 调用批量翻译API（在后台运行，不阻塞用户操作）
       batchTranslateApi(requestData)
         .then((res) => {
           // request.js 的响应拦截器已经返回了 res.data，所以这里直接使用 res
@@ -1007,31 +1087,13 @@ export default {
           // 保存翻译结果到数据库（如果商品已保存）
           // 注意：翻译结果已经由后端保存到Translation表和缓存表
           
-          // 处理商品详情字段的翻译结果（将纯文本转换为HTML格式）
-          if (this.translationResults.content) {
-            // 商品详情翻译：将每种语言的翻译结果用HTML包裹
-            // 注意：这里只是简单处理，实际使用时可能需要更复杂的HTML结构处理
-            // 用户可以选择是否使用翻译结果替换当前的content
-            // 由于content是富文本，我们暂时不自动替换，而是提示用户翻译已完成
-            // 翻译结果已保存到数据库，可以在商品详情页面根据语言显示
-          }
-          
-          // 显示翻译完成提示
-          const totalFields = Object.keys(this.translationResults).length;
-          const totalLanguages = this.selectedLanguages.length;
-          this.$message.success(`翻译完成！共翻译 ${totalFields} 个字段，${totalLanguages} 种语言`);
-          
-          // 关闭对话框
-          this.translateDialogVisible = false;
-          
-          // 提示用户：翻译结果已保存到数据库，可在商品详情中查看
-          this.$message.info('翻译结果已保存到数据库，后续相同内容可直接使用缓存。商品详情翻译结果会在前台根据用户选择的语言自动显示');
-          
-          // 如果当前在翻译积分页面，刷新积分信息
-          if (this.$route.path === '/translation/points') {
-            // 触发父组件刷新（如果使用事件总线）
-            this.$bus && this.$bus.$emit('refresh-translation-points');
-          }
+          // 显示翻译完成提示（不打断用户操作）
+          this.$notify({
+            title: '翻译完成',
+            message: `商品翻译已完成！共翻译 ${totalFields} 个字段，${totalLanguages} 种语言。翻译结果已保存到数据库。`,
+            type: 'success',
+            duration: 5000
+          });
           
           // 触发刷新翻译积分事件
           this.$bus && this.$bus.$emit('refresh-translation-points');
@@ -1044,15 +1106,22 @@ export default {
                    (err && err.msg) ||
                    '翻译失败';
                  
-                 // 如果错误信息包含"积分不足"或"remainingChars"，给出更友好的提示
+                 // 使用通知方式显示错误，不打断用户操作
                  if (errorMsg.includes('积分不足') || errorMsg.includes('remainingChars') || errorMsg.includes('字符数')) {
-                   this.$message.error('翻译积分不足，请联系平台管理员购买积分');
+                   this.$notify({
+                     title: '翻译失败',
+                     message: '翻译积分不足，请联系平台管理员购买积分',
+                     type: 'error',
+                     duration: 5000
+                   });
                  } else {
-                   this.$message.error(errorMsg);
+                   this.$notify({
+                     title: '翻译失败',
+                     message: errorMsg,
+                     type: 'error',
+                     duration: 5000
+                   });
                  }
-               })
-               .finally(() => {
-                 this.translating = false;
                });
            },
 

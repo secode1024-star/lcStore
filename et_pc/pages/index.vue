@@ -265,6 +265,9 @@ export default {
     this.getList();
   },
   mounted() {
+    // 📱 移动设备检测和自动跳转到H5
+    this.checkMobileAndRedirect();
+    
     // 🔥 检查是否有Google登录调试信息
     try {
       const debugInfo = localStorage.getItem('google_login_debug');
@@ -306,6 +309,73 @@ export default {
     this.checkLanguageSelector();
   },
   methods: {
+    /**
+     * 检测移动设备并自动跳转到H5版本
+     */
+    checkMobileAndRedirect() {
+      // 检查是否启用移动端自动跳转（可以通过环境变量或配置控制）
+      const enableMobileRedirect = process.env.ENABLE_MOBILE_REDIRECT !== 'false'; // 默认启用
+      
+      if (!enableMobileRedirect) {
+        console.log('📱 移动端自动跳转已禁用');
+        return;
+      }
+      
+      // 检查是否已经手动选择了PC版本（避免无限跳转）
+      const forcePcVersion = sessionStorage.getItem('force_pc_version');
+      if (forcePcVersion === 'true') {
+        console.log('📱 用户已选择PC版本，跳过移动端跳转');
+        return;
+      }
+      
+      // 检测是否是移动设备
+      const isMobile = this.detectMobileDevice();
+      
+      if (isMobile) {
+        console.log('📱 检测到移动设备，准备跳转到H5版本');
+        
+        // 获取H5版本的URL（需要配置）
+        const h5Url = process.env.H5_URL || '/h5'; // 默认为 /h5 路径
+        
+        // 保存当前路径，以便H5端可以跳转到对应页面
+        const currentPath = this.$route.fullPath;
+        sessionStorage.setItem('redirect_from_pc', currentPath);
+        
+        // 跳转到H5版本
+        window.location.href = h5Url;
+      }
+    },
+    
+    /**
+     * 检测是否是移动设备
+     */
+    detectMobileDevice() {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      
+      // 检测常见的移动设备标识
+      const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini|mobile|tablet/i;
+      
+      // 检测屏幕宽度（小于768px认为是移动设备）
+      const isMobileScreen = window.innerWidth < 768;
+      
+      // 检测触摸屏
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      
+      // 综合判断
+      const isMobile = mobileRegex.test(userAgent) || (isMobileScreen && isTouchDevice);
+      
+      console.log('📱 设备检测结果:', {
+        userAgent: userAgent,
+        isMobileUserAgent: mobileRegex.test(userAgent),
+        screenWidth: window.innerWidth,
+        isMobileScreen: isMobileScreen,
+        isTouchDevice: isTouchDevice,
+        finalResult: isMobile
+      });
+      
+      return isMobile;
+    },
+    
     goDetail(item) {
       goShopDetail(item.id, this);
     },

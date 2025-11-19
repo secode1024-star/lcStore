@@ -41,6 +41,9 @@ public class TranslationController {
     @Autowired
     private MerchantTranslationPointsService merchantTranslationPointsService;
 
+    @Autowired(required = false)
+    private com.zbkj.service.service.TranslationFailureRecordService translationFailureRecordService;
+
     /**
      * 安全获取商户ID的工具方法
      */
@@ -239,6 +242,110 @@ public class TranslationController {
         } catch (Exception e) {
             log.error("获取翻译统计失败: {}", e.getMessage(), e);
             return CommonResult.failed("获取翻译统计失败: " + e.getMessage());
+        }
+    }
+
+    /**
+     * 获取翻译失败记录列表
+     */
+    @ApiOperation(value = "获取翻译失败记录列表")
+    @RequestMapping(value = "/failure/list", method = RequestMethod.GET)
+    public CommonResult<CommonPage<com.zbkj.common.model.translation.TranslationFailureRecord>> getFailureList(
+            @RequestParam(required = false) String status,
+            @Validated PageParamRequest pageParamRequest) {
+        try {
+            Integer merId = getSafeMerId();
+            if (merId == null) {
+                log.error("获取商户ID失败，用户未正确登录或不是商户用户");
+                return CommonResult.failed("用户未正确登录或不是商户用户");
+            }
+            
+            if (translationFailureRecordService == null) {
+                return CommonResult.failed("翻译失败记录服务未启用");
+            }
+            
+            PageInfo<com.zbkj.common.model.translation.TranslationFailureRecord> pageInfo = 
+                translationFailureRecordService.getFailureList(merId, status, pageParamRequest);
+            
+            return CommonResult.success(CommonPage.restPage(pageInfo));
+        } catch (Exception e) {
+            log.error("获取翻译失败记录列表失败: {}", e.getMessage(), e);
+            return CommonResult.failed("获取翻译失败记录列表失败: " + e.getMessage());
+        }
+    }
+
+    /**
+     * 重试单个失败的翻译
+     */
+    @ApiOperation(value = "重试单个失败的翻译")
+    @RequestMapping(value = "/failure/retry", method = RequestMethod.POST)
+    public CommonResult<String> retryTranslation(@RequestParam Integer recordId) {
+        try {
+            Integer merId = getSafeMerId();
+            if (merId == null) {
+                log.error("获取商户ID失败，用户未正确登录或不是商户用户");
+                return CommonResult.failed("用户未正确登录或不是商户用户");
+            }
+            
+            if (translationFailureRecordService == null) {
+                return CommonResult.failed("翻译失败记录服务未启用");
+            }
+            
+            String result = translationFailureRecordService.retryTranslation(recordId, merId);
+            return CommonResult.success(result, "重试翻译成功");
+        } catch (Exception e) {
+            log.error("重试翻译失败: {}", e.getMessage(), e);
+            return CommonResult.failed("重试翻译失败: " + e.getMessage());
+        }
+    }
+
+    /**
+     * 批量重试失败的翻译
+     */
+    @ApiOperation(value = "批量重试失败的翻译")
+    @RequestMapping(value = "/failure/batch-retry", method = RequestMethod.POST)
+    public CommonResult<Integer> batchRetryTranslations(@RequestParam(required = false) String status) {
+        try {
+            Integer merId = getSafeMerId();
+            if (merId == null) {
+                log.error("获取商户ID失败，用户未正确登录或不是商户用户");
+                return CommonResult.failed("用户未正确登录或不是商户用户");
+            }
+            
+            if (translationFailureRecordService == null) {
+                return CommonResult.failed("翻译失败记录服务未启用");
+            }
+            
+            int successCount = translationFailureRecordService.batchRetryTranslations(merId, status);
+            return CommonResult.success(successCount, "批量重试完成，成功 " + successCount + " 个");
+        } catch (Exception e) {
+            log.error("批量重试翻译失败: {}", e.getMessage(), e);
+            return CommonResult.failed("批量重试翻译失败: " + e.getMessage());
+        }
+    }
+
+    /**
+     * 获取翻译失败统计
+     */
+    @ApiOperation(value = "获取翻译失败统计")
+    @RequestMapping(value = "/failure/statistics", method = RequestMethod.GET)
+    public CommonResult<Map<String, Object>> getFailureStatistics() {
+        try {
+            Integer merId = getSafeMerId();
+            if (merId == null) {
+                log.error("获取商户ID失败，用户未正确登录或不是商户用户");
+                return CommonResult.failed("用户未正确登录或不是商户用户");
+            }
+            
+            if (translationFailureRecordService == null) {
+                return CommonResult.failed("翻译失败记录服务未启用");
+            }
+            
+            Map<String, Object> result = translationFailureRecordService.getFailureStatistics(merId);
+            return CommonResult.success(result);
+        } catch (Exception e) {
+            log.error("获取翻译失败统计失败: {}", e.getMessage(), e);
+            return CommonResult.failed("获取翻译失败统计失败: " + e.getMessage());
         }
     }
 }

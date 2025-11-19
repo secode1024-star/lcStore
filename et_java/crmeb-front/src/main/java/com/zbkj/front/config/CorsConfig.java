@@ -21,16 +21,12 @@ import org.springframework.web.filter.CorsFilter;
 public class CorsConfig{
     private CorsConfiguration buildConfig() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-        // 配置具体的域名以支持credentials
-        corsConfiguration.addAllowedOrigin("https://pla.hqlccn.com");
-        corsConfiguration.addAllowedOrigin("https://mer.hqlccn.com");
-        corsConfiguration.addAllowedOrigin("https://hqlccn.com");
-        corsConfiguration.addAllowedOrigin("http://hqlccn.com");
-        corsConfiguration.addAllowedOrigin("http://localhost:8000");
-        corsConfiguration.addAllowedOrigin("http://localhost:3000");
+        // 允许所有来源（开发环境）
+        corsConfiguration.addAllowedOrigin("*");
         corsConfiguration.addAllowedHeader("*"); //允许任何头
         corsConfiguration.addAllowedMethod("*"); //允许任何方法
-        corsConfiguration.setAllowCredentials(true); // 允许携带认证信息
+        // 注意：使用 * 时不能设置 setAllowCredentials(true)
+        // corsConfiguration.setAllowCredentials(true);
         corsConfiguration.setMaxAge(3600L); //预检请求缓存时间
         return corsConfiguration;
     }
